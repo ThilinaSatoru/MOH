@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    background: #b3d9f7;
+    padding: 0 10px;
+}
+
+.box{
+
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    margin: 100px auto;
+    padding: 30px;
+    box-shadow: 1px 1px 2 px rgba(0,0,0,0.125);
+
+
+}
+.box .title{
+    font-size:24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color:#2776c4 ;
+    text-align: center;
+    
+}
+
+.box .form{
+    width: 100%;
+    
+}
+
+.box .form .input-field{
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+
+}
+
+.box .form .input-field label select{
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    
+    
+   
+}
+
+.box .form .input-field .input select{
+    width: 250px;
+    height: 35px;
+
+
+}
+.box .form .input-field .btn  {
+    background:#c6def7;
+    border : 0;
+    padding: 8px 10px;
+    border-radius: 20px;
+    width: 450px;
+    cursor: pointer;
+    
+}

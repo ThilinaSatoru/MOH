@@ -1,0 +1,74 @@
+*{
+    font-family: 'poppins',sans serif;
+}
+
+body{
+    background-image:url(sky2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.container{
+    
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+}
+
+span{
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+header{
+    color: #fff;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    
+}
+
+.input{
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: hsl(0, 2%, 8%);
+    padding: 0 0 0 45px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.submit{
+    height: 45px;
+    font-size: 15px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit:focus{
+     box-shadow: 0px 5px 7px 1px #3e3b3b;
+   
+}

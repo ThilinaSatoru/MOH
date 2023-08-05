@@ -1,3 +1,8 @@
+<?php 
+define("ABS_PATH", dirname(__FILE__));
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <!-- Basic -->

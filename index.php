@@ -163,13 +163,13 @@
          <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="images/slide1.PNG" class="d-block w-100" alt="...">
+                <img src="./resources/images/slide1.PNG" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="images/slide10.PNG" class="d-block w-100" alt="...">
+                <img src="./resources/images/slide10.PNG" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="images/slide7.PNG" class="d-block w-100" alt="...">
+                <img src="./resources/images/slide7.PNG" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -277,9 +277,9 @@
       <!-- end copyrights -->
       <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
       <!-- all js files -->
-      <script src="js/all.js"></script>
+      <script src="./resources/js/all.js"></script>
       <!-- all plugins -->
-      <script src="js/custom.js"></script>
+      <script src="./resources/js/custom.js"></script>
       <!-- map -->
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNUPWkb4Cjd7Wxo-T4uoUldFjoiUA1fJc&callback=myMap"></script>
    </body>

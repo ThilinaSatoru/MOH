@@ -6,6 +6,22 @@ include("../../core/entity/doctor.class.php");
 
 class DoctorRepository extends Database {
 
+  public function save(Doctor $doctor) {
+    $doctor->getId();
+
+    $sql = "INSERT INTO doctor (id, name, email, contact, password, username) 
+            VALUES (
+            ".$doctor->getId().",
+            ".$doctor->getName().",
+            ".$doctor->getEmail().",
+            ".$doctor->getContact().",
+            ".$doctor->getPassword().",
+            ".$doctor->getUsername()."
+            )";
+    $stmnt = $this->connect()->prepare($sql);
+    $stmnt->execute();
+  }
+
   public function getByName($name) {
     // code...
     $sql = "SELECT * FROM doctor WHERE name = ? LIMIT 1";
@@ -25,5 +41,21 @@ class DoctorRepository extends Database {
     $objectList = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
 
     return $objectList;
+  }
+
+  public function getNewDoctorID() {
+    $sql = "SELECT MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)) AS maxID FROM doctor";
+
+    $stmnt = $this->connect()->query($sql);
+    $row = $stmnt->fetch();
+    $maxID = $row['maxID'];
+
+    if ($maxID === null) {
+        $nextID = "D001";
+    } else {
+        $nextID = "D" . sprintf("%03d", $maxID + 1);
+    }
+
+    return $nextID;
   }
 }

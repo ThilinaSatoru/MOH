@@ -1,6 +1,10 @@
 <?php
 require_once("../../../MOH-office/core/service/doctorService.php");
+require_once("../../../MOH-office/core/repository/doctorRepository.php");
 $doctor_service = new DoctorService();
+$doctor_repository = new DoctorRepository();
+
+echo $doctor_repository->getNewDoctorID();
 ?>
 
 
@@ -16,18 +20,20 @@ $doctor_service = new DoctorService();
     <h1></h1>
     <table style="background-color: red;">
 
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>Password</th>
-            <th>UserName</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Password</th>
+                <th>UserName</th>
+            </tr>
+        </thead>
 
-        <tr>
+        <tbody>
             <?php $doctor_service->loadDoctorTableData() ?>
-        </tr>
+        </tbody>
 
     </table>
 </body>

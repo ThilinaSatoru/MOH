@@ -10,22 +10,22 @@
    <title>Ministry of Health SriLanka</title>
   
    <!-- Site Icons -->
-   <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
-   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+   <link rel="shortcut icon" href="./resources/images/fevicon.ico.png" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="./resources/images/apple-touch-icon.png">
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
    <!-- Site CSS -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="./resources/css/style.css">
    <!-- Colors CSS -->
-   <link rel="stylesheet" href="css/colors.css">
+   <link rel="stylesheet" href="./resources/css/colors.css">
    <!-- ALL VERSION CSS -->
-   <link rel="stylesheet" href="css/versions.css">
+   <link rel="stylesheet" href="./resources/css/versions.css">
    <!-- Responsive CSS -->
-   <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="./resources/css/responsive.css">
    <!-- Custom CSS -->
-   <link rel="stylesheet" href="css/custom.css">
+   <link rel="stylesheet" href="./resources/css/custom.css">
    <!-- Modernizer for Portfolio -->
-   <script src="js/modernizer.js"></script>
+   <script src="./resources/js/modernizer.js"></script>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
    <!--<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -34,13 +34,13 @@
    <body class="clinic_version">
       <!-- LOADER -->
       <div id="preloader">
-         <img class="preloader" src="images/loaders/heart-loading2.gif" alt="">
+         <img class="preloader" src="./resources/images/loaders/heart-loading2.gif" alt="">
       </div>
       <!-- END LOADER -->
       <header>
          <div class="header-top wow fadeIn">
             <div class="container">
-               <img src="images/ban.JPG" alt="image" width="100%"></a>
+               <img src="./resources/images/ban.JPG" alt="image" width="100%"></a>
               
             </div>
          </div>
@@ -76,13 +76,13 @@
       <br>
 
   
-      <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('images/slider-bg.png');">
+      <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/slider-bg.png');">
          <div class="container">
             <div class="row">
                <div class="col-md-12 col-sm-12">
                   <div class="text-contant">
                      <h2>
-                        <span class="center"><span class="icon"><img src="images/icon-logo.png" alt="#" /></span></span>
+                        <span class="center"><span class="icon"><img src="./resources/images/icon-logo.png" alt="#" /></span></span>
                         <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Ministry Of Health" ]'>
                         <span class="wrap"></span>
                         </a>
@@ -148,7 +148,7 @@
                <!-- end col -->
                <div class="col-md-6">
                   <div class="post-media wow fadeIn">
-                     <img src="images/pHI.JPG" alt="" class="img-responsive">
+                     <img src="./resources/images/pHI.JPG" alt="" class="img-responsive">
                      <a href="http://www.health.gov.lk/moh_final/english/public/elfinder/files/images/find-phi.png" class="playbutton"><i class="flaticon-play-button"></i></a>
                   </div>
                   <!-- end media -->
@@ -188,14 +188,14 @@
         <div class="container">
 		
 		<div class="heading">
-               <span class="icon-logo"><img src="images/icon-logo.png" alt="#"></span>
+               <span class="icon-logo"><img src="./resources/images/icon-logo.png" alt="#"></span>
                <h2>Minister Of Health</h2>
             </div>
 
             <div class="row dev-list text-center">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
                     <div class="widget clearfix">
-                        <img src="images/kehel.jpg" alt="" class="img-responsive img-rounded">
+                        <img src="./resources/images/kehel.jpg" alt="" class="img-responsive img-rounded">
                         <div class="widget-title">
                             <h3>Keheliya Rambukwella</h3>
                             <small>Minister of Health</small>

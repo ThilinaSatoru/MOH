@@ -895,7 +895,7 @@ body.clinic_version .footer .widget-title h3 {
     background: linear-gradient(to right, #39b49a 0%, #1d86df 100%);
 }
 #testimonials {
-    background-image: url('../images/bg-testimonial.png');
+    background-image: url('../resources/images/bg-testimonial.png');
     background-position: bottom;
     background-attachment: fixed;
 }
@@ -968,7 +968,7 @@ body.clinic_version .footer .widget-title h3 {
     width: 100%;
     margin: 0 0 50px 0;
     padding: 75px 0 0;
-    background-image: url(../images/inner-side-banner.png);
+    background-image: url('..images/inner-side-banner.png');
     min-height: 240px;
     text-align: center;
     color: #fff;

@@ -139,8 +139,8 @@
 
     </div>
     <form method="POST" action="login.php">
-        <h3>User Login</h3>
-        <label for="user_type">User Type</label>
+        <h3>Staff Login</h3>
+        <label for="user_type">Staff Type</label>
         <select id="user_type" name="user_type">
             <option value="doctor">Doctor</option>
             <option value="nurse">Nurse</option>

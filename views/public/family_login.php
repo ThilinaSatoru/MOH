@@ -2,20 +2,20 @@
 <head>
   
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/fevicon.ico.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/MOH-office/resources/images/fevicon.ico.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/MOH-office/resources/images/apple-touch-icon.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/bootstrap.min.css">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/style.css">
     <!-- Colors CSS -->
-    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/colors.css">
     <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="css/versions.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/versions.css">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/responsive.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/custom.css">
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
     <!-- [if lt IE 9] -->
@@ -23,17 +23,14 @@
     <title>Baby Vaccine card</title>
 </head>
 <body>
-
- <header >
-           
-            <div class="container">
-                <div class="row">
-                <img src="images/ban.JPG" alt="image" height="160px"></a>
-            </div>
-            
- </header>  
+    <header >        
+        <div class="container">
+            <div class="row">
+            <img src="/MOH-office/resources/images/ban.JPG" alt="image" height="160px"></a>
+        </div>  
+    </header>  
  
- <div  class="section wow fadeIn">
+<div class="section wow fadeIn">
     <div class="container">
        <div class="row">
           <div class="col">
@@ -66,25 +63,13 @@
                        <br>
                        <br>
                        <input type="button" value="Loging" required><br>
-                       <a href="PublicRegister.php">Sign In your account</a>
-                       
-
-
-                       
+                       <a href="family_register.php">Sign In your account</a> 
                     </div>
-                    
                 </form>
-    
-    
             </div>
-    
         </div>   
     </div>
 </div>
-
-
-
-
 
 </body>
 </html>

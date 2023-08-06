@@ -22,11 +22,11 @@
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div class="navbar-nav">
 
-                        <a href="../../../MOH-office/index.php" class="nav-link active fs-4 me-2">Home</a>
+                        <a href="/MOH-office/index.php" class="nav-link active fs-4 me-2">Home</a>
                         <a href="#about" data-scroll class="nav-link fs-4 me-2" >About Us</a>
                         <a href="#getintouch" data-scroll class="nav-link fs-4 me-2" >Contact </a>
-                        <a href="BabyVaccneCard.php" class="nav-link fs-4 me-2">Baby Vaccine </a>
-                        <a href="../../../MOH-office/views/public/staff_login.php" class="nav-link fs-4 me-2">Staff Login </a>
+                        <a href="/MOH-office/views/public/family_login.php" class="nav-link fs-4 me-2">Vaccine Cards</a>
+                        <a href="/MOH-office/views/public/staff_login.php" class="nav-link fs-4 me-2">Staff Login </a>
 
                       </div>
                     </div>

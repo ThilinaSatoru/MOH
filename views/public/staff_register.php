@@ -149,7 +149,7 @@
     </div>
   
     <div class="container">
-      <a href="./DoctorRegister.php">
+      <a href="./doctor_register.php">
         <div class="card">
           <div class="face face1">
             <div class="content">
@@ -165,7 +165,7 @@
           </div>
         </div>
       </a>
-      <a href="./NurseRegistration.php">
+      <a href="./nurse_register.php">
         <div class="card">
           <div class="face face1">
             <div class="content">

@@ -6,30 +6,28 @@ include("../../core/entity/account.class.php");
 
 class AccountRepository extends Database {
 
-    public function register(Account $account, $userId) {
 
-        // if count of result(account) is not greater than 0
-        if(!$this->countByUsername() > 0) {
-            $sql = "INSERT INTO account (type, password, username) 
-                VALUES (
-                ".$account->getType().",
-                ".$account->getPassword().",
-                ".$account->getUsername()."
-                )";
-            $stmnt = $this->connect()->prepare($sql);
-            $stmnt->execute();
+    public function save(Account $account) {
+        $sql = "INSERT INTO account (nic, type, password, username) 
+            VALUES (?, ?, ?, ?);";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute(
+            [$account->getNic(),
+             $account->getType(),
+             $account->getPassword(),
+             $account->getUsername()]);
+        // return $stmnt->lastInsertId();
+    }
 
-            if($account->getType() == '') {
-                
-            } elseif($account->getType() == '') {
+    public function findByNic($nic) {
+        // code...
+        $sql = "SELECT * FROM account WHERE nic = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$nic]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Account');
+        $result = $stmnt->fetch();
 
-            } elseif($account->getType() == '') {
-
-            }
-
-        } else {
-            // username already exists
-        }
+        return $result;
     }
 
     public function countByUsername($username) {

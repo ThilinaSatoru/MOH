@@ -1,10 +1,39 @@
 <?php
 require_once("../../../MOH-office/core/service/doctorService.php");
 require_once("../../../MOH-office/core/repository/doctorRepository.php");
+require_once("../../../MOH-office/core/repository/accountRepository.php");
 $doctor_service = new DoctorService();
 $doctor_repository = new DoctorRepository();
+$account_repository = new AccountRepository();
 
-echo $doctor_repository->getNewDoctorID();
+echo $doctor_repository->findNewDoctorID();
+
+// echo var_dump($account_repository->findByNic('12345'));
+
+if($account_repository->findByNic('vbnvn')) {
+    echo 'yes';
+    echo $account_repository->findByNic('vbnvn')->getId();
+} else {
+    echo 'no';
+}
+echo '<br>';
+
+$account = new Account(
+    null,
+    'qwe',
+    'qwe',
+    'wer',
+    'dgfdg'
+);
+// var_dump($account);
+
+echo $sql = "INSERT INTO account (nic, type, password, username) 
+            VALUES (
+                ".$account->getNic().",
+                ".$account->getType().",
+                ".$account->getPassword().",
+                ".$account->getUsername()."
+            );";
 ?>
 
 

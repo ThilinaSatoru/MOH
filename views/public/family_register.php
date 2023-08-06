@@ -1,20 +1,8 @@
 <?php
- require_once('conection.php');
 if(isset($_POST["register"]))
 {
     $ID=$_POST["familyID"];
-    $name=$_POST["name"];
-    $Email=$_POST["email"];
-    $contact=$_POST["contact"];
-    $us=$_POST["us"];
-    $pw=$_POST["pw"];
-    $conformpw=$_POST["conformpw"];
-   
-    
-   //perform sql
-   $sql = "INSERT INTO `publicregistretion1`(`familyID`, `name`, `email`, `contact`, `username`, `password`, `confompassword`) VALUES  ('$ID','$name','$Email','$contact','$us','$pw','$conformpw')";
-  //sql query
-    $ret= mysqli_query($con, $sql);
+
    if ($ret > 0)//check return
    {
 
@@ -25,9 +13,6 @@ if(isset($_POST["register"]))
     echo '<script>alert("Please Try Again Shortly.....")</script>';
     header("location:NurseRegistration.php");
    }
-   
-    //disconnect 
-    mysqli_close($con); 
 }
 ?>
 
@@ -38,7 +23,7 @@ if(isset($_POST["register"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/register.css">
     <title>Public user register</title>
 </head>
 <body>

@@ -1,4 +1,6 @@
 <?php
+
+
 // Function to get the next available Nurse ID 
 function getNextNurseID($con) {
     $sql = "SELECT MAX(CAST(SUBSTRING(ID, 2) AS UNSIGNED)) AS maxID FROM nurse";
@@ -59,13 +61,13 @@ if (isset($_POST["btnsubmit"])) {
 <head>
     <!-- Design by foolishdeveloper.com -->
     <title>Nurse Registration</title>
-    <link rel="stylesheet" href="./resources/css/nurse-reg.css">
+    <link rel="stylesheet" href="/MOH-office/resources/css/register.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Nurse Registration</h1>
-        <form method="POST" action="nurseregistration.php">
+        <form method="POST" action="nurse_register.php">
 
             <div class="user-details">
                 <div class="input-box">
@@ -73,11 +75,6 @@ if (isset($_POST["btnsubmit"])) {
                     <input type="text" name="nursename" placeholder="Enter your name" required>
                 </div>
 
-                <div class="input-box">
-                    <span>Nurse ID :</span>
-                    <!-- Display the auto-generated Nurse ID -->
-                    <input type="text" name="id" value="<?php echo getNextNurseID($con); ?>" readonly>
-                </div>
             </div>
 
             <div class="user-details">
@@ -106,6 +103,9 @@ if (isset($_POST["btnsubmit"])) {
 
             <div class="button">
                 <input type="submit" value="Register" name="btnsubmit">
+            </div>
+            <div class="button">
+                <a href="staff_login.php">Login</a>
             </div>
         </form>
     </div>

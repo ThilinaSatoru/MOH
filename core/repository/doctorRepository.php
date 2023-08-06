@@ -8,16 +8,23 @@ class DoctorRepository extends Database {
 
     public function save(Doctor $doctor) {
 
-        $sql = "INSERT INTO doctor (id, name, email, contact, nic) 
-                VALUES (
-                ".$doctor->getId().",
-                ".$doctor->getName().",
-                ".$doctor->getEmail().",
-                ".$doctor->getContact().",
-                ".$doctor->getNic()."
-                )";
+        $sql = "INSERT INTO doctor (id, name, email, contact, nic, account_id) 
+                VALUES (?, ?, ?, ?, ?, ?)";
         $stmnt = $this->connect()->prepare($sql);
-        $stmnt->execute();
+        $stmnt->execute([
+            $doctor->getId(), 
+            $doctor->getName(), 
+            $doctor->getEmail(), 
+            $doctor->getContact(), 
+            $doctor->getNic(),
+            $doctor->getAccount_id()
+        ]);
+    }
+
+    public function setAccount($acc_id, $nic) {
+        $sql = "UPDATE doctor SET account_id = ? WHERE nic = ?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$acc_id, $nic]);
     }
 
     public function getByName($name) {
@@ -26,22 +33,33 @@ class DoctorRepository extends Database {
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$name]);
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
-        $user = $stmnt->fetch();
+        $result = $stmnt->fetch();
 
-        return $user;
+        return $result;
+    }
+
+    public function getByNic($nic) {
+        // code...
+        $sql = "SELECT * FROM doctor WHERE nic = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$nic]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
+        $result = $stmnt->fetch();
+
+        return $result;
     }
 
     public function getAll() {
-        $objectList = [];
+        $result = [];
         // code...
         $sql = "SELECT * FROM doctor";
         $stmnt = $this->connect()->query($sql);
-        $objectList = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
 
-        return $objectList;
+        return $result;
     }
 
-    public function getNewDoctorID() {
+    public function findNewDoctorID() {
         $sql = "SELECT MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)) AS maxID FROM doctor";
 
         $stmnt = $this->connect()->query($sql);

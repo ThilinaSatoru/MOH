@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- <link rel="stylesheet" href="/MOH-office/resources/css/register.css"> -->
     <!-- Design by foolishdeveloper.com -->
     <title>Doctor and Nurse Login</title>
     <style media="screen">
@@ -131,8 +133,10 @@
 
 
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <div class="button">
+            <a href="/MOH-office/index.php">Home</a>
+        </div>
+
     </div>
     <form method="POST" action="login.php">
         <h3>User Login</h3>
@@ -151,7 +155,7 @@
         <button type="submit" name="btnLOGIN">Log In</button>
         <br>
         <br>
-        <a href="regin.php">If you do not have an account, register here.</a>
+        <a href="staff_register.php">register here</a>
         
         
     </form>

@@ -2,13 +2,15 @@
 
 class Account {
     private $id;
+    private $nic;
     private $username;
     private $password;
     private $type;
 
-    public function __construct($id=null, $username=null, $password=null, $type=null)
+    public function __construct($id=null, $nic=null, $username=null, $password=null, $type=null)
     {
         $this->id = $id;
+        $this->nic = $nic;
         $this->username = $username;
         $this->password = $password;
         $this->type = $type;
@@ -92,6 +94,26 @@ class Account {
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nic
+     */ 
+    public function getNic()
+    {
+        return $this->nic;
+    }
+
+    /**
+     * Set the value of nic
+     *
+     * @return  self
+     */ 
+    public function setNic($nic)
+    {
+        $this->nic = $nic;
 
         return $this;
     }

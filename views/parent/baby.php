@@ -1,7 +1,5 @@
 <?php
- require_once('conection.php');
-if(isset($_POST["btnsubmit"]))
-{
+if(isset($_POST["btnsubmit"])) {
    
     $bID=$_POST["babyID"];
     $name=$_POST["name"];
@@ -76,16 +74,18 @@ if(isset($_POST["btnsubmit"]))
                 <label>Birth day</label> 
                 <input type="text" name="dob" class="input">
             </div>
+
             <?php
-            $sql = "SELECT * FROM family";
-            $result = $con->query($sql);
+                $sql = "SELECT * FROM family";
+                $result = $con->query($sql);
             ?>
+
             <div class="">
                 <label>Family ID</label> 
                  <?php
                   echo '<select class="">';
                   while ($row = $result->fetch_assoc()) {
-                  echo "<option class='dropdown-item' value='" . $row['familyID'] . "'>" . $row['familyID'] . "</option>";
+                    echo "<option class='dropdown-item' value='" . $row['familyID'] . "'>" . $row['familyID'] . "</option>";
                   }
                   echo '</select>';
                   

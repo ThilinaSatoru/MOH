@@ -1,7 +1,3 @@
-<?php 
-define("ABS_PATH", dirname(__FILE__));
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,38 +35,10 @@ define("ABS_PATH", dirname(__FILE__));
    <body class="clinic_version">
       <!-- LOADER -->
       <div id="preloader">
-         <img class="preloader" src="./resources/images/loaders/heart-loading2.gif" alt="">
+         <img class="preloader" src="../MOH-office/resources/images/loaders/heart-loading2.gif" alt="">
       </div>
       <!-- END LOADER -->
-      <header>
-         <div class="header-top wow fadeIn">
-            <div class="container">
-               <img src="./resources/images/ban.JPG" alt="image" width="100%"></a>
-              
-            </div>
-         </div>
-         <div class="header-bottom wow fadeIn">
-            <div class="container fluid">
-               <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" data-bs-theme="dark">
-                  <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                        <a class="nav-link active fs-4 me-2" aria-current="page" >Home</a>
-                        <a data-scroll href="#about" class="nav-link fs-4 me-2" >About Us</a>
-                        <a data-scroll href="#getintouch" class="nav-link fs-4 me-2" >Contact </a>
-                        <a class="nav-link fs-4 me-2" href="BabyVaccneCard.php">Baby Vaccine </a>
-                        <a class="nav-link fs-4 me-2" href="mainlogin.php">Staff Login </a>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-            </div>
-         </div> 
-      </header>
+      <?php include('./views/templates/header.php'); ?>
       <br>
       <br>
       <br>

@@ -21,7 +21,7 @@ if(isset($_POST["bcgsubmit"]))
    if ($ret > 0)//check return
    {
 
-    header("location:N-main.php");
+    header("location:N-main.php"); 
    }
    else
    {

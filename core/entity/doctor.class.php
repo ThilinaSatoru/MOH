@@ -6,17 +6,17 @@ class Doctor {
     private $name;
     private $email;
     private $contact;
-    private $password;
-    private $username;
+    private $nic;
+    private $account_id;
 
-    public function __construct($id=null, $name=null, $email=null, $contact=null, $password=null, $username=null)
+    public function __construct($id=null, $name=null, $email=null, $contact=null, $nic=null, $account_id=null)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->contact = $contact;
-        $this->password = $password;
-        $this->username = $username;
+        $this->nic = $nic;
+        $this->account_id = $account_id;
     }
     
 
@@ -61,23 +61,23 @@ class Doctor {
         $this->contact = $contact;
     }
 
-    public function getPassword()
+    public function getNic()
     {
-        return $this->password;
+        return $this->nic;
     }
 
-    public function setPassword($password)
+    public function setNic($nic)
     {
-        $this->password = $password;
+        $this->nic = $nic;
     }
 
-    public function getUsername()
+    public function getAccount_id()
     {
-        return $this->username;
+        return $this->account_id;
     }
 
-    public function setUsername($username)
+    public function setAccount_id($account_id)
     {
-        $this->username = $username;
+        $this->account_id = $account_id;
     }
 }

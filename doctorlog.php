@@ -154,7 +154,7 @@
         <button type="submit" name="btnLOGIN">Log In</button>
         <br>
         <br>
-        <a href="DoctorRegister.php">If you do not have an account, register here as a Doctor</a>
+            <a href="DoctorRegister.php">If you do not have an account, register here as a Doctor</a>
         <br>
         <a href="NurseRegistration.php">If you do not have an account, register here as a Nurse</a>
     </form>

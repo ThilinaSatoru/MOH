@@ -1,0 +1,146 @@
+/*------------------------------------------------------------------
+    HEADER
+-------------------------------------------------------------------*/
+
+.megamenu .nav,
+.megamenu .collapse,
+.megamenu .dropup,
+.megamenu .dropdown {
+  position: static;
+}
+
+.megamenu .container-fluid {
+  position: relative;
+}
+
+.megamenu .dropdown-menu {
+  left: auto;
+}
+
+.megamenu .megamenu-content {
+  padding: 20px 30px;
+}
+
+.megamenu .dropdown.megamenu-fw .dropdown-menu {
+  left: 0;
+  right: 0;
+}
+
+.megamenu .list-unstyled {
+  min-width: 200px;
+}
+
+.header_style_01 {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: block;
+  left: 0;
+  padding: 20px 40px !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 111;
+}
+
+.header_style_01 .navbar-default {
+  background-color: transparent;
+  border: 0;
+}
+
+.header_style_01 .navbar,
+.header_style_01 .navbar-nav,
+.header_style_01 .navbar-default,
+.header_style_01 .nav {
+  margin-bottom: 0 !important;
+}
+
+.header_style_01 .navbar-brand {
+  padding: 2px 15px 0 15px;
+}
+
+.header_style_01 .navbar-default .navbar-nav > li > a {
+  border-radius: 0;
+  color: #ffffff !important;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: capitalize;
+  background-color: transparent;
+}
+
+.header_style_01 .navbar-default .navbar-nav > li a {
+  background-color: transparent !important;
+}
+
+.header_style_01 .navbar-default .navbar-nav > li:hover a,
+.header_style_01 .navbar-default .navbar-nav > li:focus a {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  /* For IE8 and earlier */
+}
+
+.header_style_01 .navbar-right > li {
+  margin-top: 2px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_style_01 .navbar-right > li > a {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+li.social-links {
+  margin: 0 8px;
+}
+
+li.social-links a {
+  padding: 13px 0 !important;
+}
+
+.affix-top {
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+  top: -100%;
+}
+
+.affix {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #1f1f1f !important;
+  -webkit-transition: visibility 0.95s ease-in-out, opacity 0.95s ease-in-out,
+    bottom 0.95s ease-in-out, top 0.95s ease-in-out, left 0.95s ease-in-out,
+    right 0.95s ease-in-out;
+  -moz-transition: visibility 0.95s ease-in-out, opacity 0.95s ease-in-out,
+    bottom 0.95s ease-in-out, top 0.95s ease-in-out, left 0.95s ease-in-out,
+    right 0.95s ease-in-out;
+  -o-transition: visibility 0.95s ease-in-out, opacity 0.95s ease-in-out,
+    bottom 0.95s ease-in-out, top 0.95s ease-in-out, left 0.95s ease-in-out,
+    right 0.95s ease-in-out;
+  transition: visibility 0.95s ease-in-out, opacity 0.95s ease-in-out,
+    top 0.95s ease-in-out, bottom 0.95s ease-in-out, left 0.95s ease-in-out,
+    right 0.95s ease-in-out;
+}
+
+.navbar-nav li {
+  position: relative;
+}
+
+.navbar-nav span {
+  font-size: 24px;
+  position: absolute;
+  right: 2px;
+  top: 13px;
+}
+
+#navbarNavAltMarkup {
+  display: flex;
+  flex-direction: row-reverse;
+}

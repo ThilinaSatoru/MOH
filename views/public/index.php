@@ -9,7 +9,7 @@ echo $doctor_repository->getNewDoctorID();
 
 
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,8 +26,8 @@ echo $doctor_repository->getNewDoctorID();
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact</th>
-                <th>Password</th>
-                <th>UserName</th>
+                <th>Nic</th>
+                <th>Account</th>
             </tr>
         </thead>
 

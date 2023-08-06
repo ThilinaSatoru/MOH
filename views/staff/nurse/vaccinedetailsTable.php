@@ -32,18 +32,18 @@ th {
 <h3>Search hear for Vaccine detail--></h3>
 <div class="container">
 
-                        <div class="row">
-                            <div class="col-md-7">
+	<div class="row">
+		<div class="col-md-7">
 
-                                <form action="" method="POST">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="search" required value="<?php if(isset($_POST['search'])){echo $_POST['search']; } ?>" class="form-control" placeholder="Search Vaccine batch ID or Vaccine name">
-                                        <button type="submit" class="btn btn-primary">Search</button>
-                                    </div>
-                                </form>
+			<form action="" method="POST">
+				<div class="input-group mb-3">
+					<input type="text" name="search" required value="<?php if(isset($_POST['search'])){echo $_POST['search']; } ?>" class="form-control" placeholder="Search Vaccine batch ID or Vaccine name">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</div>
+			</form>
 
-                            </div>
-                        </div>
+		</div>
+	</div>
                     
 <table>
 

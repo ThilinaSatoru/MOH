@@ -128,11 +128,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <img src="images/ban.JPG" alt="image" width="100%">
-        </div>
-    </header>
+
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>

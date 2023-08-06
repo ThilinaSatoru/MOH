@@ -14,8 +14,8 @@ class DoctorService extends DoctorRepository {
             <td>".$obj->getName()."</td>
             <td>".$obj->getEmail()."</td>
             <td>".$obj->getContact()."</td>
-            <td>".$obj->getPassword()."</td>
-            <td>".$obj->getUsername()."</td>
+            <td>".$obj->getNic()."</td>
+            <td>".$obj->getAccount_id()."</td>
 
             <td></td>
         </tr>";

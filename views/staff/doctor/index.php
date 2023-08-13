@@ -1,6 +1,12 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start();
+
+if(isset($_POST['logout'])) {
+  // $_SESSION['username'];
+  unset($_SESSION["username"]);
+  unset($_SESSION["user_type"]);
+  header("location: /MOH-office/views/public/staff_login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,66 +16,12 @@ ini_set('display_errors', 1);
     <title>DOCTOR HOME</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/MOH-office/resources/css/doctorDash.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-      body {
-        background-color: #28ffff;
-        color: #000000;
-      }
-      .navbar {
-        background-color: #37fdfd;
-        border-radius: 0;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-      }
-      .navbar a {
-        color: #000000;
-        font-size: 18px;
-        padding: 15px;
-        text-decoration: none;
-        transition: background-color 0.5s;
-      }
-      .navbar a:hover {
-        background-color: #00a1a1;
-      }
-
-      #search {
-        padding: 10px;
-        text-align: center;
-      }
-      .card {
-        background-color: #444;
-        border: none;
-        color: #fff;
-        margin: 10px;
-        padding: 10px;
-        text-align: center;
-      }
-
-      #calendar {
-        max-width: 900px;
-        margin: 40px auto;
-        color: rgb(13, 13, 14);
-        background-color: rgb(205, 223, 240);
-        height:500px;
-      }
-
-      footer {
-        background-color: #37fdfd;
-        color: #000000;
-        padding: 10px;
-        text-align: center;
-        font-weight: bolder;
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -104,11 +56,13 @@ ini_set('display_errors', 1);
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">
             Search
           </button>
         </form>
-        <a href="index.html">logout</a>
+        <form action="index.php" method="post">
+          <input type="submit" name="logout" value="Logout">
+        </form>
       </div>
     </nav>
     <!-- <div class="container mt-5">
@@ -139,7 +93,7 @@ ini_set('display_errors', 1);
           <p>This is where you can add related information to the webpage.</p>
           <!-- add a image -->
           <img
-            src="images/clinic_01.jpg"
+            src="/MOH-office/resources/images/clinic_01.jpg"
             class="card-img-top"
             alt="..."
           />

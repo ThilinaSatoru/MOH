@@ -5,7 +5,7 @@ $DOCTOR_SERVICE = new DoctorService();
 
 if (isset($_POST["new_doctor"])) {
 
-    if($_POST["password"] == $_POST["re_password"]) {
+    if ($_POST["password"] == $_POST["re_password"]) {
         $new_account = new Account(
             null,
             $_POST["nic"],
@@ -22,23 +22,23 @@ if (isset($_POST["new_doctor"])) {
             null
         );
 
-        if($DOCTOR_SERVICE->register($new_account, $new_doctor)){
+        if ($DOCTOR_SERVICE->register($new_account, $new_doctor)) {
             // Redirect to the login page after successful registration
             header("location: staff_login.php");
             exit(); // Stop further execution
-        }
-        else {
+        } else {
             echo '<script>alert("Please Try Again.....")</script>';
             // header("location: ./doctor_register.php");
         }
     } else {
         echo '<script>alert("Confirm Passwords. Check Again.")</script>';
     }
-} 
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +46,9 @@ if (isset($_POST["new_doctor"])) {
     <link rel="stylesheet" href="/MOH-office/resources/css/register.css">
     <title>Doctor Register</title>
 </head>
+
 <body>
+    <?php include('../../views/templates/header.php'); ?>
     <div class="container">
         <h1>Doctor Registration</h1>
 
@@ -62,7 +64,7 @@ if (isset($_POST["new_doctor"])) {
                     <span class="details">Full name :</span>
                     <input type="text" name="name" placeholder="Enter your name" required>
                 </div>
-                
+
 
                 <div class="input-box">
                     <span class="details">Email :</span>
@@ -90,7 +92,7 @@ if (isset($_POST["new_doctor"])) {
                     <span class="details">Confirm Password :</span>
                     <input type="password" name="re_password" placeholder="Confirm password" required>
                 </div>
-                
+
 
                 <div class="button">
                     <input type="submit" value="Register" name="new_doctor">
@@ -102,4 +104,5 @@ if (isset($_POST["new_doctor"])) {
         </form>
     </div>
 </body>
+
 </html>

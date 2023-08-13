@@ -11,9 +11,22 @@ class NurseRepository extends Database {
         $sql = "SELECT * FROM nurse WHERE nic = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$nic]);
-        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Nurse');
         $result = $stmnt->fetch();
 
         return $result;
+    }
+
+    public function save(Nurse $nurse) {
+
+        $sql = "INSERT INTO nurse (name, email, contact, account_id) 
+                VALUES (?, ?, ?, ?)";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([
+            $nurse->getName(), 
+            $nurse->getEmail(), 
+            $nurse->getContact(), 
+            $nurse->getAccount_id()
+        ]);
     }
 }

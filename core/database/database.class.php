@@ -4,7 +4,7 @@ class Database {
   private $host = "localhost";
   private $user = "root";
   private $pswd = "root";
-  private $database = "mvc";
+  private $database = "moh";
 
 
   protected function connect() {

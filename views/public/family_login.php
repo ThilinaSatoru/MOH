@@ -1,75 +1,65 @@
 <!DOCTYPE html>
+<html>
+
 <head>
-  
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="/MOH-office/resources/images/fevicon.ico.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/MOH-office/resources/images/apple-touch-icon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/style.css">
-    <!-- Colors CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/colors.css">
-    <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/versions.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/MOH-office/resources/css/custom.css">
-    <!-- Modernizer for Portfolio -->
-    <script src="js/modernizer.js"></script>
-    <!-- [if lt IE 9] -->
-
-    <title>Baby Vaccine card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+    <style>
+        .login-box {
+            width: 18rem;
+            margin-inline: 40%;
+            padding: 1em;
+            border-radius: 1em;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+    <title>Repot View</title>
 </head>
-<body>
-    <header >        
-        <div class="container">
-            <div class="row">
-            <img src="/MOH-office/resources/images/ban.JPG" alt="image" height="160px"></a>
-        </div>  
-    </header>  
- 
-<div class="section wow fadeIn">
-    <div class="container">
-       <div class="row">
-          <div class="col">
-             <div class="message-box">
-                <br>
-                <br>
-                <h2>About Baby Vaccine Card</h2>
-                <p class="lead">Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.</p>
-                 <br>
-                 <h4>To automate a baby vaccine card, you can follow these steps:</h4>
-                 <br>
-                 <ul>
-                    <li>Collect the baby's vaccine records from their  nearest MOH office .</li><br>
-                    <li>Create an account on the chosen platform and input the baby's information, including their name, birthdate, and any previous vaccines they have received.</li><br>
-                   <li>Enter the details of each vaccine that the baby receives, including the type of vaccine, the date it was administered, and the healthcare provider who administered it.</li> 
-                 </ul>
-             </div>
-            </div>
-            <br> 
-            <h2>View to Vaccine card Loging here:</h2>
-            <br>
-            <div class="row">
-                <form class="LoginPepole" >
-                    <div class="container">
-                       <h2 >Loging </h2>
-                       <p>User name</p>
-                       <input type="text" placeholder="User name" required>
-                       <p>password</p>
-                       <input type="text" placeholder="password" required="required">
-                       <br>
-                       <br>
-                       <input type="button" value="Loging" required><br>
-                       <a href="family_register.php">Sign In your account</a> 
-                    </div>
-                </form>
-            </div>
-        </div>   
-    </div>
-</div>
 
+<body>
+    <?php include('../../views/templates/header.php'); ?>
+
+
+    <div class="container">
+        <h2>About Baby Vaccine Card</h2>
+        <p class="lead">Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.</p>
+        <h4>To automate a baby vaccine card, you can follow these steps:</h4>
+        <ul>
+            <li>Collect the baby's vaccine records from their nearest MOH office .</li><br>
+            <li>Create an account on the chosen platform and input the baby's information, including their name, birthdate, and any previous vaccines they have received.</li><br>
+            <li>Enter the details of each vaccine that the baby receives, including the type of vaccine, the date it was administered, and the healthcare provider who administered it.</li>
+        </ul>
+    </div>
+
+
+
+    <div class="container">
+        <div class="card login-box">
+            <form>
+                <div class=" mb-3">
+                    <label for="username" class="form-label">User Name</label>
+                    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="card-body text-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_register.php">
+                        don't have an account?
+                        <svg class="bi" aria-hidden="true">
+                            <use xlink:href="#arrow-right"></use>
+                        </svg>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <?php include('../../views/templates/footer.php'); ?>
 </body>
+
 </html>

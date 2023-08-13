@@ -1,12 +1,17 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
-
-
-<?php
 session_start();
+
+if(isset($_POST['logout'])) {
+  // $_SESSION['username'];
+  unset($_SESSION["username"]);
+  unset($_SESSION["user_type"]);
+  header("location: /MOH-office/views/public/staff_login.php");
+}
 ?>
+
+
+
+
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -112,11 +117,11 @@ session_start();
                   </li>
                 </ul>
               </li>
+              <form action="index.php" method="post">
               <li class="nav-item">
-                <a class="nav-link" href="#"><form action="nurselogout.php" method="post">
-                <input type="submit" name="logout" value="Logout">
-              </form></a>
+                  <a><input type="submit" name="logout" value="Logout"/></a>
               </li>
+              </form>
             </ul>
           </div>
         </div>
@@ -128,7 +133,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/family.png"
+                src="/MOH-office/resources/images/family.png"
                 class="card-img-top"
                 alt="..."
               />
@@ -140,7 +145,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/baby-boy.png"
+                src="/MOH-office/resources/images/baby-boy.png"
                 class="card-img-top"
                 alt="..."
               />
@@ -152,7 +157,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/vaccines.png"
+                src="/MOH-office/resources/images/vaccines.png"
                 class="card-img-top"
                 alt="..."
               />
@@ -164,7 +169,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/vaccination.png"
+                src="/MOH-office/resources/images/vaccination.png"
                 class="card-img-top"
                 alt="..."
               />
@@ -176,7 +181,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/chat.png"
+                src="/MOH-office/resources/images/chat.png"
                 class="card-img-top"
                 alt="..."
               />
@@ -188,7 +193,7 @@ session_start();
           <div class="col">
             <div class="card">
               <img
-                src="images/gmail.png"
+                src="/MOH-office/resources/images/gmail.png"
                 class="card-img-top"
                 alt="..."
               />

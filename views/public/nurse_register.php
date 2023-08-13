@@ -1,58 +1,40 @@
 <?php
+include_once("../../../MOH-office/core/service/nurseService.php");
+include_once("../../../MOH-office/core/repository/doctorRepository.php");
+$NURSE_SERVICE = new NurseService();
 
+if (isset($_POST["submit"])) {
 
-// Function to get the next available Nurse ID 
-function getNextNurseID($con) {
-    $sql = "SELECT MAX(CAST(SUBSTRING(ID, 2) AS UNSIGNED)) AS maxID FROM nurse";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $maxID = $row['maxID'];
+    if ($_POST["password"] == $_POST["re_password"]) {
+        $new_account = new Account(
+            null,
+            $_POST["nic"],
+            $_POST["username"],
+            $_POST["password"],
+            'NURSE'
+        );
+        $new_nurse = new Nurse(
+            null,
+            $_POST["name"],
+            $_POST["email"],
+            $_POST["contact"],
+            $_POST["nic"],
+            null
+        );
 
-    if ($maxID === null) {
-        $nextID = "N001";
+        if ($NURSE_SERVICE->register($new_account, $new_nurse)) {
+            // Redirect to the login page after successful registration
+            header("location: staff_login.php");
+            exit(); // Stop further execution
+        } else {
+            echo '<script>alert("Please Try Again.....")</script>';
+            // header("location: ./doctor_register.php");
+        }
     } else {
-        $nextID = "N" . sprintf("%03d", $maxID + 1);
+        echo '<script>alert("Confirm Passwords. Check Again.")</script>';
     }
-
-    return $nextID;
 }
 
-// require_once('conection.php');
-
-if (isset($_POST["btnsubmit"])) {
-    $name = $_POST["nursename"];
-    $ID = $_POST["id"];
-    $contact = $_POST["contact"];
-    $us = $_POST["username"];
-    $pw = $_POST["txtpassword"];
-    $conformpw = $_POST["conformpassword"];
-
-    // To protect against SQL injection
-    $name = mysqli_real_escape_string($con, $name);
-    $ID = mysqli_real_escape_string($con, $ID);
-    $contact = mysqli_real_escape_string($con, $contact);
-    $us = mysqli_real_escape_string($con, $us);
-    $pw = mysqli_real_escape_string($con, $pw);
-    $conformpw = mysqli_real_escape_string($con, $conformpw);
-
-    // Perform SQL
-    $sql = "INSERT INTO nurse (Fullname, ID, contactnumber, username, password, conformpass) 
-            VALUES ('$name', '$ID', '$contact', '$us', '$pw', '$conformpw')";
-    
-    $ret = mysqli_query($con, $sql);
-    
-    if ($ret) { // Check return
-        header("location: mainlogin.php");
-        exit(); // Stop further execution
-    } else {
-        echo '<script>alert("Please Try Again Shortly.....")</script>';
-        header("location: NurseRegistration.php");
-        exit(); // Stop further execution
-    }
-
-    // Disconnect 
-    mysqli_close($con);
-}
 ?>
 
 <!DOCTYPE html>
@@ -65,44 +47,51 @@ if (isset($_POST["btnsubmit"])) {
 </head>
 
 <body>
+    <?php include('../../views/templates/header.php'); ?>
     <div class="container">
         <h1>Nurse Registration</h1>
         <form method="POST" action="nurse_register.php">
 
-            <div class="user-details">
-                <div class="input-box">
-                    <span>Full name :</span>
-                    <input type="text" name="nursename" placeholder="Enter your name" required>
-                </div>
-
+            <div class="input-box">
+                <span class="details">NIC :</span>
+                <input type="text" name="nic" placeholder="Enter your NIC" required>
             </div>
 
-            <div class="user-details">
-                <div class="input-box">
-                    <span>Contact num:</span>
-                    <input type="text" name="contact" placeholder="Enter your contact number" required>
-                </div>
-
-                <div class="input-box">
-                    <span>Username :</span>
-                    <input type="text" name="username" placeholder="Enter your username" required>
-                </div>
+            <div class="input-box">
+                <span class="details">Full name :</span>
+                <input type="text" name="name" placeholder="Enter your name" required>
             </div>
 
-            <div class="user-details">
-                <div class="input-box">
-                    <span>Password :</span>
-                    <input type="password" name="txtpassword" placeholder="Enter your password" required>
-                </div>
 
-                <div class="input-box">
-                    <span>Confirm Password :</span>
-                    <input type="password" name="conformpassword" placeholder="Confirm password" required>
-                </div>
+            <div class="input-box">
+                <span class="details">Email :</span>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Contact :</span>
+                <input type="text" name="contact" placeholder="Enter your contact number" required>
+            </div>
+
+            <hr>
+
+            <div class="input-box">
+                <span class="details">Username :</span>
+                <input type="text" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Password :</span>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Confirm Password :</span>
+                <input type="password" name="re_password" placeholder="Confirm password" required>
             </div>
 
             <div class="button">
-                <input type="submit" value="Register" name="btnsubmit">
+                <input type="submit" value="Register" name="submit">
             </div>
             <div class="button">
                 <a href="staff_login.php">Login</a>

@@ -1,13 +1,14 @@
 <?php
 
-class Account {
+class Account
+{
     private $id;
     private $nic;
     private $username;
     private $password;
     private $type;
 
-    public function __construct($id=null, $nic=null, $username=null, $password=null, $type=null)
+    public function __construct($id = null, $nic = null, $username = null, $password = null, $type = null)
     {
         $this->id = $id;
         $this->nic = $nic;
@@ -16,11 +17,11 @@ class Account {
         $this->type = $type;
     }
 
-    
+
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -30,7 +31,7 @@ class Account {
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -40,7 +41,7 @@ class Account {
 
     /**
      * Get the value of username
-     */ 
+     */
     public function getUsername()
     {
         return $this->username;
@@ -50,7 +51,7 @@ class Account {
      * Set the value of username
      *
      * @return  self
-     */ 
+     */
     public function setUsername($username)
     {
         $this->username = $username;
@@ -60,7 +61,7 @@ class Account {
 
     /**
      * Get the value of password
-     */ 
+     */
     public function getPassword()
     {
         return $this->password;
@@ -70,7 +71,7 @@ class Account {
      * Set the value of password
      *
      * @return  self
-     */ 
+     */
     public function setPassword($password)
     {
         $this->password = $password;
@@ -80,7 +81,7 @@ class Account {
 
     /**
      * Get the value of type
-     */ 
+     */
     public function getType()
     {
         return $this->type;
@@ -90,7 +91,7 @@ class Account {
      * Set the value of type
      *
      * @return  self
-     */ 
+     */
     public function setType($type)
     {
         $this->type = $type;
@@ -100,7 +101,7 @@ class Account {
 
     /**
      * Get the value of nic
-     */ 
+     */
     public function getNic()
     {
         return $this->nic;
@@ -110,7 +111,7 @@ class Account {
      * Set the value of nic
      *
      * @return  self
-     */ 
+     */
     public function setNic($nic)
     {
         $this->nic = $nic;

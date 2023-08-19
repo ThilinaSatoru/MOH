@@ -1,8 +1,9 @@
 <?php
 
 
-class Parent {
-    
+class _Parent
+{
+
     private $id;
     private $name;
     private $email;
@@ -12,7 +13,7 @@ class Parent {
     private $address;
     private $family_id;
 
-    public function __construct($id=null, $name=null, $email=null, $contact=null, $nic=null, $dob=null, $address=null, $family_id=null)
+    public function __construct($id = null, $name = null, $email = null, $contact = null, $nic = null, $dob = null, $address = null, $family_id = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -23,7 +24,7 @@ class Parent {
         $this->address = $address;
         $this->family_id = $family_id;
     }
-    
+
 
     public function getId()
     {
@@ -39,7 +40,7 @@ class Parent {
     {
         return $this->name;
     }
- 
+
     public function setName($name)
     {
         $this->name = $name;
@@ -61,7 +62,7 @@ class Parent {
         return $this->contact;
     }
 
-    function setContact($contact)
+    public function setContact($contact)
     {
         $this->contact = $contact;
     }
@@ -69,7 +70,7 @@ class Parent {
 
     /**
      * Get the value of nic
-     */ 
+     */
     public function getNic()
     {
         return $this->nic;
@@ -79,7 +80,7 @@ class Parent {
      * Set the value of nic
      *
      * @return  self
-     */ 
+     */
     public function setNic($nic)
     {
         $this->nic = $nic;
@@ -87,7 +88,7 @@ class Parent {
 
     /**
      * Get the value of dob
-     */ 
+     */
     public function getDob()
     {
         return $this->dob;
@@ -97,7 +98,7 @@ class Parent {
      * Set the value of dob
      *
      * @return  self
-     */ 
+     */
     public function setDob($dob)
     {
         $this->dob = $dob;
@@ -105,7 +106,7 @@ class Parent {
 
     /**
      * Get the value of address
-     */ 
+     */
     public function getAddress()
     {
         return $this->address;
@@ -115,7 +116,7 @@ class Parent {
      * Set the value of address
      *
      * @return  self
-     */ 
+     */
     public function setAddress($address)
     {
         $this->address = $address;
@@ -123,7 +124,7 @@ class Parent {
 
     /**
      * Get the value of family_id
-     */ 
+     */
     public function getFamily_id()
     {
         return $this->family_id;
@@ -133,7 +134,7 @@ class Parent {
      * Set the value of family_id
      *
      * @return  self
-     */ 
+     */
     public function setFamily_id($family_id)
     {
         $this->family_id = $family_id;

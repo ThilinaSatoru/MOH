@@ -46,14 +46,15 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" required>
                 </div>
+
                 <div class="card-body text-center">
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_register.php">
+                    <!-- <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_register.php">
                         don't have an account?
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#arrow-right"></use>
                         </svg>
-                    </a>
+                    </a> -->
                 </div>
             </form>
         </div>

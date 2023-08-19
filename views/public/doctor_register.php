@@ -1,6 +1,6 @@
 <?php
-include_once("../../../MOH-office/core/service/doctorService.php");
-include_once("../../../MOH-office/core/repository/doctorRepository.php");
+include_once("../../../moh/core/service/doctorService.php");
+include_once("../../../moh/core/repository/doctorRepository.php");
 $DOCTOR_SERVICE = new DoctorService();
 
 if (isset($_POST["new_doctor"])) {
@@ -43,7 +43,7 @@ if (isset($_POST["new_doctor"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/MOH-office/resources/css/register.css">
+    <link rel="stylesheet" href="/moh/resources/css/register.css">
     <title>Doctor Register</title>
 </head>
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once("../../../MOH-office/core/repository/nurseRepository.php");
-require_once("../../../MOH-office/core/repository/accountRepository.php");
+require_once("../../../moh/core/repository/nurseRepository.php");
+require_once("../../../moh/core/repository/accountRepository.php");
 
 
 

@@ -1,6 +1,6 @@
 <?php
 session_start(); // Starting Session
-include_once("../../../MOH-office/core/repository/accountRepository.php");
+include_once("../../../moh/core/repository/accountRepository.php");
 $ACCOUNT_REPO = new AccountRepository();
 
 if (isset($_POST["btnLOGIN"])) {

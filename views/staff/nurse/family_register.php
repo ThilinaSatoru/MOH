@@ -21,11 +21,14 @@ if (isset($_POST["register"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public user register</title>
+    <link rel="stylesheet" href="/moh/resources/css/nurse.css">
+    <title>family register</title>
     <style>
         .login-box {
             width: 35rem;
-            margin-inline: 30%;
+            margin-inline: auto;
+            margin-bottom: 4em;
+            margin-top: 2em;
             padding: 1em;
             border-radius: 1em;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -34,10 +37,10 @@ if (isset($_POST["register"])) {
 </head>
 
 <body>
-    <?php include('../../views/templates/header.php'); ?>
+    <?php include_once('_header.php'); ?>
 
     <div class="container">
-        <h1> Registration</h1>
+        <h1 class=" text-center">Family Registration</h1>
         <div class="card login-box">
             <form method="POST" action="family_register.php">
 
@@ -81,19 +84,19 @@ if (isset($_POST["register"])) {
 
                 <div class="card-body text-center">
                     <button type="submit" class="btn btn-primary" name="new_family">Register</button>
-                    <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_login.php">
+                    <!-- <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_login.php">
                         Alredy have an account?
                         <svg class="bi" aria-hidden="true">
                             <use xlink:href="#arrow-right"></use>
                         </svg>
-                    </a>
+                    </a> -->
                 </div>
 
             </form>
         </div>
     </div>
 
-    <?php include('../../views/templates/footer.php'); ?>
+    <?php include('../../../views/templates/footer.php'); ?>
 </body>
 
 </html>

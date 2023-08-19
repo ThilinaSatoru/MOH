@@ -1,6 +1,6 @@
 <?php
-include_once("../../../MOH-office/core/service/nurseService.php");
-include_once("../../../MOH-office/core/repository/doctorRepository.php");
+include_once("../../../moh/core/service/nurseService.php");
+include_once("../../../moh/core/repository/doctorRepository.php");
 $NURSE_SERVICE = new NurseService();
 
 if (isset($_POST["submit"])) {
@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
 <head>
     <!-- Design by foolishdeveloper.com -->
     <title>Nurse Registration</title>
-    <link rel="stylesheet" href="/MOH-office/resources/css/register.css">
+    <link rel="stylesheet" href="/moh/resources/css/register.css">
 </head>
 
 <body>

@@ -9,6 +9,7 @@
 
 </div> -->
 <header>
+  <img src="/moh/resources/images/ban.JPG" alt="banner" width="100%">
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
@@ -59,6 +60,6 @@
       </div>
     </div>
   </nav>
-  <img src="/moh/resources/images/ban.JPG" alt="banner" width="100%">
+
 </header>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

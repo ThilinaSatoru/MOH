@@ -1,6 +1,6 @@
 <?php
-require_once("../../../MOH-office/core/repository/accountRepository.php");
-require_once("../../../MOH-office/core/repository/doctorRepository.php");
+require_once("../../../moh/core/repository/accountRepository.php");
+require_once("../../../moh/core/repository/doctorRepository.php");
 
 
 

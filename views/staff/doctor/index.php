@@ -5,7 +5,7 @@ if(isset($_POST['logout'])) {
   // $_SESSION['username'];
   unset($_SESSION["username"]);
   unset($_SESSION["user_type"]);
-  header("location: /MOH-office/views/public/staff_login.php");
+  header("location: /moh/views/public/staff_login.php");
 }
 ?>
 
@@ -17,7 +17,7 @@ if(isset($_POST['logout'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/MOH-office/resources/css/doctorDash.css">
+    <link rel="stylesheet" href="/moh/resources/css/doctorDash.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -93,7 +93,7 @@ if(isset($_POST['logout'])) {
           <p>This is where you can add related information to the webpage.</p>
           <!-- add a image -->
           <img
-            src="/MOH-office/resources/images/clinic_01.jpg"
+            src="/moh/resources/images/clinic_01.jpg"
             class="card-img-top"
             alt="..."
           />

@@ -33,7 +33,7 @@
 
    <!-- LOADER -->
    <div id="preloader">
-      <img class="preloader" src="/MOH-office/resources/images/loaders/heart-loading2.gif" alt="">
+      <img class="preloader" src="/moh/resources/images/loaders/heart-loading2.gif" alt="">
    </div>
    <!-- END LOADER -->
 

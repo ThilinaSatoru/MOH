@@ -4,6 +4,10 @@ require_once("../../core/database/database.class.php");
 include("../../core/entity/baby.class.php");
 
 
-class BabyRepository extends Database {
-    
+class BabyRepository extends Database
+{
+
+    public function save(Baby $baby)
+    {
+    }
 }

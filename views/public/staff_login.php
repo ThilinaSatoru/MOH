@@ -22,11 +22,11 @@ if (isset($_POST["btnLOGIN"])) {
 
             if ($result->getType() === "DOCTOR") {
                 // Redirecting To Doctor Main Page
-                header("location: ../staff/doctor/");
+                header("location: ../doctor/");
                 exit();
             } elseif ($result->getType() === "NURSE") {
                 // Redirecting To Nurse Main Page
-                header("location: ../staff/nurse/");
+                header("location: ../nurse/");
                 exit(); // Stop further execution
             }
         } else {

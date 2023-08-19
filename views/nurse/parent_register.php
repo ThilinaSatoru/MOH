@@ -1,10 +1,11 @@
 <?php
-include_once("../../../core/repository/parentRepository.php");
+include_once("../../core/repository/parentRepository.php");
+include_once("../../core/entity/parent.class.php");
 $PARENT_REPOSITORY = new ParentRepository();
 
 if (isset($_POST["parent-submit"])) {
 
-    $father = new Parent(
+    $father = new _Parent(
         null,
         $_POST["f-nic"],
         $_POST["f-name"],
@@ -14,7 +15,7 @@ if (isset($_POST["parent-submit"])) {
         $_POST["f-address"],
         null
     );
-    $mother = new Parent(
+    $mother = new _Parent(
         null,
         $_POST["m-nic"],
         $_POST["m-name"],
@@ -156,7 +157,7 @@ if (isset($_POST["parent-submit"])) {
         </div>
     </form>
 
-    <?php include('../../../views/templates/footer.php'); ?>
+    <?php include('../../views/templates/footer.php'); ?>
 </body>
 
 </html>

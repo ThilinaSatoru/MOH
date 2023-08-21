@@ -1,6 +1,8 @@
 <?php
+include_once("../../core/service/parentService.php");
 include_once("../../core/repository/parentRepository.php");
 include_once("../../core/entity/parent.class.php");
+$PARENT_SERVICE = new ParentService();
 $PARENT_REPOSITORY = new ParentRepository();
 
 if (isset($_POST["parent-submit"])) {
@@ -15,6 +17,7 @@ if (isset($_POST["parent-submit"])) {
         $_POST["f-address"],
         null
     );
+
     $mother = new _Parent(
         null,
         $_POST["m-nic"],
@@ -25,10 +28,11 @@ if (isset($_POST["parent-submit"])) {
         $_POST["m-address"],
         null
     );
-    $PARENT_REPOSITORY->save($father);
-    $PARENT_REPOSITORY->save($mother);
 
-    if ($ret > 0) //check return
+    // $PARENT_REPOSITORY->save($father);
+    // $PARENT_REPOSITORY->save($mother);
+
+    if ($PARENT_SERVICE->register($father, $mother)) //check return
     {
         header("location:family_register.php");
     } else {
@@ -36,6 +40,7 @@ if (isset($_POST["parent-submit"])) {
         header("location:index.php");
     }
 }
+
 ?>
 
 
@@ -80,12 +85,12 @@ if (isset($_POST["parent-submit"])) {
 
                             <div class="mb-3">
                                 <label class="form-label">NIC :</label>
-                                <input class="form-control" type="text" name="f-nic" placeholder="Enter your NIC" required>
+                                <input class="form-control" type="text" name="f-nic" placeholder="Enter your NIC">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Full name :</label>
-                                <input class="form-control" type="text" name="f-name" placeholder="Enter your name" required>
+                                <input class="form-control" type="text" name="f-name" placeholder="Enter your name">
                             </div>
 
                             <div class="mb-3">
@@ -100,7 +105,7 @@ if (isset($_POST["parent-submit"])) {
 
                             <div class="mb-3">
                                 <label class="form-label">Date of Birth :</label>
-                                <input class="form-control" type="date" name="f-dob">
+                                <input class="form-control" type="date" name="f-dob" required>
                             </div>
 
                             <div class="mb-3">
@@ -118,12 +123,12 @@ if (isset($_POST["parent-submit"])) {
 
                             <div class="mb-3">
                                 <label class="form-label">NIC :</label>
-                                <input class="form-control" type="text" name="m-nic" placeholder="Enter your NIC" required>
+                                <input class="form-control" type="text" name="m-nic" placeholder="Enter your NIC">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Full name :</label>
-                                <input class="form-control" type="text" name="m-name" placeholder="Enter your name" required>
+                                <input class="form-control" type="text" name="m-name" placeholder="Enter your name">
                             </div>
 
                             <div class="mb-3">

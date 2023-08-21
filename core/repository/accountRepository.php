@@ -2,7 +2,7 @@
 
 require_once("../../core/database/database.class.php");
 include("../../core/entity/account.class.php");
-
+ 
 
 class AccountRepository extends Database
 {

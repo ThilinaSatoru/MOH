@@ -12,8 +12,9 @@ class _Parent
     private $dob;
     private $address;
     private $family_id;
+    private $type;
 
-    public function __construct($id = null, $name = null, $email = null, $contact = null, $nic = null, $dob = null, $address = null, $family_id = null)
+    public function __construct($id = null, $name = null, $email = null, $contact = null, $nic = null, $dob = null, $address = null, $family_id = null, $type = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -23,6 +24,7 @@ class _Parent
         $this->dob = $dob;
         $this->address = $address;
         $this->family_id = $family_id;
+        $this->type = $type;
     }
 
 
@@ -138,5 +140,15 @@ class _Parent
     public function setFamily_id($family_id)
     {
         $this->family_id = $family_id;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

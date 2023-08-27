@@ -32,6 +32,13 @@ class ParentRepository extends Database
         }
     }
 
+    public function setFamily($fam_id, $id)
+    {
+        $sql = "UPDATE parent SET family_id = ? WHERE id = ?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$fam_id, $id]);
+    }
+
 
     public function findByNic($nic)
     {
@@ -51,6 +58,28 @@ class ParentRepository extends Database
         $stmnt->execute();
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
         $result = $stmnt->fetch();
+
+        return $result;
+    }
+
+    public function getAllFathers()
+    {
+        $result = [];
+        $sql = "SELECT * FROM parent where type = ?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute(['FATHER']);
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
+
+        return $result;
+    }
+
+    public function getAllMothers()
+    {
+        $result = [];
+        $sql = "SELECT * FROM parent where type = ?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute(['MOTHER']);
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
 
         return $result;
     }

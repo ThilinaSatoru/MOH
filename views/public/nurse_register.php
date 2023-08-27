@@ -8,7 +8,6 @@ if (isset($_POST["submit"])) {
     if ($_POST["password"] == $_POST["re_password"]) {
         $new_account = new Account(
             null,
-            $_POST["nic"],
             $_POST["username"],
             $_POST["password"],
             'NURSE'

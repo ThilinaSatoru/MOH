@@ -86,7 +86,7 @@ if (isset($_POST['logout'])) {
     </div>
   </div>
   <footer>
-    <p>MOH &copy; 2023</p>
+    <?php include('../../views/templates/footer.php'); ?>
   </footer>
 </body>
 

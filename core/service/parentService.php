@@ -5,6 +5,26 @@ require_once("../../../moh/core/repository/parentRepository.php");
 class ParentService extends ParentRepository
 {
 
+    public function loadAllFatherOptions()
+    {
+        foreach ($this->getAllFathers() as $obj) {
+            echo
+            "
+                <option>" . $obj->getNic() . "</option>
+            ";
+        }
+    }
+
+    public function loadAllMotherOptions()
+    {
+        foreach ($this->getAllMothers() as $obj) {
+            echo
+            "
+                <option>" . $obj->getNic() . "</option>
+            ";
+        }
+    }
+
 
     public function register(_Parent $f,  _Parent $m)
     {

@@ -1,14 +1,35 @@
 <?php
-if (isset($_POST["register"])) {
-    $ID = $_POST["familyID"];
+include_once("../../core/service/familyService.php");
+include_once("../../core/service/parentService.php");
+include_once("../../core/entity/account.class.php");
+include_once("../../core/entity/family.class.php");
+$FAMILY_SERVICE = new FamilyService();
+$PARENT_SERVICE = new ParentService();
 
-    if ($ret > 0) //check return
-    {
 
-        header("location:BabyVaccneCard.php");
-    } else {
-        echo '<script>alert("Please Try Again Shortly.....")</script>';
-        header("location:NurseRegistration.php");
+
+if (isset($_POST["new_family"])) {
+    if ($_POST["password"] == $_POST["re_password"]) {
+        $new_account = new Account(
+            null,
+            $_POST["nic"],
+            $_POST["username"],
+            $_POST["password"],
+            'FAMILY'
+        );
+        $new_family = new Family(
+            null,
+            $_POST["date_married"],
+            null
+        );
+
+
+        if ($FAMILY_SERVICE->register($new_account, $new_family, $_POST["father_select"], $_POST["mother_select"])) {
+            header("location:index.php");
+        } else {
+            echo '<script>alert("Please Try Again Shortly.....")</script>';
+            header("location:family_register.php");
+        }
     }
 }
 ?>
@@ -25,7 +46,7 @@ if (isset($_POST["register"])) {
     <title>family register</title>
     <style>
         .login-box {
-            width: 35rem;
+            width: 30rem;
             margin-inline: auto;
             margin-bottom: 4em;
             margin-top: 2em;
@@ -42,41 +63,43 @@ if (isset($_POST["register"])) {
     <div class="container">
         <h1 class=" text-center">Family Registration</h1>
         <div class="card login-box">
-            <form method="POST" action="family_register.php">
+            <form method="POST" action="family_register.php" class="row g-3">
 
-                <div class="mb-3">
-                    <label class="form-label">NIC :</label>
-                    <input class="form-control" type="text" name="nic" placeholder="Enter your NIC" required>
+                <div class="col-md-6">
+                    <label for="inputState" class="form-label">Father</label>
+                    <select id="inputState" class="form-select" name="father_select" id="father_select">
+                        <option selected>Choose NIC ...</option>
+                        <?php $PARENT_SERVICE->loadAllFatherOptions() ?>
+                    </select>
+                </div>
+                <div class=" col-md-6">
+                    <label for="inputState" class="form-label">Mother</label>
+                    <select id="inputState" class="form-select" name="mother_select" id="mother_select">
+                        <option selected>Choose NIC ...</option>
+                        <?php $PARENT_SERVICE->loadAllMotherOptions() ?>
+                    </select>
+                </div>
+                <div class="col-mb-3">
+                    <label class="form-label">Married Date :</label>
+                    <input class="form-control" type="date" name="date_married" required>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Full name :</label>
-                    <input class="form-control" type="text" name="name" placeholder="Enter your name" required>
+                <div class="col">
+                    <hr>
+                    <h4>Account</h4>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Email :</label>
-                    <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Contact :</label>
-                    <input class="form-control" type="text" name="contact" placeholder="Enter your contact number" required>
-                </div>
-
-                <hr>
-
-                <div class="mb-3">
+                <div class="col-mb-3">
                     <label class="form-label">Username :</label>
-                    <input class="form-control" type="text" name="username" placeholder="Enter your username" required>
+                    <input class="form-control" type="text" name="username" placeholder="Enter username" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="col-mb-3">
                     <label class="form-label">Password :</label>
                     <input class="form-control" type="password" name="password" placeholder="Enter your password" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="col-mb-3">
                     <label class="form-label">Confirm Password :</label>
                     <input class="form-control" type="password" name="re_password" placeholder="Confirm password" required>
                 </div>
@@ -84,19 +107,13 @@ if (isset($_POST["register"])) {
 
                 <div class="card-body text-center">
                     <button type="submit" class="btn btn-primary" name="new_family">Register</button>
-                    <!-- <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25" href="family_login.php">
-                        Alredy have an account?
-                        <svg class="bi" aria-hidden="true">
-                            <use xlink:href="#arrow-right"></use>
-                        </svg>
-                    </a> -->
                 </div>
 
             </form>
         </div>
     </div>
 
-    <?php include('../../../views/templates/footer.php'); ?>
+    <?php include('../../views/templates/footer.php'); ?>
 </body>
 
 </html>

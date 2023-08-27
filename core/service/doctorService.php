@@ -1,4 +1,5 @@
 <?php
+
 require_once("../../../moh/core/repository/doctorRepository.php");
 require_once("../../../moh/core/repository/accountRepository.php");
 
@@ -30,11 +31,11 @@ class DoctorService extends DoctorRepository {
         // if count of result(account) is less than 1
         if($ACCOUNT_REPO->countByUsername($account->getUsername()) < 1) {
             // new account
-            if(!$ACCOUNT_REPO->findByNic($account->getNic())) {
+            if (!$ACCOUNT_REPO->findByUsername($account->getUsername())) {
                 //save account
                 $ACCOUNT_REPO->save($account);
                 //get saved auto id
-                $saved_acc_id = $ACCOUNT_REPO->findByNic($account->getNic())->getId();
+                $saved_acc_id = $ACCOUNT_REPO->findByUsername($account->getUsername())->getId();
                 //save doctor for account
 
                 $doctor->setAccount_id($saved_acc_id);

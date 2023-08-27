@@ -10,12 +10,11 @@ class AccountRepository extends Database
 
     public function save(Account $account)
     {
-        $sql = "INSERT INTO account (nic, type, password, username) 
-            VALUES (?, ?, ?, ?);";
+        $sql = "INSERT INTO account (type, password, username) 
+            VALUES (?, ?, ?);";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute(
             [
-                $account->getNic(),
                 $account->getType(),
                 $account->getPassword(),
                 $account->getUsername()
@@ -24,12 +23,12 @@ class AccountRepository extends Database
         // return $stmnt->lastInsertId();
     }
 
-    public function findByNic($nic)
+    public function findByUsername($user)
     {
         // code...
-        $sql = "SELECT * FROM account WHERE nic = ? LIMIT 1";
+        $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
-        $stmnt->execute([$nic]);
+        $stmnt->execute([$user]);
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Account');
         $result = $stmnt->fetch();
 

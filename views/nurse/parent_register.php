@@ -15,7 +15,8 @@ if (isset($_POST["parent-submit"])) {
         $_POST["f-contact"],
         $_POST["f-dob"],
         $_POST["f-address"],
-        null
+        null,
+        "FATHER"
     );
 
     $mother = new _Parent(
@@ -26,7 +27,8 @@ if (isset($_POST["parent-submit"])) {
         $_POST["m-contact"],
         $_POST["m-dob"],
         $_POST["m-address"],
-        null
+        null,
+        "MOTHER"
     );
 
     // $PARENT_REPOSITORY->save($father);

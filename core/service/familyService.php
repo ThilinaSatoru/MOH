@@ -54,4 +54,14 @@ class FamilyService extends FamilyRepository
         </script>
         ";
     }
+
+    public function loadAllFamilyOptions()
+    {
+        foreach ($this->getAllFamily() as $obj) {
+            echo
+            "
+                <option>" . $obj->getId() . "</option>
+            ";
+        }
+    }
 }

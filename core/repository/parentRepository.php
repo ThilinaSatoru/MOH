@@ -10,8 +10,8 @@ class ParentRepository extends Database
     public function save(_Parent $parent)
     {
         try {
-            $sql = "INSERT INTO parent (id, name, email, contact, nic, dob, address, family_id) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO parent (name, gender, dob, weight, reg_date, family_id) 
+                VALUES (?, ?, ?, ?, ?, ?)";
             $stmnt = $this->connect()->prepare($sql);
             $stmnt->execute(
                 [
@@ -45,6 +45,17 @@ class ParentRepository extends Database
         $sql = "SELECT * FROM parent WHERE nic = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$nic]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
+        $result = $stmnt->fetch();
+
+        return $result;
+    }
+
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM parent WHERE id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
         $result = $stmnt->fetch();
 

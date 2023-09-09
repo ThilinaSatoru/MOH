@@ -15,6 +15,12 @@ class ParentService extends ParentRepository
         }
     }
 
+    public function findById($id)
+    {
+        return $this->findById($id);
+    }
+
+
     public function loadAllMotherOptions()
     {
         foreach ($this->getAllMothers() as $obj) {

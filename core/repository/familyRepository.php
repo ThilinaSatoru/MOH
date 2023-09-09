@@ -17,6 +17,17 @@ class FamilyRepository extends Database {
         ]);
     }
 
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM family WHERE id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Family');
+        $result = $stmnt->fetch();
+
+        return $result;
+    }
+
     public function findByAccount($acc_id)
     {
         $sql = "SELECT * FROM family WHERE account_id = ? LIMIT 1";
@@ -24,6 +35,16 @@ class FamilyRepository extends Database {
         $stmnt->execute([$acc_id]);
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Family');
         $result = $stmnt->fetch();
+
+        return $result;
+    }
+
+    public function getAllFamily()
+    {
+        $result = [];
+        $sql = "SELECT * FROM family;";
+        $stmnt = $this->connect()->query($sql);
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Family');
 
         return $result;
     }

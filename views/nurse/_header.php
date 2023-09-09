@@ -44,7 +44,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="parent_register.php">PARENT REGISTER</a></li>
                 <li><a class="dropdown-item" href="family_register.php">FAMILY REGISTER</a></li>
-                <li><a class="dropdown-item" href="">BABY REGISTER</a></li>
+                <li><a class="dropdown-item" href="baby_register.php">BABY REGISTER</a></li>
               </ul>
             </li>
           </ul>

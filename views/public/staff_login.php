@@ -7,7 +7,6 @@ if (isset($_POST["btnLOGIN"])) {
 
     $account = new Account(
         null,
-        null,
         $_POST["username"],
         $_POST["password"],
         $_POST["user_type"]

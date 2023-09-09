@@ -12,7 +12,6 @@ if (isset($_POST["new_family"])) {
     if ($_POST["password"] == $_POST["re_password"]) {
         $new_account = new Account(
             null,
-            $_POST["nic"],
             $_POST["username"],
             $_POST["password"],
             'FAMILY'

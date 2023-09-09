@@ -5,16 +5,20 @@
 </head>
 
 <?php
-// session_start();
-// unset($_SESSION['login']);
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-// header("Location:nurselogging.php");
+if (isset($_POST['logout'])) {
+  unset($_SESSION["username"]);
+  unset($_SESSION["user_type"]);
+  header("location: /moh/");
+}
 ?>
 
 <header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/moh/">Home</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,9 +28,7 @@
 
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">NURSE MAIN</a>
-          </li>
+          <a class="navbar-brand" href="index.php">NURSE MAIN</a>
 
           <li class="nav-item">
             <a class="nav-link" href="BabyVaccnationReort.php">BABY VACCINNATON</a>
@@ -52,18 +54,32 @@
 
         </ul>
 
-        <ul class="justify-content-end navbar-nav">
-          <li class="nav-item dropdown" style="margin-right: 5em;">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Username
+        <?php
+        if (isset($_SESSION['username'])) {
+          /// your code here
+          echo
+          "
+          <ul class='justify-content-end navbar-nav'>
+          <li class='nav-item dropdown' style='margin-right: 5em;'>
+            <a class='nav-link dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+              " . strtoupper($_SESSION['username']) . "
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="familyDetailsTable.php">Family Details</a></li>
-              <li><a class="dropdown-item" href="babydetailsTable.php">Baby Details</a></li>
-              <li><a class="dropdown-item" href="vaccinedetailsTable.php">Vaccine Details</a></li>
+            <ul class='dropdown-menu'>
+              <li><a class='dropdown-item'>Hello</a></li>
+              <form method='POST'>
+                <li><a class='dropdown-item'><input type='submit' value='Logout' name='logout'/></a></li>
+              </form>
             </ul>
           </li>
         </ul>
+          
+          ";
+        }
+        ?>
+
+
+
+        <a class="navbar-brand" href="/moh/">Home</a>
 
       </div>
     </div>

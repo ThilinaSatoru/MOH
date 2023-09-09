@@ -4,10 +4,19 @@
 
 </head>
 
-<!-- <div class="header-top wow fadeIn">
-  
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-</div> -->
+if (isset($_POST['logout'])) {
+  unset($_SESSION["username"]);
+  unset($_SESSION["user_type"]);
+  header("location: /moh/");
+}
+?>
+
+
 <header>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -25,37 +34,60 @@
           <li class="nav-item">
             <a class="nav-link" href="#getintouch">Contact </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/moh/views/public/family_login.php">Vaccine Cards </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/moh/views/public/staff_login.php">Staff Login </a>
-          </li>
 
 
 
         </ul>
 
-        <ul class="justify-content-end navbar-nav">
-          <li class="nav-item dropdown" style="margin-right: 5em;">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Username
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-
-          <!-- <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> -->
-        </ul>
+        <?php
+        if (isset($_SESSION['username']) && isset($_SESSION['user_type'])) {
+          /// your code here
+          echo
+          "
+          <ul class='justify-content-end navbar-nav'>
+            <li class='nav-item dropdown' style='margin-right: 5em;'>
+              <a class='nav-link dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                " . strtoupper($_SESSION['username']) . "
+              </a>
+              <ul class='dropdown-menu'>
+              ";
+          if ($_SESSION['user_type'] == 'NURSE') {
+            echo "<li><a class='dropdown-item' href='/moh/views/nurse/'>Dashbord</a></li>";
+          } elseif ($_SESSION['user_type'] == 'DOCTOR') {
+            echo "<li><a class='dropdown-item' href='/moh/views/doctor/'>Dashbord</a></li>";
+          } elseif ($_SESSION['user_type'] == 'FAMILY') {
+            echo "<li><a class='dropdown-item' href='/moh/views/nurse/'>Dashbord</a></li>";
+          }
+          echo "
+                <form method='POST'>
+                  <li><a class='dropdown-item'><input type='submit' value='Logout' name='logout'/></a></li>
+                </form>
+              </ul>
+            </li>
+          </ul>
+          
+          ";
+        } else {
+          echo
+          "
+          <ul class='justify-content-end navbar-nav'>
+            <li class='nav-item dropdown' style='margin-right: 5em;'>
+              <a class='nav-link dropdown-toggle' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                Login
+              </a>
+              <ul class='dropdown-menu'>
+                <li class='nav-item'>
+                  <a class='dropdown-item' href='/moh/views/public/family_login.php'>Family</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='dropdown-item' href='/moh/views/public/staff_login.php'>Staff</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          ";
+        }
+        ?>
       </div>
     </div>
   </nav>

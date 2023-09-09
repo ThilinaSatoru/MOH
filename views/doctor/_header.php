@@ -4,59 +4,83 @@
 
 </head>
 
-<!-- <div class="header-top wow fadeIn">
-  
+<?php
+if (!isset($_SESSION)) {
+  session_start();
+}
 
-</div> -->
+if (isset($_POST['logout'])) {
+  unset($_SESSION["username"]);
+  unset($_SESSION["user_type"]);
+  header("location: /moh/");
+}
+?>
+
 <header>
-  <img src="/moh/resources/images/ban.JPG" alt="banner" width="100%">
-
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/moh/">Home</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarScroll">
 
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
+          <a class="navbar-brand" href="index.php">DOCTOR MAIN</a>
+
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="BabyVaccnationReort.php">BABY VACCINNATON</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#getintouch">Contact </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/moh/views/public/family_login.php">Vaccine Cards </a>
-          </li>
+          <!-- 
           <li class="nav-item">
             <a class="nav-link" href="/moh/views/public/staff_login.php">Staff Login </a>
-          </li>
+          </li> -->
 
+          <ul class="justify-content-end navbar-nav">
+            <li class="nav-item dropdown" style="margin-right: 5em;">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                REGISTER
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="parent_register.php">PARENT REGISTER</a></li>
+                <li><a class="dropdown-item" href="family_register.php">FAMILY REGISTER</a></li>
+                <li><a class="dropdown-item" href="baby_register.php">BABY REGISTER</a></li>
+              </ul>
+            </li>
+          </ul>
 
 
         </ul>
 
-        <ul class="justify-content-end navbar-nav">
-          <li class="nav-item dropdown" style="margin-right: 5em;">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Username
+        <?php
+        if (isset($_SESSION['username'])) {
+          /// your code here
+          echo
+          "
+          <ul class='justify-content-end navbar-nav'>
+          <li class='nav-item dropdown' style='margin-right: 5em;'>
+            <a class='nav-link dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+              " . strtoupper($_SESSION['username']) . "
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <ul class='dropdown-menu'>
+              <li><a class='dropdown-item'>Hello</a></li>
+              <form>
+                <li><a class='dropdown-item' value='Logout' href='logout.php'>LogOut</a></li>
+              </form>
             </ul>
           </li>
-
-          <!-- <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> -->
         </ul>
+          
+          ";
+        }
+        ?>
+
+
+
+        <a class="navbar-brand" href="/moh/">Home</a>
+
       </div>
     </div>
   </nav>

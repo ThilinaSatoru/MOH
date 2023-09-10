@@ -33,10 +33,6 @@ if (isset($_POST['logout'])) {
           <li class="nav-item">
             <a class="nav-link" href="BabyVaccnationReort.php">BABY VACCINNATON</a>
           </li>
-          <!-- 
-          <li class="nav-item">
-            <a class="nav-link" href="/moh/views/public/staff_login.php">Staff Login </a>
-          </li> -->
 
           <ul class="justify-content-end navbar-nav">
             <li class="nav-item dropdown" style="margin-right: 5em;">
@@ -60,18 +56,18 @@ if (isset($_POST['logout'])) {
           echo
           "
           <ul class='justify-content-end navbar-nav'>
-          <li class='nav-item dropdown' style='margin-right: 5em;'>
-            <a class='nav-link dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-              " . strtoupper($_SESSION['username']) . "
-            </a>
-            <ul class='dropdown-menu'>
-              <li><a class='dropdown-item'>Hello</a></li>
-              <form method='POST'>
-                <li><a class='dropdown-item'><input type='submit' value='Logout' name='logout'/></a></li>
-              </form>
-            </ul>
-          </li>
-        </ul>
+            <li class='nav-item dropdown' style='margin-right: 5em;'>
+              <a class='nav-link dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                " . strtoupper($_SESSION['username']) . "
+              </a>
+              <ul class='dropdown-menu'>
+                <li><a class='dropdown-item'>Hello</a></li>
+                <form method='POST'>
+                  <li><a class='dropdown-item'><input type='submit' value='Logout' name='logout'/></a></li>
+                </form>
+              </ul>
+            </li>
+          </ul>
           
           ";
         }

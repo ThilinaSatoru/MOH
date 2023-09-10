@@ -25,7 +25,6 @@ class AccountRepository extends Database
 
     public function findByUsername($user)
     {
-        // code...
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$user]);
@@ -37,7 +36,6 @@ class AccountRepository extends Database
 
     public function findByUsernameAndPassword(Account $account)
     {
-        // code...
         $sql = "SELECT * FROM account WHERE username = ? AND password = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$account->getUsername(), $account->getPassword()]);
@@ -49,10 +47,19 @@ class AccountRepository extends Database
 
     public function countByUsername($username)
     {
-        // code...
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$username]);
+        $result = $stmnt->rowCount();
+
+        return $result;
+    }
+
+    public function findAllByType($type)
+    {
+        $sql = "SELECT * FROM account WHERE type = ?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$type]);
         $result = $stmnt->rowCount();
 
         return $result;

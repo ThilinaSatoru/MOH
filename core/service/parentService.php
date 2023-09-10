@@ -31,6 +31,24 @@ class ParentService extends ParentRepository
         }
     }
 
+    public function loadParentTableData()
+    {
+        foreach ($this->getAll() as $obj) {
+            echo
+            "<tr>
+                <td>" . $obj->getId() . "</td>
+                <td>" . $obj->getName() . "</td>
+                <td>" . $obj->getEmail() . "</td>
+                <td>" . $obj->getContact() . "</td>
+                <td>" . $obj->getNic() . "</td>
+                <td>" . $obj->getDob() . "</td>
+                <td>" . $obj->getAddress() . "</td>
+                <td>" . $obj->getType() . "</td>
+                <td>" . $obj->getFamily_id() . "</td>
+            </tr>";
+        }
+    }
+
 
     public function register(_Parent $f,  _Parent $m)
     {

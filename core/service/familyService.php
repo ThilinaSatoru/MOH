@@ -2,6 +2,7 @@
 require_once("../../../moh/core/repository/familyRepository.php");
 require_once("../../../moh/core/repository/parentRepository.php");
 require_once("../../../moh/core/repository/accountRepository.php");
+require_once("../../../moh/core/entity/baby.class.php");
 
 class FamilyService extends FamilyRepository
 {
@@ -55,13 +56,35 @@ class FamilyService extends FamilyRepository
         ";
     }
 
-    public function loadAllFamilyOptions()
+    public function loadAllFamilyOptions($id)
     {
+
         foreach ($this->getAllFamily() as $obj) {
             echo
             "
-                <option>" . $obj->getId() . "</option>
+                <option value='" . $obj->getId() . "'
+            ";
+            if ($id == $obj->getId()) {
+                echo ' selected';
+            }
+            echo
+            "
+            >" . $obj->getId() . "</option>
             ";
         }
     }
+
+    public function loadFamilyTableData()
+    {
+
+        foreach ($this->getAllFamily() as $obj) {
+            echo
+            "<tr>
+                <td>" . $obj->getId() . "</td>
+                <td>" . $obj->getDate_married() . "</td>
+                <td>" . $obj->getAccount_id() . "</td>
+            </tr>";
+        }
+    }
 }
+?>

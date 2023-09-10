@@ -41,7 +41,6 @@ class FamilyRepository extends Database {
 
     public function getAllFamily()
     {
-        $result = [];
         $sql = "SELECT * FROM family;";
         $stmnt = $this->connect()->query($sql);
         $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Family');

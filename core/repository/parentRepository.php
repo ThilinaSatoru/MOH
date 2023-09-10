@@ -73,6 +73,15 @@ class ParentRepository extends Database
         return $result;
     }
 
+    public function getAll()
+    {
+        $sql = "SELECT * FROM parent;";
+        $stmnt = $this->connect()->query($sql);
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '_Parent');
+
+        return $result;
+    }
+
     public function getAllFathers()
     {
         $result = [];

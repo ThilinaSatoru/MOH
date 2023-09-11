@@ -24,6 +24,11 @@
 <link rel="stylesheet" href="./resources/css/custom.css">
 <!-- Modernizer for Portfolio -->
 <script src="./resources/js/modernizer.js"></script>
+<style>
+   #banner1 {
+      margin-bottom: -9em !important;
+   }
+</style>
 
 </head>
 

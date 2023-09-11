@@ -1,7 +1,26 @@
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    header {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
 
+    body {
+      margin-top: 5em;
+      min-height: 100vh;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      margin-top: 10em;
+    }
+  </style>
 </head>
 
 <?php
@@ -31,7 +50,7 @@ if (isset($_POST['logout'])) {
           <a class="navbar-brand" href="index.php">NURSE MAIN</a>
 
           <li class="nav-item">
-            <a class="nav-link" href="BabyVaccnationReort.php">BABY VACCINNATON</a>
+            <a class="nav-link" href="baby_vaccine_table.php">BABY VACCINNATON</a>
           </li>
 
           <ul class="justify-content-end navbar-nav">

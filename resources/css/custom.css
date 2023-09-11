@@ -873,7 +873,6 @@ body.clinic_version .footer .widget-title h3 {
     width: 80%;
     padding: 5px 20px;
     background: #eee;
-    float: left;
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -888,7 +887,6 @@ body.clinic_version .footer .widget-title h3 {
     font-size: 24px;
     position: relative;
     display: inline-block;
-    float: left;
     text-align: center;
 }
 .newsletter-form .mc-submit:hover,.newsletter-form .mc-submit:focus {

@@ -1,7 +1,11 @@
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <style>
+    body {
+      min-height: 100vh !important;
+    }
+  </style>
 </head>
 
 <?php
@@ -91,6 +95,6 @@ if (isset($_POST['logout'])) {
       </div>
     </div>
   </nav>
-  <img src="/moh/resources/images/ban.JPG" alt="banner" width="100%">
 </header>
+<img id="banner1" style="margin-top: 1.5em;" src="/moh/resources/images/ban.JPG" alt="banner" width="100%">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

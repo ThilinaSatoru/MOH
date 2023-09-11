@@ -15,7 +15,11 @@ if (isset($_POST['logout'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/moh/resources/css/nurse.css">
   <title>Nurse Main</title>
-
+  <style>
+    body {
+      margin-bottom: 10em !important;
+    }
+  </style>
 </head>
 
 <body>

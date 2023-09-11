@@ -112,7 +112,7 @@ if (isset($_POST["new_family"])) {
         </div>
     </div>
 
-    <?php // include_once('../../views/templates/footer.php'); 
+    <?php include_once('../../views/templates/footer.php');
     ?>
 </body>
 

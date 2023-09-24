@@ -25,7 +25,7 @@ class BabyRepository extends Database
 
     public function update(Baby $baby)
     {
-        $sql = "UPDATE baby SET name=?, gender=?, dob=?, weight=?, reg_date=?, family_id=?) WHERE id=?";
+        $sql = "UPDATE baby SET name=?, gender=?, dob=?, weight=?, reg_date=?, family_id=? WHERE id=?";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute(
             [

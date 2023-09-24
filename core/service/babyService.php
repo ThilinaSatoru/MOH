@@ -5,7 +5,7 @@ require_once("../../../moh/core/repository/accountRepository.php");
 
 class BabyService extends BabyRepository
 {
-    public function register(Baby $baby, $family_selected)
+    public function register(Baby $baby, $family_selected): bool
     {
         $success = false;
         $FAMILY_REPO = new FamilyRepository();
@@ -32,13 +32,13 @@ class BabyService extends BabyRepository
         return $success;
     }
 
-    public function edit(Baby $baby, $family_selected)
+    public function edit(Baby $baby, $family_selected): bool
     {
         $success = false;
         $FAMILY_REPO = new FamilyRepository();
         echo '<script>alert(" Deleting.. ' . $baby->getId() . '")</script>';
 
-        if ($baby != null && $family_selected != null) {
+        if ($family_selected != null) {
 
             if (!$this->findByNameAndFamily($baby->getName(), $family_selected)) {
                 $fam_id = null;

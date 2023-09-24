@@ -3,15 +3,15 @@
 class Database {
   private $host = "localhost";
   private $user = "root";
-  private $pswd = "root";
-  private $database = "moh";
+    private $password = "root";
+    private $database = "moh";
 
 
   protected function connect() {
     try {
-      $dsn = 'mysql:host='.$this->host.'; dbname='.$this->database;
-      $pdo = new PDO($dsn, $this->user, $this->pswd);
-      $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $dsn = 'mysql:host=' . $this->host . '; dbname=' . $this->database;
+        $pdo = new PDO($dsn, $this->user, $this->password);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
       // echo "Connected successfully" . '<br>';
       return $pdo;
 

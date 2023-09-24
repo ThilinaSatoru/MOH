@@ -8,7 +8,7 @@ require_once("../../../moh/core/repository/accountRepository.php");
 class NurseService extends NurseRepository
 {
 
-    public function register(Account $account, Nurse $nurse)
+    public function register(Account $account, Nurse $nurse): bool
     {
         $success = false;
         $ACCOUNT_REPO = new AccountRepository();
@@ -51,5 +51,22 @@ class NurseService extends NurseRepository
             }
         </script>
         ";
+    }
+
+    public function loadAllNurseOptions($id)
+    {
+        foreach ($this->getAll() as $obj) {
+            echo
+                "
+                <option value='" . $obj->getId() . "'
+            ";
+            if ($id == $obj->getId()) {
+                echo ' selected';
+            }
+            echo
+                "
+            >" . $obj->getName() . " (" . $obj->getId() . ")</option>
+            ";
+        }
     }
 }

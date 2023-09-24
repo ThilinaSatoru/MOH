@@ -88,12 +88,13 @@ if (isset($_POST["new_baby"])) {
 
                 <div class="col-mb-3">
                     <label class="form-label">Full Name :</label>
-                    <input class="form-control" type="text" name="name" value="<?php echo $old_baby->getName() ?>" placeholder="Firstname Lastname" required>
+                    <input class="form-control" type="text" name="name" value="<?php echo $old_baby->getName() ?>"
+                           placeholder="Firstname Lastname" required>
                 </div>
 
                 <div class="col-mb-3">
-                    <label for="inputState" class="form-label">Gender</label>
-                    <select id="inputState" class="form-select" name="gender" id="gender">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-select" name="gender" id="gender">
                         <option value="MALE" <?php
                                                 if ($old_baby->getGender() == "MALE") {
                                                     echo " selected";

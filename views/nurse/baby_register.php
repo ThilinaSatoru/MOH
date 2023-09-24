@@ -19,11 +19,9 @@ if (isset($_POST["new_baby"])) {
     );
 
 
-    if ($BABY_SERVICE->register($new_baby, $_POST["family_select"])) {
+    if (!$BABY_SERVICE->register($new_baby, $_POST["family_select"])) {
         // header("location:baby_table.php");
-    } else {
         echo '<script>alert("Please Try Again Shortly.....")</script>';
-        // header("location:baby_register.php");
     }
 }
 ?>

@@ -1,137 +1,137 @@
 <!DOCTYPE html>
-<html>
+<?php
+include_once("../../core/service/vaccineService.php");
+include_once("../../core/repository/vaccineRepository.php");
+include_once("../../core/entity/vaccine.class.php");
+include_once("../../core/service/nurseService.php");
+include_once("../../core/entity/nurse.class.php");
+
+$VACCINE_SERVICE = new vaccineService();
+$VACCINE_REPO = new vaccineRepository();
+$NURSE_SERVICE = new NurseService();
+
+if (isset($_GET['edit'])) {
+    $_SESSION['id'] = $_GET['edit'];
+    $old_baby = $VACCINE_REPO->findById($_SESSION['id']);
+}
+
+if (isset($_POST['add_vaccine'])) {
+
+    $vaccine = new Vaccine(
+        null,
+        $_POST['available'],
+        $_POST['expire'],
+        $_POST['factory'],
+        $_POST['name'],
+        date("Y-m-d H:i:s"),
+        $_POST['nurse_select']
+    );
+
+
+    if (!$VACCINE_SERVICE->register($vaccine)) {
+        // header("location:baby_table.php");
+        echo '<script>alert("Please Try Again Shortly.....")</script>';
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-	<title>Report Table</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
-
-		th,
-		td {
-			padding: 8px;
-			text-align: left;
-			border-bottom: 1px solid #ddd;
-			background-color: burlywood;
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 15px;
-		}
-
-		th {
-			background-color: slategray;
-			color: whitesmoke;
-			font-size: 20px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../resources/css/nurse.css">
+    <!--    /moh/resources/css/nurse.css  -->
+    <title>family</title>
+    <style>
+        .login-box {
+            max-width: 35rem;
+            margin-inline: auto;
+            margin-bottom: 4em;
+            margin-top: 2em;
+            padding: 1em;
+            border-radius: 1em;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
 </head>
 
-<body><br>
-	<h3>Search hear for Vaccine detail</h3>
-	<div class="container">
 
-		<div class="row">
-			<div class="col-md-7">
+<body>
+<?php include_once('_header.php'); ?>
 
-				<form action="" method="POST">
-					<div class="input-group mb-3">
-						<input type="text" name="search" required value="<?php if (isset($_POST['search'])) {
-																				echo $_POST['search'];
-																			} ?>" class="form-control" placeholder="Search Vaccine batch ID or Vaccine name">
-						<button type="submit" class="btn btn-primary">Search</button>
-					</div>
-				</form>
+<div class="container-fluid">
+    <div class="row">
 
-			</div>
-		</div>
+        <div class="col-8">
+            <h1>Vaccines</h1>
+            <br/>
+            <table class="table">
+                <thead class="thead-dark">
+                <th scope="col">Id</th>
+                <th scope="col">Available</th>
+                <th scope="col">Expire</th>
+                <th scope="col">Date Factory</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date Register</th>
+                <th scope="col">Issued By</th>
+                <th>Actions</th>
+                </thead>
+                <tbody>
+                <?php $VACCINE_SERVICE->loadAllTableData(); ?>
+                </tbody>
+            </table>
+        </div>
 
-		<table>
+        <div class="col">
+            <div class="container">
+                <h2 class=" text-center">Update</h2>
+                <div class="card login-box">
+                    <form method="POST" action="vaccine_table.php">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name :</label>
+                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"/>
+                        </div>
 
-			<tr>
-				<th>VACCINE ID</th>
-				<th>EXPIRE DATE</th>
-				<th>MANUFACTURE DATE</th>
-				<th>VACCINE REGISTER DATE</th>
-				<th>NUMBER OF BOTTLES STORED</th>
-				<th>AVELABLE BOTTLES IN STOCK</th>
-				<th>VACCINE NAME</th>
-			</tr>
+                        <div class="mb-3">
+                            <label for="available" class="form-label">Available :</label>
+                            <input class="form-control" type="number" id="available" name="available"/>
+                        </div>
 
-			<?php
-			if (isset($_POST['search'])) {
-				$id = $_POST["search"];
-				$filtervalues = $_POST['search'];
-				$id = $_POST["search"];
-				$query = "SELECT * FROM vaccine  WHERE CONCAT(batchID,vaccineName) LIKE '%$filtervalues%' ";
-				$query_run = mysqli_query($con, $query);
+                        <div class="mb-3">
+                            <label for="expire" class="form-label">Date Expire :</label>
+                            <input class="form-control" type="date" id="expire" name="expire"/>
+                        </div>
 
-				if (mysqli_num_rows($query_run) > 0) {
-					foreach ($query_run as $items) {
-			?>
-						<tr>
-							<td><? $items['batchID']; ?></td>
-							<td><? $items['expireDate']; ?></td>
-							<td><? $items['manufacturedate']; ?></td>
-							<td><? $items['VaccineregisterDate']; ?></td>
-							<td><? $items['numberofBottels']; ?></td>
-							<td><? $items['avelableBottels']; ?></td>
-							<td><? $items['vaccineName']; ?></td>
+                        <div class="mb-3">
+                            <label for="factory" class="form-label">Date Factory :</label>
+                            <input class="form-control" type="date" id="factory" name="factory"/>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="nurse_select" class="form-label">Issued By :</label>
+                            <select id="nurse_select" class="form-select" name="nurse_select">
+                                <option selected>Choose Nurse ...</option>
+                                <?php $NURSE_SERVICE->loadAllNurseOptions(null); ?>
+                            </select>
+                        </div>
 
-						</tr>
-					<?php
-					}
-				} else {
-					?>
-					<tr>
-						<td colspan="7">No Record Found</td>
-					</tr>
-			<?php
-				}
-			}
-			?>
+                        <div class="card-body text-center">
+                            <button type="submit" class="btn btn-primary" name="add_vaccine">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
-		</table>
-		<br>
+</div>
 
-		<h1>VACCINE REPORT TABLE</h1>
-		<br>
-		<br>
-		<table>
-			<tr>
-				<th>VACCINE ID</th>
-				<th>EXPIRE DATE</th>
-				<th>MANUFACTURE DATE</th>
-				<th>VACCINE REGISTER DATE</th>
-				<th>NUMBER OF BOTTLES STORED</th>
-				<th>AVELABLE BOTTLES IN STOCK</th>
-				<th>VACCINE NAME</th>
-			</tr>
-			<?php
-			// $result = $con->query($sql);
 
-			if ($result->num_rows > 0) {
-				while ($row = $result->fetch_assoc()) {
-					echo "<tr>";
-					echo "<td>" . $row["batchID"] . "</td>";
-					echo "<td>" . $row["expireDate"] . "</td>";
-					echo "<td>" . $row["manufacturedate"] . "</td>";
-					echo "<td>" . $row["VaccineregisterDate"] . "</td>";
-					echo "<td>" . $row["numberofBottels"] . "</td>";
-					echo "<td>" . $row["avelableBottels"] . "</td>";
-					echo "<td>" . $row["vaccineName"] . "</td>";
-					echo "</tr>";
-				}
-			}
-
-			$con->close();
-			?>
-		</table>
+<?php include_once('../../views/templates/footer.php'); ?>
 </body>
 
 </html>

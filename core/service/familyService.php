@@ -6,7 +6,7 @@ require_once("../../../moh/core/entity/baby.class.php");
 
 class FamilyService extends FamilyRepository
 {
-    public function register(Account $account, Family $family, $f_NIC, $m_NIC)
+    public function register(Account $account, Family $family, $f_NIC, $m_NIC): bool
     {
         $success = false;
         $saved_acc_id = null;
@@ -58,7 +58,6 @@ class FamilyService extends FamilyRepository
 
     public function loadAllFamilyOptions($id)
     {
-
         foreach ($this->getAllFamily() as $obj) {
             echo
             "
@@ -76,7 +75,6 @@ class FamilyService extends FamilyRepository
 
     public function loadFamilyTableData()
     {
-
         foreach ($this->getAllFamily() as $obj) {
             echo
             "<tr>

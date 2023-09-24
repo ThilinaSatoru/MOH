@@ -30,7 +30,6 @@
    }
 </style>
 
-</head>
 
 <body class="clinic_version">
 

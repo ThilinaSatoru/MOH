@@ -14,22 +14,23 @@ class DoctorService extends DoctorRepository {
             "<tr>
                 <td>".$obj->getId()."</td>
                 <td>".$obj->getName()."</td>
-                <td>".$obj->getEmail()."</td>
-                <td>".$obj->getContact()."</td>
-                <td>".$obj->getNic()."</td>
-                <td>".$obj->getAccount_id()."</td>
+                <td>" . $obj->getEmail() . "</td>
+                <td>" . $obj->getContact() . "</td>
+                <td>" . $obj->getNic() . "</td>
+                <td>" . $obj->getAccount_id() . "</td>
 
                 <td></td>
             </tr>";
         }
     }
 
-    public function register(Account $account, Doctor $doctor) {
+    public function register(Account $account, Doctor $doctor): bool
+    {
         $success = false;
         $ACCOUNT_REPO = new AccountRepository();
 
         // if count of result(account) is less than 1
-        if($ACCOUNT_REPO->countByUsername($account->getUsername()) < 1) {
+        if ($ACCOUNT_REPO->countByUsername($account->getUsername()) < 1) {
             // new account
             if (!$ACCOUNT_REPO->findByUsername($account->getUsername())) {
                 //save account

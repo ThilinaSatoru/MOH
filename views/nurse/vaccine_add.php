@@ -1,39 +1,32 @@
 <?php
-session_start();
-require_once('conection.php');
-if (isset($_POST["bcgsubmit"])) {
-    if (isset($_SESSION["login"])) {
 
-        $batchID = $_POST["bcgID"];
-        $Expire = $_POST["expbcg"];
-        $manufacture = $_POST["mnfbcg"];
-        $register = $_POST["bcgreg"];
-        $number = $_POST["numbcg"];
-        $avelable = $_POST["avebcg"];
-        $name = $_POST["name"];
+include_once("../../core/service/vaccineService.php");
+include_once("../../core/entity/vaccine.class.php");
+include_once("../../core/service/nurseService.php");
+include_once("../../core/entity/nurse.class.php");
 
-        //perform sql
-        $sql = "INSERT INTO `vaccine`(`batchID`, `expireDate`, `manufacturedate`, `VaccineregisterDate`, `numberofBottels`, `avelableBottels`,`vaccineName`) VALUES ('$batchID',' $Expire','$manufacture','$register','  $number',' $avelable',' $name')";
-        //sql query
-        $ret = mysqli_query($con, $sql);
-        if ($ret > 0) //check return
-        {
+$VACCINE_SERVICE = new vaccineService();
+$NURSE_SERVICE = new NurseService();
 
-            header("location:N-main.php");
-        } else {
-            echo '<script>alert("Please Try Again Shortly.....")</script>';
-            header("location:NurseRegistration.php");
-        }
+if (isset($_POST['add_vaccine'])) {
 
-        //disconnect 
-        mysqli_close($con);
-    } else {
-        echo '<script>alert("Please login to the system")</script>';
-        header("location:nurselogging.php");
+    $vaccine = new Vaccine(
+        null,
+        $_POST['available'],
+        $_POST['expire'],
+        $_POST['factory'],
+        $_POST['name'],
+        date("Y-m-d H:i:s"),
+        $_POST['nurse_select']
+    );
+
+
+    if (!$VACCINE_SERVICE->register($vaccine)) {
+        // header("location:baby_table.php");
+        echo '<script>alert("Please Try Again Shortly.....")</script>';
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,58 +34,77 @@ if (isset($_POST["bcgsubmit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="baby.css">
-    <title>vaccine form</title>
+    <link rel="stylesheet" href="../../resources/css/nurse.css">
+    <!--    /moh/resources/css/nurse.css  -->
+    <title>family</title>
+    <style>
+        .login-box {
+            max-width: 35rem;
+            margin-inline: auto;
+            margin-bottom: 4em;
+            margin-top: 2em;
+            padding: 1em;
+            border-radius: 1em;
+            box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+        }
+    </style>
 </head>
 
+
 <body>
-    <section>
-        <form method="POST" action="#">
+<?php include_once('_header.php'); ?>
 
-            <div class="box">
-                <div class="title"> Vaccine Register</div>
+<div class="container-fluid">
+    <div class="row">
 
-                <div class="form">
-                    <div class="input-field">
-                        <label>Batch ID</label>
-                        <input type="text" name="bcgID" class="input" required />
-                    </div>
-                    <div class="input-field">
-                        <label> Expire date</label>
-                        <input type="text" name="expbcg" class="input">
-                    </div>
+        <div class="col">
+            <div class="container">
+                <h1 class=" text-center">Add Vaccine</h1>
+                <div class="card login-box">
+                    <form method="POST" action="vaccine_table.php">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name :</label>
+                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"/>
+                        </div>
 
-                    <div class="input-field">
-                        <label>Manufacture date</label>
-                        <input type="text" name="mnfbcg" class="input">
-                    </div>
-                    <div class="input-field">
-                        <label>vaccine order register date</label>
-                        <input type="text" name="bcgreg" class="input">
-                    </div>
+                        <div class="mb-3">
+                            <label for="available" class="form-label">Available :</label>
+                            <input class="form-control" type="number" id="available" name="available"/>
+                        </div>
 
-                    <div class="input-field">
-                        <label>Numbers of bottles</label>
-                        <input type="text" name="numbcg" class="input">
-                    </div>
-                    <div class="input-field">
-                        <label>Numbers of avelable bottles</label>
-                        <input type="text" name="avebcg" class="input">
-                    </div>
-                    <div class="input-field">
-                        <label>Vaccine Name</label>
-                        <input type="text" name="name" class="input">
-                    </div>
+                        <div class="mb-3">
+                            <label for="expire" class="form-label">Date Expire :</label>
+                            <input class="form-control" type="date" id="expire" name="expire"/>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="factory" class="form-label">Date Factory :</label>
+                            <input class="form-control" type="date" id="factory" name="factory"/>
+                        </div>
 
-                    <div class="input-field">
-                        <input type="submit" name="bcgsubmit" value="submit" class="btn">
-                    </div>
+                        <div class="mb-3">
+                            <label for="nurse_select" class="form-label">Issued By :</label>
+                            <select id="nurse_select" class="form-select" name="nurse_select">
+                                <option selected>Choose Nurse ...</option>
+                                <?php $NURSE_SERVICE->loadAllNurseOptions(null); ?>
+                            </select>
+                        </div>
 
+                        <div class="card-body text-center">
+                            <button type="submit" class="btn btn-primary" name="add_vaccine">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
 
+    </div>
+
+
+</div>
+
+
+<?php include_once('../../views/templates/footer.php'); ?>
 </body>
 
 </html>

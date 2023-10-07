@@ -48,7 +48,23 @@ class vaccineService extends vaccineRepository
                 echo '<script>alert("Vaccine exists.")</script>';
             }
         }
+        return $success;
+    }
 
+    public function edit(Vaccine $vaccine): bool
+    {
+        $success = false;
+        if ($vaccine->getId() != null) {
+            if ($this->findById($vaccine->getId())) {
+                $this->update($vaccine);
+                echo "<script>alert('Updated " . $vaccine->getId() . "');</script>";
+            } else {
+//                $this->save($vaccine);
+                echo '<script>alert("Saved 2")</script>';
+            }
+            $this->clear_register();
+            $success = true;
+        }
         return $success;
     }
 

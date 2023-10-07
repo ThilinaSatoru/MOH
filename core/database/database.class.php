@@ -8,7 +8,7 @@ class Database
     private $database = "moh";
 
 
-    protected function connect()
+    protected function connect(): ?PDO
     {
         try {
             $dsn = 'mysql:host=' . $this->host . '; dbname=' . $this->database;
@@ -17,9 +17,10 @@ class Database
             // echo "Connected successfully" . '<br>';
             return $pdo;
 
-    } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-      }
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        return null;
     }
 
   }

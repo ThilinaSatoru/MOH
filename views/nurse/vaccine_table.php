@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("../../core/service/vaccineService.php");
 include_once("../../core/repository/vaccineRepository.php");
 include_once("../../core/entity/vaccine.class.php");
@@ -9,9 +10,51 @@ $VACCINE_SERVICE = new vaccineService();
 $VACCINE_REPO = new vaccineRepository();
 $NURSE_SERVICE = new NurseService();
 
+$old_vaccine = new Vaccine();
 if (isset($_GET['edit'])) {
+//    global $old_vaccine;
     $_SESSION['id'] = $_GET['edit'];
     $old_vaccine = $VACCINE_REPO->findById($_SESSION['id']);
+}
+
+if (isset($_POST['update_vaccine'])) {
+
+//    $vaccine = new Vaccine(
+//        $old_vaccine->getId(),
+//        $_POST['available'],
+//        $_POST['expire'],
+//        $_POST['factory'],
+//        $_POST['name'],
+//        date("Y-m-d H:i:s"),
+//        $_POST['nurse_select']
+//    );
+
+
+    $old_vaccine->setAvailable($_POST['available']);
+    $old_vaccine->setExpire($_POST['expire']);
+    $old_vaccine->setFactory($_POST['factory']);
+    $old_vaccine->setName($_POST['name']);
+    $old_vaccine->setIssuedBy($_POST['nurse_select']);
+
+    if (isset($_SESSION['id'])) {
+        echo "<script>alert('ID after update: " . $old_vaccine->getRegister() . "');</script>";
+        $old_vaccine->setId($_SESSION['id']);
+        $old_vaccine->setRegister(date("Y-m-d H:i:s", strtotime($old_vaccine->getRegister())));
+        if ($VACCINE_SERVICE->edit($old_vaccine)) {
+            clearForm();
+        } else {
+            echo '<script>alert("Please Try Again Shortly.....")</script>';
+        }
+
+    } else {
+        $old_vaccine->setRegister(date("Y-m-d H:i:s"));
+        if ($VACCINE_SERVICE->register($old_vaccine)) {
+            clearForm();
+        } else {
+            echo '<script>alert("Please Try Again Shortly.....")</script>';
+        }
+    }
+
 }
 
 if (isset($_GET['delete'])) {
@@ -21,7 +64,7 @@ if (isset($_GET['delete'])) {
         if (confirm('Press a button!')) {";
     $VACCINE_SERVICE->deleteVaccine($_GET['delete']);
     echo "
-    window.location.href='baby_table.php';
+    window.location.href='vaccine_table.php';
             } else {";
     echo "
         window.location.href='baby_table.php';
@@ -31,24 +74,6 @@ if (isset($_GET['delete'])) {
 
 }
 
-if (isset($_POST['update_vaccine'])) {
-    $vaccine = new Vaccine(
-        null,
-        $_POST['available'],
-        $_POST['expire'],
-        $_POST['factory'],
-        $_POST['name'],
-        date("Y-m-d H:i:s"),
-        $_POST['nurse_select']
-    );
-
-    if (!$VACCINE_SERVICE->register($vaccine)) {
-        echo '<script>alert("Please Try Again Shortly.....")</script>';
-    } else {
-        clearForm();
-    }
-}
-
 if (isset($_POST['clear'])) {
     clearForm();
 }
@@ -56,6 +81,7 @@ if (isset($_POST['clear'])) {
 function clearForm()
 {
     global $old_vaccine;
+    $_SESSION['id'] = null;
     $old_vaccine->setId(null);
     $old_vaccine->setName(null);
     $old_vaccine->setRegister(null);
@@ -63,6 +89,13 @@ function clearForm()
     $old_vaccine->setFactory(null);
     $old_vaccine->setExpire(null);
     $old_vaccine->setIssuedBy(null);
+    echo "
+        <script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+        ";
 }
 
 ?>

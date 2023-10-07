@@ -23,6 +23,23 @@ class VaccineRepository extends Database
         );
     }
 
+    public function update(Vaccine $vaccine)
+    {
+        $sql = "UPDATE vaccine SET available=?, expire=?, factory=?, name=?, register=?, issued_by=? where id=?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute(
+            [
+                $vaccine->getAvailable(),
+                $vaccine->getExpire(),
+                $vaccine->getFactory(),
+                $vaccine->getName(),
+                $vaccine->getRegister(),
+                $vaccine->getIssuedBy(),
+                $vaccine->getId()
+            ]
+        );
+    }
+
     public function getAllFamily()
     {
         $sql = "SELECT * FROM vaccine";

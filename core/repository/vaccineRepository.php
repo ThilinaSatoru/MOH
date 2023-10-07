@@ -47,4 +47,13 @@ class VaccineRepository extends Database
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Vaccine');
         return $stmnt->fetch();
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM vaccine WHERE id=?";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute(
+            [$id]
+        );
+    }
 }

@@ -1,22 +1,37 @@
-<!DOCTYPE html>
 <?php
 include_once("../../core/service/vaccineService.php");
 include_once("../../core/repository/vaccineRepository.php");
 include_once("../../core/entity/vaccine.class.php");
 include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
-
+$old_vaccine = new Vaccine();
 $VACCINE_SERVICE = new vaccineService();
 $VACCINE_REPO = new vaccineRepository();
 $NURSE_SERVICE = new NurseService();
 
 if (isset($_GET['edit'])) {
     $_SESSION['id'] = $_GET['edit'];
-    $old_baby = $VACCINE_REPO->findById($_SESSION['id']);
+    $old_vaccine = $VACCINE_REPO->findById($_SESSION['id']);
 }
 
-if (isset($_POST['add_vaccine'])) {
+if (isset($_GET['delete'])) {
+    echo
+    "
+    <script>
+        if (confirm('Press a button!')) {";
+    $VACCINE_SERVICE->deleteVaccine($_GET['delete']);
+    echo "
+    window.location.href='baby_table.php';
+            } else {";
+    echo "
+        window.location.href='baby_table.php';
+        }
+    </script>
+    ";
 
+}
+
+if (isset($_POST['update_vaccine'])) {
     $vaccine = new Vaccine(
         null,
         $_POST['available'],
@@ -27,13 +42,31 @@ if (isset($_POST['add_vaccine'])) {
         $_POST['nurse_select']
     );
 
-
     if (!$VACCINE_SERVICE->register($vaccine)) {
-        // header("location:baby_table.php");
         echo '<script>alert("Please Try Again Shortly.....")</script>';
+    } else {
+        clearForm();
     }
 }
+
+if (isset($_POST['clear'])) {
+    clearForm();
+}
+
+function clearForm()
+{
+    global $old_vaccine;
+    $old_vaccine->setId(null);
+    $old_vaccine->setName(null);
+    $old_vaccine->setRegister(null);
+    $old_vaccine->setAvailable(null);
+    $old_vaccine->setFactory(null);
+    $old_vaccine->setExpire(null);
+    $old_vaccine->setIssuedBy(null);
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,34 +124,39 @@ if (isset($_POST['add_vaccine'])) {
                     <form method="POST" action="vaccine_table.php">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"/>
+                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
+                                   value="<?php echo $old_vaccine->getName() ?>"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="available" class="form-label">Available :</label>
-                            <input class="form-control" type="number" id="available" name="available"/>
+                            <input class="form-control" type="number" id="available" name="available"
+                                   value="<?php echo $old_vaccine->getAvailable() ?>"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="expire" class="form-label">Date Expire :</label>
-                            <input class="form-control" type="date" id="expire" name="expire"/>
+                            <input class="form-control" type="date" id="expire" name="expire"
+                                   value="<?php echo date("Y-m-d", strtotime($old_vaccine->getExpire())); ?>"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="factory" class="form-label">Date Factory :</label>
-                            <input class="form-control" type="date" id="factory" name="factory"/>
+                            <input class="form-control" type="date" id="factory" name="factory"
+                                   value="<?php echo date("Y-m-d", strtotime($old_vaccine->getFactory())); ?>"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="nurse_select" class="form-label">Issued By :</label>
                             <select id="nurse_select" class="form-select" name="nurse_select">
                                 <option selected>Choose Nurse ...</option>
-                                <?php $NURSE_SERVICE->loadAllNurseOptions(null); ?>
+                                <?php $NURSE_SERVICE->loadAllNurseOptions($old_vaccine->getIssuedBy()); ?>
                             </select>
                         </div>
 
                         <div class="card-body text-center">
-                            <button type="submit" class="btn btn-primary" name="add_vaccine">Save</button>
+                            <button type="submit" class="btn btn-primary" name="update_vaccine">Save</button>
+                            <button type="submit" class="btn btn-primary" name="clear">Clear</button>
                         </div>
                     </form>
                 </div>

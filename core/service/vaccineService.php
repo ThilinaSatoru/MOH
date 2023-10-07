@@ -24,8 +24,8 @@ class vaccineService extends vaccineRepository
                             </a>
                             <ul class='dropdown-menu'>
                                 <form method='POST'>
-                                    <li><a class='dropdown-item' href='baby_update.php?edit=" . $obj->getId() . "'>Edit</a></li>
-                                    <li><a class='dropdown-item' href='baby_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
+                                    <li><a class='dropdown-item' href='vaccine_table.php?edit=" . $obj->getId() . "'>Edit</a></li>
+                                    <li><a class='dropdown-item' href='vaccine_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
                                 </form>
                             </ul>
                         </li>
@@ -41,6 +41,7 @@ class vaccineService extends vaccineRepository
         if ($vaccine->getName() != null) {
             if (!$this->findByName($vaccine->getName())) {
                 $this->save($vaccine);
+                echo '<script>alert("Saved")</script>';
                 $this->clear_register();
                 $success = true;
             } else {
@@ -51,9 +52,13 @@ class vaccineService extends vaccineRepository
         return $success;
     }
 
-    private function clear_register()
+    public function deleteVaccine($id)
     {
-        echo '<script>alert("Saved")</script>';
+        $this->delete($id);
+    }
+
+    public function clear_register()
+    {
         echo "
         <script>
             if ( window.history.replaceState ) {
@@ -62,5 +67,6 @@ class vaccineService extends vaccineRepository
         </script>
         ";
     }
+
 
 }

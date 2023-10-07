@@ -21,9 +21,6 @@ if (isset($_GET['delete'])) {
         }
     </script>
     ";
-    // if () {
-    // }
-    // $BABY_SERVICE->deleteBaby($_GET['delete']);
 }
 ?>
 

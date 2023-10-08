@@ -1,11 +1,11 @@
 <?php
 
-include_once("../../core/service/vaccineService.php");
+include_once("../../core/service/VaccineService.php");
 include_once("../../core/entity/vaccine.class.php");
 include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
 
-$VACCINE_SERVICE = new vaccineService();
+$VACCINE_SERVICE = new VaccineService();
 $NURSE_SERVICE = new NurseService();
 
 if (isset($_POST['add_vaccine'])) {

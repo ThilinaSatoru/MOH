@@ -1,12 +1,12 @@
 <?php
 session_start();
-include_once("../../core/service/vaccineService.php");
+include_once("../../core/service/VaccineService.php");
 include_once("../../core/repository/vaccineRepository.php");
 include_once("../../core/entity/vaccine.class.php");
 include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
 $old_vaccine = new Vaccine();
-$VACCINE_SERVICE = new vaccineService();
+$VACCINE_SERVICE = new VaccineService();
 $VACCINE_REPO = new vaccineRepository();
 $NURSE_SERVICE = new NurseService();
 
@@ -80,15 +80,15 @@ if (isset($_POST['clear'])) {
 
 function clearForm()
 {
-    global $old_vaccine;
+    global $report;
     $_SESSION['id'] = null;
-    $old_vaccine->setId(null);
-    $old_vaccine->setName(null);
-    $old_vaccine->setRegister(null);
-    $old_vaccine->setAvailable(null);
-    $old_vaccine->setFactory(null);
-    $old_vaccine->setExpire(null);
-    $old_vaccine->setIssuedBy(null);
+    $report->setId(null);
+    $report->setName(null);
+    $report->setRegister(null);
+    $report->setAvailable(null);
+    $report->setFactory(null);
+    $report->setExpire(null);
+    $report->setIssuedBy(null);
     echo "
         <script>
             if ( window.history.replaceState ) {

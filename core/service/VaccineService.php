@@ -1,7 +1,7 @@
 <?php
 require_once("../../../moh/core/repository/vaccineRepository.php");
 
-class vaccineService extends vaccineRepository
+class VaccineService extends vaccineRepository
 {
 
     public function loadAllTableData()

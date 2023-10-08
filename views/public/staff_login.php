@@ -38,40 +38,44 @@ if (isset($_POST["btnLOGIN"])) {
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../../resources/css/register.css">
     <style>
         .login-box {
             width: 18rem;
             margin-inline: 40%;
-            padding: 1em;
+            padding: 2em;
             border-radius: 1em;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .container {
+            padding-bottom: 5em;
         }
     </style>
     <title>Doctor and Nurse Login</title>
 </head>
 
 <body>
-    <?php include('../../views/templates/header.php'); ?>
+<?php include('../../views/templates/header.php'); ?>
 
 
-    <div class="container">
-        <h3>Staff Login</h3>
-        <div class="card login-box">
-            <form method="POST" action="staff_login.php">
-                <div class="mb-3">
-                    <label for="user_type">Staff Type</label>
-                    <select class="form-select" id="user_type" name="user_type">
-                        <option value="DOCTOR">Doctor</option>
-                        <option value="NURSE">Nurse</option>
-                    </select>
-                </div>
-                <div class="mb-3">
+<div class="container">
+    <h1>Staff Login</h1>
+    <br>
+    <div class="card login-box">
+        <form method="POST" action="staff_login.php">
+            <div class="mb-3">
+                <label for="user_type">Staff Type</label>
+                <select class="form-select" id="user_type" name="user_type">
+                    <option value="DOCTOR">Doctor</option>
+                    <option value="NURSE">Nurse</option>
+                </select>
+            </div>
+            <div class="mb-3">
                     <label for="username" class="form-label">User Name</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                     <div id="emailHelp" class="form-text"></div>

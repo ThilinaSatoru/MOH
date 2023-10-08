@@ -1,13 +1,13 @@
 <?php
 include_once("../../core/service/parentService.php");
 include_once("../../core/repository/parentRepository.php");
-include_once("../../core/entity/parent.class.php");
+include_once("../../core/entity/parents.class.php");
 $PARENT_SERVICE = new ParentService();
 $PARENT_REPOSITORY = new ParentRepository();
 
 if (isset($_POST["parent-submit"])) {
 
-    $father = new _Parent(
+    $father = new Parents(
         null,
         $_POST["f-nic"],
         $_POST["f-name"],
@@ -19,7 +19,7 @@ if (isset($_POST["parent-submit"])) {
         "FATHER"
     );
 
-    $mother = new _Parent(
+    $mother = new Parents(
         null,
         $_POST["m-nic"],
         $_POST["m-name"],

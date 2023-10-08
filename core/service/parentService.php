@@ -50,7 +50,7 @@ class ParentService extends ParentRepository
     }
 
 
-    public function register(_Parent $f, _Parent $m): bool
+    public function register(Parents $f, Parents $m): bool
     {
         if (!$this->findByNic($f) && !$this->findByNic($m)) {
             if ($this->save($f) && $this->save($m)) {

@@ -2,43 +2,21 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Registration AS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: hsl(180, 100%, 43%);
-      justify-content: center;
-      align-items: center;
-      font-family: arial;
-    }
+    <meta charset="UTF-8"/>
+    <title>Registration AS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        .container {
+            width: 1000px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-    #header {
-      background-color: #97c3d2;
-      color: #000000;
-      text-align: center;
-      padding: 10px;
-      /* send to top */
-
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1;
-    }
-
-    .container {
-      width: 1000px;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .container .card {
+        .container .card {
       position: relative;
     }
 
@@ -120,24 +98,24 @@
     .container .card .face.face2 .content a {
       text-decoration: none;
       color: black;
-      box-sizing: border-box;
-      outline: 1px dashed #333;
-      padding: 10px;
-      margin: 15px 0 0;
-      display: inline-block;
+        box-sizing: border-box;
+        outline: 1px dashed #333;
+        padding: 10px;
+        margin: 15px 0 0;
+        display: inline-block;
     }
 
-    .container .card .face.face2 .content a:hover {
-      background: #333;
-      color: whitesmoke;
-      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-    }
-  </style>
+        .container .card .face.face2 .content a:hover {
+            background: #333;
+            color: whitesmoke;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 
 <body>
-  <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
-  <?php include('../../views/templates/header.php'); ?>
+<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+<?php include('../../views/templates/header.php'); ?>
 
   <div class="container">
     <a href="./doctor_register.php">

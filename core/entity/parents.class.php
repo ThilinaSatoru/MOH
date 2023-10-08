@@ -1,7 +1,7 @@
 <?php
 
 
-class _Parent
+class Parents
 {
 
     private $id;

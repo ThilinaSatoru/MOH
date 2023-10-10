@@ -42,17 +42,45 @@ class ReportService extends ReportRepository
         }
     }
 
-    public function edit($report)
+    public function edit(Report $report): bool
     {
+        $success = false;
+        if ($report->getId() != null) {
+            if ($this->findById($report->getId())) {
+                $this->update($report);
+                echo "<script>alert('Updated " . $report->getId() . "');</script>";
+            } else {
+                $this->save($report);
+                echo '<script>alert("Saved 2")</script>';
+            }
+            $this->clear_register();
+            $success = true;
+        }
+        return $success;
     }
 
-    public function register($report)
+    public function register(Report $report): bool
     {
+        $this->save($report);
+        echo '<script>alert("Saved")</script>';
+        $this->clear_register();
 
+        return true;
     }
 
-    public function deleteReport($delete)
+    public function deleteReport($id)
     {
-        $this->delete($delete->getId());
+        $this->delete($id);
+    }
+
+    public function clear_register()
+    {
+        echo "
+        <script>
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+        ";
     }
 }

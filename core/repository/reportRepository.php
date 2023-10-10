@@ -55,6 +55,7 @@ class ReportRepository extends Database
         );
     }
 
+
     public function getAllReports()
     {
         $sql = "SELECT * FROM report";

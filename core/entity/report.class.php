@@ -58,7 +58,6 @@ class Report {
     public function setId($id)
     {
         $this->id = $id;
-
         return $this;
     }
 
@@ -70,7 +69,6 @@ class Report {
     public function setBcg1($bcg1)
     {
         $this->bcg1 = $bcg1;
-
         return $this;
     }
 
@@ -82,7 +80,6 @@ class Report {
     public function setBcg2($bcg2)
     {
         $this->bcg2 = $bcg2;
-
         return $this;
     }
 
@@ -94,7 +91,6 @@ class Report {
     public function setHep1($hep1)
     {
         $this->hep1 = $hep1;
-
         return $this;
     }
 
@@ -106,7 +102,6 @@ class Report {
     public function setHep2($hep2)
     {
         $this->hep2 = $hep2;
-
         return $this;
     }
 
@@ -118,7 +113,6 @@ class Report {
     public function setPolio1($polio1)
     {
         $this->polio1 = $polio1;
-
         return $this;
     }
 
@@ -130,7 +124,6 @@ class Report {
     public function setPolio2($polio2)
     {
         $this->polio2 = $polio2;
-
         return $this;
     }
 
@@ -142,7 +135,6 @@ class Report {
     public function setSarampa1($sarampa1)
     {
         $this->sarampa1 = $sarampa1;
-
         return $this;
     }
 
@@ -154,7 +146,6 @@ class Report {
     public function setSarampa2($sarampa2)
     {
         $this->sarampa2 = $sarampa2;
-
         return $this;
     }
 
@@ -166,7 +157,6 @@ class Report {
     public function setSe1($se1)
     {
         $this->se1 = $se1;
-
         return $this;
     }
 
@@ -178,7 +168,6 @@ class Report {
     public function setSe2($se2)
     {
         $this->se2 = $se2;
-
         return $this;
     }
 
@@ -190,7 +179,6 @@ class Report {
     public function setBaby_id($baby_id)
     {
         $this->baby_id = $baby_id;
-
         return $this;
     }
 
@@ -202,7 +190,6 @@ class Report {
     public function setApproved_by($approved_by)
     {
         $this->approved_by = $approved_by;
-
         return $this;
     }
 
@@ -214,7 +201,6 @@ class Report {
     public function setIssued_by($issued_by)
     {
         $this->issued_by = $issued_by;
-
         return $this;
     }
 }

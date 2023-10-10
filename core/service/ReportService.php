@@ -48,6 +48,7 @@ class ReportService extends ReportRepository
 
     public function register($report)
     {
+
     }
 
     public function deleteReport($delete)

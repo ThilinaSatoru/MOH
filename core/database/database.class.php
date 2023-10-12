@@ -1,5 +1,5 @@
 <?php
-
+mysqli_report(MYSQLI_REPORT_STRICT);
 class Database
 {
     private $host = "localhost";
@@ -18,9 +18,14 @@ class Database
             return $pdo;
 
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            // Handle the exception
+            echo "<h1 style='text-align: center; padding: 3em;'>MySQL CONNECTION FAILED</h1>";
+            echo "<h2 style='text-align: center; text-decoration: underline; color: #f43648'>" . $e->getMessage() . "</h2>";
+            echo "<script>";
+            echo "alert('Connection Failed: " . $e->getMessage() . "');";
+            echo "</script>";
+            exit();
         }
-        return null;
     }
 
   }

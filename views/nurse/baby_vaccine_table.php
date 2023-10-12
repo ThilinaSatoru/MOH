@@ -54,7 +54,7 @@ if (isset($_POST['update_report'])) {
 //    $report->setBaby_id($_POST['baby_select']);
 //    $report->setApproved_by($_POST['doctor_select']);
 //    $report->setIssued_by($_POST['nurse_select']);
-//    var_dump($report);
+    var_dump($report);
 
     if (isset($_SESSION['id'])) {
         echo "<script>alert('ID after update: " . $report->getBaby_id() . "');</script>";

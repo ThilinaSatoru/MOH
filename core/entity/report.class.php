@@ -18,20 +18,20 @@ class Report {
     private $issued_by;
 
     public function __construct(
-        $id=null,
-         $bcg1=null,
-          $bcg2=null,
-           $hep1=null,
-            $hep2=null,
-             $polio1=null,
-              $polio2=null,
-               $sarampa1=null,
-                $sarampa2=null,
-                 $se1=null,
-                  $se2=null,
-                    $baby_id=null,
-                     $approved_by=null,
-                      $issued_by=null)
+        $id = false,
+        $bcg1 = false,
+        $bcg2 = false,
+        $hep1 = false,
+        $hep2 = false,
+        $polio1 = false,
+        $polio2 = false,
+        $sarampa1 = false,
+        $sarampa2 = false,
+        $se1 = false,
+        $se2 = false,
+        $baby_id = null,
+        $approved_by = null,
+        $issued_by = null)
     {
         $this->id = $id;
         $this->bcg1 = $bcg1;

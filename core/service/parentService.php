@@ -10,7 +10,7 @@ class ParentService extends ParentRepository
         foreach ($this->getAllFathers() as $obj) {
             echo
             "
-                <option>" . $obj->getNic() . "</option>
+                <option>" . $obj->getNic() . " (" . $obj->getName() . ")</option>
             ";
         }
     }
@@ -25,8 +25,8 @@ class ParentService extends ParentRepository
     {
         foreach ($this->getAllMothers() as $obj) {
             echo
-            "
-                <option>" . $obj->getNic() . "</option>
+                "
+                <option>" . $obj->getNic() . " (" . $obj->getName() . ")</option>
             ";
         }
     }
@@ -52,7 +52,7 @@ class ParentService extends ParentRepository
 
     public function register(Parents $f, Parents $m): bool
     {
-        if (!$this->findByNic($f) && !$this->findByNic($m)) {
+        if (!$this->findByNic($f->getNic()) && !$this->findByNic($m->getNic())) {
             if ($this->save($f) && $this->save($m)) {
                 $this->clear_register();
                 return true;

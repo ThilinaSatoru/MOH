@@ -152,7 +152,8 @@ function clearForm()
 
         <div class="col">
             <div class="container">
-                <h2 class=" text-center">Update</h2>
+                <!--                <h2 class=" text-center">Update</h2>-->
+                <br><br>
                 <div class="card login-box">
                     <form method="POST" action="vaccine_table.php">
                         <div class="mb-3">

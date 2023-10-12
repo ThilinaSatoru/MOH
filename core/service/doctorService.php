@@ -69,8 +69,26 @@ class DoctorService extends DoctorRepository {
         ";
     }
 
-    public function getNewDoctorID() {
+    public function getNewDoctorID()
+    {
         return $this->findNewDoctorID();
+    }
+
+    public function loadAllDoctorOptions($id)
+    {
+        foreach ($this->getAll() as $obj) {
+            echo
+                "
+                <option value='" . $obj->getId() . "'
+            ";
+            if ($id == $obj->getId()) {
+                echo ' selected';
+            }
+            echo
+                "
+            >" . $obj->getName() . " (" . $obj->getId() . ")</option>
+            ";
+        }
     }
 
 }

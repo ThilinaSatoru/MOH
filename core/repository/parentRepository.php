@@ -7,11 +7,11 @@ include("../../core/entity/parents.class.php");
 class ParentRepository extends Database
 {
 
-    public function save(Parents $parent)
+    public function save(Parents $parent): bool
     {
         try {
-            $sql = "INSERT INTO parent (id, name, email, contact, nic, dob, address, family_id) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO parent (id, name, email, contact, nic, dob, address, family_id, type) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmnt = $this->connect()->prepare($sql);
             $stmnt->execute(
                 [
@@ -22,7 +22,8 @@ class ParentRepository extends Database
                     $parent->getNic(),
                     $parent->getDob(),
                     $parent->getAddress(),
-                    $parent->getFamily_id()
+                    $parent->getFamily_id(),
+                    $parent->getType(),
                 ]
             );
             return true;

@@ -2,6 +2,9 @@
 session_start();
 unset($_SESSION['id']);
 
+include_once("../../core/service/doctorService.php");
+include_once("../../core/service/babyService.php");
+
 include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
 
@@ -11,6 +14,8 @@ include_once("../../core/entity/report.class.php");
 
 $report = new Report();
 
+$DOCTOR_SERVICE = new DoctorService();
+$BABY_SERVICE = new BabyService();
 $NURSE_SERVICE = new NurseService();
 $REPORT_REPO = new ReportRepository();
 $REPORT_SERVICE = new ReportService();
@@ -164,84 +169,106 @@ function clearForm()
 
         <div class="col">
             <div class="container">
-                <h2 class=" text-center">Update</h2>
+                <!--                <h2 class=" text-center">Update</h2>-->
+                <br><br>
                 <div class="card login-box">
                     <form method="POST" action="vaccine_table.php">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getBcg1() ?>"/>
+                        <div class="row">
+                            <div class="col">
+                                <label for="bcg1" class="form-label">BCG 1:</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getBcg1() ?>"
+                                       id="bcg1" name="bcg1">
+                            </div>
+
+                            <div class="col">
+                                <label for="bcg2" class="form-label">BCG 2:</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getBcg2() ?>"
+                                       id="bcg2" name="bcg2">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="available" class="form-label">Available :</label>
-                            <input class="form-control" type="number" id="available" name="available"
-                                   value="<?php echo $report->getBcg2() ?>"/>
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="hep1" class="form-label">HEP 1:</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getHep1() ?>"
+                                       id="hep1" name="hep1">
+                            </div>
+
+                            <div class="col">
+                                <label for="hep2" class="form-label">HEP 2:</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getHep2() ?>"
+                                       id="hep2" name="hep2">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getHep1() ?>"/>
+                        <div class="row">
+                            <div class="col">
+                                <label for="polio1" class="form-label">POLIO 1:</label>
+                                <input class="form-check-input" type="checkbox"
+                                       value="<?php echo $report->getPolio1() ?>" id="polio1" name="polio1">
+                            </div>
+
+                            <div class="col">
+                                <label for="polio2" class="form-label">Name :</label>
+                                <input class="form-check-input" type="checkbox"
+                                       value="<?php echo $report->getPolio2() ?>" id="polio2" name="polio2">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getHep2() ?>"/>
+                        <div class="row">
+                            <div class="col">
+                                <label for="sarampa1" class="form-label">SARAMPA 1 :</label>
+                                <input class="form-check-input" type="checkbox"
+                                       value="<?php echo $report->getSarampa1() ?>" id="sarampa1" name="sarampa1">
+                            </div>
+
+                            <div class="col">
+                                <label for="sarampa2" class="form-label">SARAMPA 2 :</label>
+                                <input class="form-check-input" type="checkbox"
+                                       value="<?php echo $report->getSarampa2() ?>" id="sarampa2" name="sarampa2">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getPolio1() ?>"/>
+                        <div class="row">
+                            <div class="col">
+                                <label for="se1" class="form-label">SE 1 :</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getSe1() ?>"
+                                       id="se1" name="se1">
+                            </div>
+
+                            <div class="col">
+                                <label for="se2" class="form-label">SE 2 :</label>
+                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getSe2() ?>"
+                                       id="se2" name="se2">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getPolio2() ?>"/>
-                        </div>
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getSarampa1() ?>"/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getSarampa2() ?>"/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getSe1() ?>"/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name :</label>
-                            <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                   value="<?php echo $report->getSe2() ?>"/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="baby_select" class="form-label">Issued By :</label>
+                            <label for="baby_select" class="form-label">Baby (ID):</label>
                             <select id="baby_select" class="form-select" name="baby_select">
-                                <option selected>Choose Nurse ...</option>
-                                <?php $NURSE_SERVICE->loadAllNurseOptions($report->getIssuedBy()); ?>
+                                <option selected>Choose Baby ...</option>
+                                <?php $BABY_SERVICE->loadAllBabyOptions($report->getBaby_id()); ?>
                             </select>
                         </div>
 
                         <div class="mb-3">
-                            <label for="nurse_select" class="form-label">Issued By :</label>
+                            <label for="nurse_select" class="form-label">Issued By (Nurse ID):</label>
                             <select id="nurse_select" class="form-select" name="nurse_select">
                                 <option selected>Choose Nurse ...</option>
-                                <?php $NURSE_SERVICE->loadAllNurseOptions($report->getIssuedBy()); ?>
+                                <?php $NURSE_SERVICE->loadAllNurseOptions($report->getIssued_by()); ?>
                             </select>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="nurse_select" class="form-label">Doctor (ID):</label>
+                            <select id="nurse_select" class="form-select" name="nurse_select">
+                                <option selected>Choose Nurse ...</option>
+                                <?php $DOCTOR_SERVICE->loadAllDoctorOptions($report->getApproved_by()); ?>
+                            </select>
+                        </div>
+
 
                         <div class="card-body text-center">
                             <button type="submit" class="btn btn-primary" name="update_vaccine">Save</button>

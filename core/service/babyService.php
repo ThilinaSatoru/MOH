@@ -112,4 +112,21 @@ class BabyService extends BabyRepository
             </tr>";
         }
     }
+
+    public function loadAllBabyOptions($id)
+    {
+        foreach ($this->getAll() as $obj) {
+            echo
+                "
+                <option value='" . $obj->getId() . "'
+            ";
+            if ($id == $obj->getId()) {
+                echo ' selected';
+            }
+            echo
+                "
+            >" . $obj->getName() . " (" . $obj->getId() . ")</option>
+            ";
+        }
+    }
 }

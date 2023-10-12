@@ -38,7 +38,8 @@ class DoctorRepository extends Database {
         return $result;
     }
 
-    public function getByNic($nic) {
+    public function getByNic($nic)
+    {
         // code...
         $sql = "SELECT * FROM doctor WHERE nic = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
@@ -49,7 +50,19 @@ class DoctorRepository extends Database {
         return $result;
     }
 
-    public function getAll() {
+    public function findByAccount($id)
+    {
+        $sql = "SELECT * FROM doctor WHERE account_id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
+        $result = $stmnt->fetch();
+
+        return $result;
+    }
+
+    public function getAll()
+    {
         $result = [];
         // code...
         $sql = "SELECT * FROM doctor";

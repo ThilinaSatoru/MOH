@@ -20,25 +20,81 @@ class ReportService extends ReportRepository
                     <td>" . $obj->getSarampa2() . "</td>
                     <td>" . $obj->getSe1() . "</td>
                     <td>" . $obj->getSe2() . "</td>
-                    <td>" . $obj->getBaby_id() . "</td>
-                    <td>" . $obj->getApproved_by() . "</td>
-                    <td>" . $obj->getIssued_by() . "</td>
-                    <td>
-                    <ul class='btn-group navbar-nav'>
-                        <li class='nav-item dropdown'>
-                            <a class='btn btn-warning dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                Action
-                            </a>
-                            <ul class='dropdown-menu'>
+                    <td>" . $obj->getBaby_id() . "</td> ";
+
+            if (isset($_SESSION['user_type'])) {
+                if ($_SESSION['user_type'] == 'DOCTOR') {
+                    if ($obj->getApproved_by() != null) {
+                        echo "
+                            <td>
                                 <form method='POST'>
-                                    <li><a class='dropdown-item' href='baby_vaccine_table.php?edit=" . $obj->getId() . "'>Edit</a></li>
-                                    <li><a class='dropdown-item' href='baby_vaccine_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
+                                    <button type='button' class='btn btn-success'>
+                                        <a class='dropdown-item' href='baby_vaccine_table.php?approve=" . $obj->getId() . "'>
+                                            <span class='badge text-bg-secondary'>" . $obj->getApproved_by() . "</span>
+                                        </a>
+                                    </button>
                                 </form>
+                            </td>
+                        ";
+                    } else {
+                        echo "
+                            <td>
+                                <form method='POST'>
+                                    <button type='button' class='btn btn-danger'>
+                                        <a class='dropdown-item' href='baby_vaccine_table.php?approve=" . $obj->getId() . "'>
+                                            <span class='badge text-bg-secondary'>NO</span>
+                                        </a>
+                                    </button>
+                                </form>
+                            </td>
+                            
+                        ";
+                    }
+                } else {
+                    echo "
+                    <td>
+                        <span class='badge text-bg-secondary'>" . $obj->getApproved_by() . "</span>
+                    </td>
+                    ";
+                }
+            }
+
+            echo "<td>" . $obj->getIssued_by() . "</td>";
+
+            if (isset($_SESSION['user_type'])) {
+                if ($_SESSION['user_type'] == 'DOCTOR') {
+                    echo "
+                        <td>
+                            <ul class='btn-group navbar-nav'>
+                                <li class='nav-item dropdown  btn btn-primary'>
+                                    <a class='dropdown-item' role='button' 
+                                    href='baby_vaccine_table.php?edit=" . $obj->getId() . "'>View</a>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                </td>
-                </tr>";
+                        </td>
+                    ";
+                } else {
+                    echo "
+                        <td>
+                            <ul class='btn-group navbar-nav'>
+                                <li class='nav-item dropdown'>
+                                    <a class='btn btn-warning dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                        Action
+                                    </a>
+                                    <ul class='dropdown-menu'>
+                                        <form method='POST'>
+                                            <li><a class='dropdown-item' href='baby_vaccine_table.php?edit=" . $obj->getId() . "'>Edit</a></li>
+                                            <li><a class='dropdown-item' href='baby_vaccine_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
+                                        </form>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    ";
+                }
+            }
+
+            echo "</tr>";
         }
     }
 

@@ -40,27 +40,28 @@ if (isset($_POST['logout'])) {
     <div class="container-fluid">
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarScroll">
+        <div class="collapse navbar-collapse" id="navbarScroll">
 
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 
-          <a class="navbar-brand" href="index.php">NURSE MAIN</a>
+                <a class="navbar-brand" href="index.php">NURSE MAIN</a>
 
-          <li class="nav-item">
-            <a class="nav-link" href="baby_vaccine_table.php">BABY VACCINNATON</a>
-          </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="baby_vaccine_table.php">BABY VACCINATION</a>
+                </li>
 
-          <ul class="justify-content-end navbar-nav">
-            <li class="nav-item dropdown" style="margin-right: 5em;">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                REGISTER
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="parent_register.php">PARENT REGISTER</a></li>
-                <li><a class="dropdown-item" href="family_register.php">FAMILY REGISTER</a></li>
+                <ul class="justify-content-end navbar-nav">
+                    <li class="nav-item dropdown" style="margin-right: 5em;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            REGISTER
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="parent_register.php">PARENT REGISTER</a></li>
+                            <li><a class="dropdown-item" href="family_register.php">FAMILY REGISTER</a></li>
                 <li><a class="dropdown-item" href="baby_register.php">BABY REGISTER</a></li>
               </ul>
             </li>

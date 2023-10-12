@@ -31,6 +31,7 @@ class NurseService extends NurseRepository
                 }
                 $this->clear_register();
                 $success = true;
+
             } else {
                 echo '<script>alert("Account with NIC exists.")</script>';
             }

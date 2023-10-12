@@ -5,14 +5,16 @@ class Nurse {
     private $name;
     private $email;
     private $contact;
+    private $nic;
     private $account_id;
 
-    public function __construct($id=null, $name=null, $email=null, $contact=null, $account_id=null)
+    public function __construct($id = null, $name = null, $email = null, $contact = null, $nic = null, $account_id = null)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->contact = $contact;
+        $this->nic = $nic;
         $this->account_id = $account_id;
     }
 
@@ -55,6 +57,22 @@ class Nurse {
     function setContact($contact)
     {
         $this->contact = $contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNic()
+    {
+        return $this->nic;
+    }
+
+    /**
+     * @param mixed $nic
+     */
+    public function setNic($nic): void
+    {
+        $this->nic = $nic;
     }
 
     public function getAccount_id()

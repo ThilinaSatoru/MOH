@@ -1,9 +1,9 @@
 <?php
 include_once("../../../moh/core/service/nurseService.php");
-include_once("../../../moh/core/repository/doctorRepository.php");
+include_once("../../../moh/core/repository/nurseRepository.php");
 $NURSE_SERVICE = new NurseService();
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["new_nurse"])) {
 
     if ($_POST["password"] == $_POST["re_password"]) {
         $new_account = new Account(
@@ -33,16 +33,17 @@ if (isset($_POST["submit"])) {
         echo '<script>alert("Confirm Passwords. Check Again.")</script>';
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Design by foolishdeveloper.com -->
-    <title>Nurse Registration</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../resources/css/register.css">
+    <title>Nurse Registration</title>
 </head>
 
 <body>
@@ -52,6 +53,7 @@ if (isset($_POST["submit"])) {
 
     <form method="POST" action="nurse_register.php">
         <div class="card form-large rounded">
+
             <div class="form-group">
                 <label class="form-label">NIC :</label>
                 <input type="text" class="form-control" name="nic" placeholder="Enter your NIC" required>
@@ -93,20 +95,17 @@ if (isset($_POST["submit"])) {
 
             <div class="card-body text-center">
                 <div class="button">
-                    <input type="submit" class="btn btn-primary" value="Register" name="new_doctor">
+                    <input type="submit" class="btn btn-primary" value="Register" name="new_nurse">
                 </div>
                 <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25"
                    href="staff_login.php">
-                    don't have an account?
+                    Already have an account?
                     <svg class="bi" aria-hidden="true">
                         <use xlink:href="staff_login.php"></use>
                     </svg>
                 </a>
             </div>
-            >
     </form>
-</div>
-
 </div>
 </body>
 

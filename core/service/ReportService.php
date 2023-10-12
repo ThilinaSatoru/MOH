@@ -31,8 +31,8 @@ class ReportService extends ReportRepository
                             </a>
                             <ul class='dropdown-menu'>
                                 <form method='POST'>
-                                    <li><a class='dropdown-item' href='vaccine_table.php?edit=" . $obj->getId() . "'>Edit</a></li>
-                                    <li><a class='dropdown-item' href='vaccine_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
+                                    <li><a class='dropdown-item' href='baby_vaccine_table.php?edit=" . $obj->getId() . "'>Edit</a></li>
+                                    <li><a class='dropdown-item' href='baby_vaccine_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
                                 </form>
                             </ul>
                         </li>
@@ -61,9 +61,13 @@ class ReportService extends ReportRepository
 
     public function register(Report $report): bool
     {
-        $this->save($report);
-        echo '<script>alert("Saved")</script>';
-        $this->clear_register();
+        if ($this->save($report)) {
+            echo '<script>alert("Report Saved")</script>';
+            $this->clear_register();
+        } else {
+            echo '<script>alert("Report Failed")</script>';
+        }
+
 
         return true;
     }

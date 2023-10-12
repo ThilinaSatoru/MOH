@@ -118,7 +118,7 @@ function clearForm()
             margin-top: 2em;
             padding: 1em;
             border-radius: 1em;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
         }
     </style>
 </head>

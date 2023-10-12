@@ -173,74 +173,82 @@ function clearForm()
                 <br><br>
                 <div class="card login-box">
                     <form method="POST" action="vaccine_table.php">
-                        <div class="row">
-                            <div class="col">
-                                <label for="bcg1" class="form-label">BCG 1:</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getBcg1() ?>"
-                                       id="bcg1" name="bcg1">
+                        <div class="rounded border border-dark p-4 mb-4">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="bcg1" class="form-label">BCG 1:</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getBcg1() ?>"
+                                           id="bcg1" name="bcg1">
+                                </div>
+
+                                <div class="col">
+                                    <label for="bcg2" class="form-label">BCG 2:</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getBcg2() ?>"
+                                           id="bcg2" name="bcg2">
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <label for="bcg2" class="form-label">BCG 2:</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getBcg2() ?>"
-                                       id="bcg2" name="bcg2">
-                            </div>
-                        </div>
 
+                            <div class="row">
+                                <div class="col">
+                                    <label for="hep1" class="form-label">HEP 1:</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getHep1() ?>"
+                                           id="hep1" name="hep1">
+                                </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <label for="hep1" class="form-label">HEP 1:</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getHep1() ?>"
-                                       id="hep1" name="hep1">
-                            </div>
-
-                            <div class="col">
-                                <label for="hep2" class="form-label">HEP 2:</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getHep2() ?>"
-                                       id="hep2" name="hep2">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <label for="polio1" class="form-label">POLIO 1:</label>
-                                <input class="form-check-input" type="checkbox"
-                                       value="<?php echo $report->getPolio1() ?>" id="polio1" name="polio1">
+                                <div class="col">
+                                    <label for="hep2" class="form-label">HEP 2:</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getHep2() ?>"
+                                           id="hep2" name="hep2">
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <label for="polio2" class="form-label">Name :</label>
-                                <input class="form-check-input" type="checkbox"
-                                       value="<?php echo $report->getPolio2() ?>" id="polio2" name="polio2">
-                            </div>
-                        </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="polio1" class="form-label">POLIO 1:</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getPolio1() ?>" id="polio1" name="polio1">
+                                </div>
 
-                        <div class="row">
-                            <div class="col">
-                                <label for="sarampa1" class="form-label">SARAMPA 1 :</label>
-                                <input class="form-check-input" type="checkbox"
-                                       value="<?php echo $report->getSarampa1() ?>" id="sarampa1" name="sarampa1">
-                            </div>
-
-                            <div class="col">
-                                <label for="sarampa2" class="form-label">SARAMPA 2 :</label>
-                                <input class="form-check-input" type="checkbox"
-                                       value="<?php echo $report->getSarampa2() ?>" id="sarampa2" name="sarampa2">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <label for="se1" class="form-label">SE 1 :</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getSe1() ?>"
-                                       id="se1" name="se1">
+                                <div class="col">
+                                    <label for="polio2" class="form-label">Name :</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getPolio2() ?>" id="polio2" name="polio2">
+                                </div>
                             </div>
 
-                            <div class="col">
-                                <label for="se2" class="form-label">SE 2 :</label>
-                                <input class="form-check-input" type="checkbox" value="<?php echo $report->getSe2() ?>"
-                                       id="se2" name="se2">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="sarampa1" class="form-label">SARAMPA 1 :</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getSarampa1() ?>" id="sarampa1" name="sarampa1">
+                                </div>
+
+                                <div class="col">
+                                    <label for="sarampa2" class="form-label">SARAMPA 2 :</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getSarampa2() ?>" id="sarampa2" name="sarampa2">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="se1" class="form-label">SE 1 :</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getSe1() ?>"
+                                           id="se1" name="se1">
+                                </div>
+
+                                <div class="col">
+                                    <label for="se2" class="form-label">SE 2 :</label>
+                                    <input class="form-check-input float-end me-5" type="checkbox"
+                                           value="<?php echo $report->getSe2() ?>"
+                                           id="se2" name="se2">
+                                </div>
                             </div>
                         </div>
 

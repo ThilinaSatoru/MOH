@@ -9,10 +9,10 @@ if (isset($_POST["parent-submit"])) {
 
     $father = new Parents(
         null,
-        $_POST["f-nic"],
         $_POST["f-name"],
         $_POST["f-email"],
         $_POST["f-contact"],
+        $_POST["f-nic"],
         $_POST["f-dob"],
         $_POST["f-address"],
         null,
@@ -21,12 +21,12 @@ if (isset($_POST["parent-submit"])) {
 
     $mother = new Parents(
         null,
-        $_POST["m-nic"],
-        $_POST["m-name"],
-        $_POST["m-email"],
-        $_POST["m-contact"],
-        $_POST["m-dob"],
-        $_POST["m-address"],
+        $_POST["f-name"],
+        $_POST["f-email"],
+        $_POST["f-contact"],
+        $_POST["f-nic"],
+        $_POST["f-dob"],
+        $_POST["f-address"],
         null,
         "MOTHER"
     );
@@ -164,7 +164,7 @@ if (isset($_POST["parent-submit"])) {
         </div>
     </form>
 
-    <?php include('../../views/templates/footer.php'); ?>
+    <!-- <?php// include('../../views/templates/footer.php'); ?>  -->
 </body>
 
 </html>

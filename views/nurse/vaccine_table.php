@@ -37,7 +37,7 @@ if (isset($_POST['update_vaccine'])) {
     $old_vaccine->setIssuedBy($_POST['nurse_select']);
 
     if (isset($_SESSION['id'])) {
-        echo "<script>alert('ID after update: " . $old_vaccine->getRegister() . "');</script>";
+        
         $old_vaccine->setId($_SESSION['id']);
         $old_vaccine->setRegister(date("Y-m-d H:i:s", strtotime($old_vaccine->getRegister())));
         if ($VACCINE_SERVICE->edit($old_vaccine)) {
@@ -80,15 +80,15 @@ if (isset($_POST['clear'])) {
 
 function clearForm()
 {
-    global $report;
+    global $old_vaccine;
     $_SESSION['id'] = null;
-    $report->setId(null);
-    $report->setName(null);
-    $report->setRegister(null);
-    $report->setAvailable(null);
-    $report->setFactory(null);
-    $report->setExpire(null);
-    $report->setIssuedBy(null);
+    $old_vaccine->setId(null);
+    $old_vaccine->setName(null);
+    $old_vaccine->setRegister(null);
+    $old_vaccine->setAvailable(null);
+    $old_vaccine->setFactory(null);
+    $old_vaccine->setExpire(null);
+    $old_vaccine->setIssuedBy(null);
     echo "
         <script>
             if ( window.history.replaceState ) {

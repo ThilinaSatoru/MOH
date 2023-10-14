@@ -4,8 +4,8 @@ class Database
 {
     private $host = "localhost";
     private $user = "root";
-    private $password = "root";
-    private $database = "moh";
+    private $password = "";
+    private $database = "mohmvc";
 
 
     protected function connect(): ?PDO

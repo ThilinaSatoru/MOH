@@ -103,7 +103,7 @@
                <div class="col-md-6">
                   <div class="message-box">
                      <h2>OUR VISSION</h2>
-                     <p class="lead"></p>
+                     <p class="lead">A healthier nation that contributes to its economic, social, mental and spiritual development </p>
                      <br>
                      <br>
                      <h2>OUR MISSION</h2>

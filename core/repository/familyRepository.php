@@ -28,7 +28,7 @@ class FamilyRepository extends Database {
         return $result;
     }
 
-    public function findByAccount($acc_id)
+    public function findByAccount($acc_id): Family
     {
         $sql = "SELECT * FROM family WHERE account_id = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);

@@ -50,6 +50,22 @@ class DoctorRepository extends Database {
         return $result;
     }
 
+    public function findById($id)
+    {
+        // code...
+        $sql = "SELECT * FROM doctor WHERE id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Doctor');
+        $result = $stmnt->fetch();
+
+        if ($result) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
     public function findByAccount($id)
     {
         $sql = "SELECT * FROM doctor WHERE account_id = ? LIMIT 1";

@@ -108,6 +108,23 @@ class ReportRepository extends Database
         return $stmnt->fetch();
     }
 
+    public function findByBaby($id)
+    {
+        $sql = "SELECT * FROM report WHERE baby_id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Report');
+        // Fetch one row as an object
+        $report = $stmnt->fetch();
+
+        // Check if a row was found
+        if ($report) {
+            return $report; // Return the "Report" object
+        } else {
+            return null; // No rows found, return null or handle it as needed
+        }
+    }
+
     public function delete($id)
     {
         $sql = "DELETE FROM report WHERE id=?";

@@ -7,20 +7,33 @@ include("../../core/entity/baby.class.php");
 class BabyRepository extends Database
 {
 
-    public function save(Baby $baby)
+    public function save(Baby $baby): bool
     {
-        $sql = "INSERT INTO baby (name, gender, dob, weight, reg_date, family_id) VALUES (?, ?, ?, ?, ?, ?)";
-        $stmnt = $this->connect()->prepare($sql);
-        $stmnt->execute(
-            [
-                $baby->getName(),
-                $baby->getGender(),
-                $baby->getDob(),
-                $baby->getWeight(),
-                $baby->getReg_date(),
-                $baby->getFamily_id(),
-            ]
-        );
+        try {
+            $sql = "INSERT INTO baby (name, gender, dob, weight, reg_date, family_id) VALUES (:name, :gender, :dob, :weight, :reg_date, :family_id)";
+            $stmt = $this->connect()->prepare($sql);
+
+            $stmt->bindValue(':name', $baby->getName(), PDO::PARAM_STR);
+            $stmt->bindValue(':gender', $baby->getGender(), PDO::PARAM_STR);
+            $stmt->bindValue(':dob', $baby->getDob(), PDO::PARAM_STR);
+            $stmt->bindValue(':weight', $baby->getWeight(), PDO::PARAM_INT);
+            $stmt->bindValue(':reg_date', $baby->getReg_date(), PDO::PARAM_STR);
+            $stmt->bindValue(':family_id', $baby->getFamily_id(), PDO::PARAM_INT);
+
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                $errorInfo = $stmt->errorInfo();
+                echo "Error Message: " . $errorInfo[2] . "<br>";
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "<script>";
+            echo "alert('Failed ::'" . json_encode($e->getMessage()) . ");";
+            echo "</script>";
+            return false;
+        }
+
     }
 
     public function update(Baby $baby)
@@ -58,7 +71,17 @@ class BabyRepository extends Database
         return $result;
     }
 
-    public function findById($id)
+    public function getAllByFamily($id)
+    {
+        $sql = "SELECT * FROM baby where family_id = :family_id";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->bindParam(':family_id', $id, PDO::PARAM_INT);
+        $stmnt->execute();
+        $result = $stmnt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Baby');
+        return $result;
+    }
+
+    public function findById($id): Baby
     {
         $sql = "SELECT * FROM baby WHERE id = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);

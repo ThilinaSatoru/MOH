@@ -164,7 +164,7 @@ if (isset($_POST["parent-submit"])) {
         </div>
     </form>
 
-    <!-- <?php// include('../../views/templates/footer.php'); ?>  -->
+    <!-- <? php// include('../../views/templates/footer.php'); ?>  -->
 </body>
 
 </html>

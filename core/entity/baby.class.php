@@ -17,7 +17,7 @@ class Baby {
         $this->dob = $dob;
         $this->weight = $weight;
         $this->reg_date = $reg_date;
-        $this->$family_id = $family_id;
+        $this->family_id = $family_id;
     }
 
     /**

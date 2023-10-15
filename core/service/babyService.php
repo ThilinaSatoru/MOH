@@ -10,10 +10,8 @@ class BabyService extends BabyRepository
         $success = false;
         $FAMILY_REPO = new FamilyRepository();
 
-        if ($baby != null && $family_selected != null) {
-
+        if ($family_selected != null) {
             if (!$this->findByNameAndFamily($baby->getName(), $family_selected)) {
-                $fam_id = null;
                 $fam_id = $FAMILY_REPO->findById($family_selected);
                 if ($fam_id) {
                     $baby->setFamily_id(intval($fam_id->getId()));
@@ -77,7 +75,7 @@ class BabyService extends BabyRepository
         ";
     }
 
-    public function findById($id)
+    public function getById($id): Baby
     {
         return $this->findById($id);
     }
@@ -110,6 +108,60 @@ class BabyService extends BabyRepository
                     </ul>
                 </td>
             </tr>";
+        }
+    }
+
+    public function loadBabyTableDataByFamily($username)
+    {
+        $ACCOUNT_REPO = new AccountRepository();
+        $FAMILY_REPO = new FamilyRepository();
+        $id = $ACCOUNT_REPO->findByUsername($username)->getId();
+        $fam_id = $FAMILY_REPO->findByAccount($id)->getId();
+
+        foreach ($this->getAllByFamily($fam_id) as $obj) {
+            echo
+                "<tr>
+                <td>" . $obj->getId() . "</td>
+                <td>" . $obj->getName() . "</td>
+                <td>" . $obj->getGender() . "</td>
+                <td>" . $obj->getDob() . "</td>
+                <td>" . $obj->getWeight() . "</td>
+                <td>" . $obj->getReg_date() . "</td>
+                <td>" . $obj->getFamily_id() . "</td>
+                ";
+            if (isset($_SESSION['user_type'])) {
+                if ($_SESSION['user_type'] == 'FAMILY') {
+                    echo "
+                            <td>
+                                <form method='POST'>
+                                    <button type='button' class='btn btn-primary'>
+                                        <a class='dropdown-item' href='vaccination_report.php?repId=" . $obj->getId() . "'>
+                                            View Report
+                                        </a>
+                                    </button>
+                                </form>
+                            </td>
+                        ";
+                } else {
+                    echo "
+                            <td>
+                                <ul class='btn-group navbar-nav'>
+                                    <li class='nav-item dropdown'>
+                                        <a class='btn btn-warning dropdown-toggle' href='' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                                            Action
+                                        </a>
+                                        <ul class='dropdown-menu'>
+                                            <form method='POST'>
+                                                <li><a class='dropdown-item' href='baby_update.php?edit=" . $obj->getId() . "'>Edit</a></li>
+                                                <li><a class='dropdown-item' href='baby_table.php?delete=" . $obj->getId() . "'>Delete</a></li>
+                                            </form>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>  
+                        ";
+                }
+            }
         }
     }
 

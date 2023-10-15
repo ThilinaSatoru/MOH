@@ -1,0 +1,26 @@
+/* Your CSS styles here */
+
+body {
+    background-color: #3fd0d5 !important;
+    /*margin-bottom: 10em !important;*/
+}
+
+.feedback {
+    height: 620px;
+    width: 700px;
+    background-color: rgba(77, 168, 24, 0.13) !important;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+button:hover {
+    background-color: #1c1a1c;
+}
+

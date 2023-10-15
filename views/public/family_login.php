@@ -1,60 +1,125 @@
+<?php
+session_start(); // Starting Session
+include_once("../../../moh/core/repository/accountRepository.php");
+$ACCOUNT_REPO = new AccountRepository();
+
+if (isset($_POST["btnLOGIN"])) {
+
+    $account = new Account(
+        null,
+        $_POST["username"],
+        $_POST["password"],
+        "FAMILY"
+    );
+
+    $result = $ACCOUNT_REPO->findByUsernameAndPassword($account);
+    if ($result) {
+        if ($result->getType() === "FAMILY") {
+            // Store user type in the session
+            $_SESSION['username'] = $result->getUsername();
+            $_SESSION['user_type'] = $result->getType();
+            // Redirecting To  Main Page
+            header("location: ../family/");
+            exit();
+
+        } else {
+            echo '<script>alert("Account doesnt exists from given Type.")</script>';
+        }
+    } else {
+        echo '<script>alert("Invalid! Please Try Again.")</script>';
+    }
+}
+?>
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../../resources/css/register.css">
     <style>
         .login-box {
             width: 18rem;
             margin-inline: 40%;
-            padding: 1em;
+            padding: 2em;
             border-radius: 1em;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
+
+        .container {
+            padding-bottom: 5em;
+        }
     </style>
-    <title>Repot View</title>
+    <title>Doctor and Nurse Login</title>
 </head>
 
 <body>
-    <?php include('../../views/templates/header.php'); ?>
+<?php include('../../views/templates/header.php'); ?>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-8">
+            <div class="container">
+                <h2>About Baby Vaccine Card</h2>
+                <p class="lead">Automating a baby vaccine card involves digitizing the vaccine record and storing it in
+                    a digital format that can be accessed and updated easily. This can be done through a mobile app or
+                    an online portal, which allows parents and healthcare providers to view and update the baby's
+                    vaccine record in real-time.Automating a baby vaccine card involves digitizing the vaccine record
+                    and storing it in a digital format that can be accessed and updated easily. This can be done through
+                    a mobile app or an online portal, which allows parents and healthcare providers to view and update
+                    the baby's vaccine record in real-time.</p>
+                <h4>To automate a baby vaccine card, you can follow these steps:</h4>
+                <ul>
+                    <li>Collect the baby's vaccine records from their nearest MOH office .</li>
+                    <br>
+                    <li>Create an account on the chosen platform and input the baby's information, including their name,
+                        birthdate, and any previous vaccines they have received.
+                    </li>
+                    <br>
+                    <li>Enter the details of each vaccine that the baby receives, including the type of vaccine, the
+                        date it was administered, and the healthcare provider who administered it.
+                    </li>
+                </ul>
+            </div>
+        </div>
 
 
-    <div class="container">
-        <h2>About Baby Vaccine Card</h2>
-        <p class="lead">Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.Automating a baby vaccine card involves digitizing the vaccine record and storing it in a digital format that can be accessed and updated easily. This can be done through a mobile app or an online portal, which allows parents and healthcare providers to view and update the baby's vaccine record in real-time.</p>
-        <h4>To automate a baby vaccine card, you can follow these steps:</h4>
-        <ul>
-            <li>Collect the baby's vaccine records from their nearest MOH office .</li><br>
-            <li>Create an account on the chosen platform and input the baby's information, including their name, birthdate, and any previous vaccines they have received.</li><br>
-            <li>Enter the details of each vaccine that the baby receives, including the type of vaccine, the date it was administered, and the healthcare provider who administered it.</li>
-        </ul>
-    </div>
+        <div class="col-4">
+            <div class="container">
+                <h1>Staff Login</h1>
+                <br>
+                <div class="card login-box">
+                    <form method="POST" action="family_login.php">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
 
+                        <div class="card-body text-center">
+                            <button type="submit" class="btn btn-primary" name="btnLOGIN">Login</button>
+                            <a class="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-25"
+                               href="staff_register.php">
+                                don't have an account?
+                                <svg class="bi" aria-hidden="true">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </a>
+                        </div>
 
-
-    <div class="container">
-        <div class="card login-box">
-            <form>
-                <div class=" mb-3">
-                    <label for="username" class="form-label">User Name</label>
-                    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text"></div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" required>
-                </div>
-
-                <div class="card-body text-center">
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
+</div>
 
-    <?php include('../../views/templates/footer.php'); ?>
+
+<?php include('../../views/templates/footer.php'); ?>
 </body>
 
 </html>

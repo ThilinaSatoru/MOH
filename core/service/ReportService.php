@@ -93,7 +93,6 @@ class ReportService extends ReportRepository
                     ";
                 }
             }
-
             echo "</tr>";
         }
     }
@@ -117,13 +116,16 @@ class ReportService extends ReportRepository
 
     public function register(Report $report): bool
     {
-        if ($this->save($report)) {
-            echo '<script>alert("Report Saved")</script>';
-            $this->clear_register();
+        if (!$this->findByBaby($report->getBaby_id())) {
+            if ($this->save($report)) {
+                echo '<script>alert("Report Saved")</script>';
+                $this->clear_register();
+            } else {
+                echo '<script>alert("Report Failed")</script>';
+            }
         } else {
-            echo '<script>alert("Report Failed")</script>';
+            echo "<script>alert('Report with Baby " . $report->getBaby_id() . "Exists!');</script>";
         }
-
 
         return true;
     }

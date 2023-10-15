@@ -60,7 +60,7 @@ if (isset($_POST['logout'])) {
           } elseif ($_SESSION['user_type'] == 'DOCTOR') {
             echo "<li><a class='dropdown-item' href='/moh/views/doctor/'>Dashbord</a></li>";
           } elseif ($_SESSION['user_type'] == 'FAMILY') {
-            echo "<li><a class='dropdown-item' href='/moh/views/nurse/'>Dashbord</a></li>";
+            echo "<li><a class='dropdown-item' href='/moh/views/family/'>Dashbord</a></li>";
           }
           echo "
                 <form method='POST'>

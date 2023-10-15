@@ -35,7 +35,7 @@ class NurseRepository extends Database
         $stmnt->execute([$acc_id, $nic]);
     }
 
-    public function getByName($name)
+    public function findByName($name)
     {
         // code...
         $sql = "SELECT * FROM nurse WHERE name = ? LIMIT 1";
@@ -47,7 +47,19 @@ class NurseRepository extends Database
         return $result;
     }
 
-    public function getByNic($nic)
+    public function findById($id): Nurse
+    {
+        // code...
+        $sql = "SELECT * FROM nurse WHERE id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Nurse');
+        $result = $stmnt->fetch();
+
+        return $result;
+    }
+
+    public function findByNic($nic)
     {
         // code...
         $sql = "SELECT * FROM nurse WHERE nic = ? LIMIT 1";

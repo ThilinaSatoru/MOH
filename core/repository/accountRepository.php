@@ -23,7 +23,7 @@ class AccountRepository extends Database
         // return $stmnt->lastInsertId();
     }
 
-    public function findByUsername($user)
+    public function findByUsername($user): Account
     {
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);

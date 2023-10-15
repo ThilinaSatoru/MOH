@@ -73,6 +73,17 @@ class ReportService extends ReportRepository
                             </ul>
                         </td>
                     ";
+                } else if ($_SESSION['user_type'] == 'FAMILY') {
+                    echo "
+                        <td>
+                            <ul class='btn-group navbar-nav'>
+                                <li class='nav-item dropdown  btn btn-primary'>
+                                    <a class='dropdown-item' role='button' 
+                                    href='vaccination_report.php?repId=" . $obj->getBaby_id() . "'>View</a>
+                                </li>
+                            </ul>
+                        </td>
+                    ";
                 } else {
                     echo "
                         <td>

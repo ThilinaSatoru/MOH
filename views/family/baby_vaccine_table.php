@@ -43,59 +43,6 @@ function setChecked($value): string
     }
 }
 
-if (isset($_POST['update_report'])) {
-
-    $report->setBcg1(isChecked('bcg1'));
-    $report->setBcg2(isChecked('bcg2'));
-    $report->setHep1(isChecked('hep1'));
-    $report->setHep2(isChecked('hep2'));
-    $report->setPolio1(isChecked('polio1'));
-    $report->setPolio2(isChecked('polio2'));
-    $report->setSarampa1(isChecked('sarampa1'));
-    $report->setSarampa2(isChecked('sarampa2'));
-    $report->setSe1(isChecked('se1'));
-    $report->setSe2(isChecked('se2'));
-    $report->setBaby_id($_POST['baby_select']);
-//    $report->setApproved_by($_POST['doctor_select']);
-    $report->setIssued_by($_POST['nurse_select']);
-//    var_dump($report);
-
-    if (isset($_SESSION['id'])) {
-        $report->setId($_SESSION['id']);
-        if ($REPORT_SERVICE->edit($report)) {
-            clearForm();
-        } else {
-            echo '<script>alert("Please Try Again Shortly.....")</script>';
-        }
-
-    } else {
-        if ($REPORT_SERVICE->register($report)) {
-            clearForm();
-        } else {
-            echo '<script>alert("Please Try Again Shortly.....")</script>';
-        }
-
-    }
-
-}
-
-if (isset($_GET['delete'])) {
-    echo
-    "
-    <script>
-        if (confirm('Are you sure to DELETE!')) {";
-    $REPORT_SERVICE->deleteReport($_GET['delete']);
-    echo "
-            window.location.href='baby_vaccine_table.php';
-                    } else {";
-    echo "
-        window.location.href='baby_vaccine_table.php';
-        }
-    </script>
-    ";
-
-}
-
 if (isset($_POST['clear'])) {
     clearForm();
 }
@@ -103,7 +50,6 @@ if (isset($_POST['clear'])) {
 function clearForm()
 {
     global $report;
-//    $_SESSION['id'] = null;
     $report->setBcg1(0);
     $report->setBcg2(0);
     $report->setHep1(0);
@@ -203,10 +149,10 @@ function clearForm()
                                 <div class="col">
                                     <label for="bcg1" class="form-label">1</label>
                                     <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getBcg1()) ?> id="bcg1" name="bcg1">
+                                        <?php echo setChecked($report->getBcg1()) ?> id="bcg1" name="bcg1" disabled>
                                     <label for="bcg2" class="form-label">2</label>
                                     <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getBcg2()) ?> id="bcg2" name="bcg2">
+                                        <?php echo setChecked($report->getBcg2()) ?> id="bcg2" name="bcg2" disabled>
                                 </div>
                             </div>
 
@@ -218,10 +164,10 @@ function clearForm()
                                 <div class="col">
                                     <label for="hep1" class="form-label">1</label>
                                     <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getHep1()) ?> id="hep1" name="hep1">
+                                        <?php echo setChecked($report->getHep1()) ?> id="hep1" name="hep1" disabled>
                                     <label for="hep2" class="form-label">2</label>
                                     <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getHep2()) ?> id="hep2" name="hep2">
+                                        <?php echo setChecked($report->getHep2()) ?> id="hep2" name="hep2" disabled>
                                 </div>
                             </div>
 
@@ -234,11 +180,11 @@ function clearForm()
                                     <label for="polio1" class="form-label">1</label>
                                     <input class="form-check-input me-2" type="checkbox"
                                         <?php echo setChecked($report->getPolio1()) ?>
-                                           id="polio1" name="polio1">
+                                           id="polio1" name="polio1" disabled>
                                     <label for="polio2" class="form-label">2</label>
                                     <input class="form-check-input" type="checkbox"
                                         <?php echo setChecked($report->getPolio2()) ?>
-                                           id="polio2" name="polio2">
+                                           id="polio2" name="polio2" disabled>
                                 </div>
                             </div>
 
@@ -251,11 +197,11 @@ function clearForm()
                                     <label for="sarampa1" class="form-label">1</label>
                                     <input class="form-check-input me-2" type="checkbox"
                                         <?php echo setChecked($report->getSarampa1()) ?>
-                                           id="sarampa1" name="sarampa1">
+                                           id="sarampa1" name="sarampa1" disabled>
                                     <label for="sarampa2" class="form-label">2</label>
                                     <input class="form-check-input" type="checkbox"
                                         <?php echo setChecked($report->getSarampa2()) ?>
-                                           id="sarampa2" name="sarampa2">
+                                           id="sarampa2" name="sarampa2" disabled>
                                 </div>
                             </div>
 
@@ -267,10 +213,10 @@ function clearForm()
                                 <div class="col">
                                     <label for="se1" class="form-label">1</label>
                                     <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getSe1()) ?> id="se1" name="se1">
+                                        <?php echo setChecked($report->getSe1()) ?> id="se1" name="se1" disabled>
                                     <label for="se2" class="form-label">2</label>
                                     <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getSe2()) ?> id="se2" name="se2">
+                                        <?php echo setChecked($report->getSe2()) ?> id="se2" name="se2" disabled>
                                 </div>
                             </div>
                         </div>
@@ -278,7 +224,7 @@ function clearForm()
 
                         <div class="mb-3">
                             <label for="baby_select" class="form-label">Baby (ID):</label>
-                            <select id="baby_select" class="form-select" name="baby_select">
+                            <select id="baby_select" class="form-select" name="baby_select" disabled>
                                 <option selected>Choose Baby ...</option>
                                 <?php $BABY_SERVICE->loadAllBabyOptions($report->getBaby_id()); ?>
                             </select>
@@ -286,7 +232,7 @@ function clearForm()
 
                         <div class="mb-3">
                             <label for="nurse_select" class="form-label">Issued By (Nurse ID):</label>
-                            <select id="nurse_select" class="form-select" name="nurse_select">
+                            <select id="nurse_select" class="form-select" name="nurse_select" disabled>
                                 <option selected>Choose Nurse ...</option>
                                 <?php $NURSE_SERVICE->loadAllNurseOptions($report->getIssued_by()); ?>
                             </select>
@@ -302,7 +248,6 @@ function clearForm()
 
 
                         <div class="card-body text-center">
-                            <button type="submit" class="btn btn-primary" name="update_report">Save</button>
                             <button type="submit" class="btn btn-primary" name="clear">Clear</button>
                         </div>
                     </form>

@@ -42,7 +42,7 @@
    <!-- END LOADER -->
 
 
-   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/medi.jpg');">
+   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/banner12.JPG');">
       <div class="container">
          <div class="row">
             <div class="col-md-12 col-sm-12">

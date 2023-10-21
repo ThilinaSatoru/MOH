@@ -50,7 +50,7 @@ if (isset($_POST["btnLOGIN"])) {
             padding-bottom: 5em;
         }
     </style>
-    <title>Doctor and Nurse Login</title>
+    <title>family Login</title>
 </head>
 
 <body>
@@ -86,7 +86,7 @@ if (isset($_POST["btnLOGIN"])) {
 
         <div class="col-4">
             <div class="container">
-                <h1>Staff Login</h1>
+                <h1>Family Login</h1>
                 <br>
                 <div class="card login-box">
                     <form method="POST" action="family_login.php">

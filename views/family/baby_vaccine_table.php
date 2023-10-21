@@ -109,7 +109,7 @@ function clearForm()
     <div class="row">
 
         <div class="col-8">
-            <h1>Vaccines</h1>
+            <h1>Your Baby vaccination Details</h1>
             <br/>
             <table class="table">
                 <thead class="thead-dark">
@@ -135,125 +135,7 @@ function clearForm()
             </table>
         </div>
         <!-- onsubmit="return confirmSubmit('Are you sure you want to submit this form?');"-->
-        <div class="col">
-            <div class="container">
-                <br><br>
-                <div class="card login-box">
-                    <form method="POST" action="baby_vaccine_table.php">
-                        <div class="rounded border border-dark p-4 mb-4">
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">BCG</label>
-                                </div>
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">1</label>
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getBcg1()) ?> id="bcg1" name="bcg1" disabled>
-                                    <label for="bcg2" class="form-label">2</label>
-                                    <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getBcg2()) ?> id="bcg2" name="bcg2" disabled>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">HEP</label>
-                                </div>
-                                <div class="col">
-                                    <label for="hep1" class="form-label">1</label>
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getHep1()) ?> id="hep1" name="hep1" disabled>
-                                    <label for="hep2" class="form-label">2</label>
-                                    <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getHep2()) ?> id="hep2" name="hep2" disabled>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">POLIO</label>
-                                </div>
-                                <div class="col">
-                                    <label for="polio1" class="form-label">1</label>
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getPolio1()) ?>
-                                           id="polio1" name="polio1" disabled>
-                                    <label for="polio2" class="form-label">2</label>
-                                    <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getPolio2()) ?>
-                                           id="polio2" name="polio2" disabled>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">SARAMPA</label>
-                                </div>
-                                <div class="col">
-                                    <label for="sarampa1" class="form-label">1</label>
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getSarampa1()) ?>
-                                           id="sarampa1" name="sarampa1" disabled>
-                                    <label for="sarampa2" class="form-label">2</label>
-                                    <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getSarampa2()) ?>
-                                           id="sarampa2" name="sarampa2" disabled>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="bcg1" class="form-label">SE</label>
-                                </div>
-                                <div class="col">
-                                    <label for="se1" class="form-label">1</label>
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        <?php echo setChecked($report->getSe1()) ?> id="se1" name="se1" disabled>
-                                    <label for="se2" class="form-label">2</label>
-                                    <input class="form-check-input" type="checkbox"
-                                        <?php echo setChecked($report->getSe2()) ?> id="se2" name="se2" disabled>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label for="baby_select" class="form-label">Baby (ID):</label>
-                            <select id="baby_select" class="form-select" name="baby_select" disabled>
-                                <option selected>Choose Baby ...</option>
-                                <?php $BABY_SERVICE->loadAllBabyOptions($report->getBaby_id()); ?>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="nurse_select" class="form-label">Issued By (Nurse ID):</label>
-                            <select id="nurse_select" class="form-select" name="nurse_select" disabled>
-                                <option selected>Choose Nurse ...</option>
-                                <?php $NURSE_SERVICE->loadAllNurseOptions($report->getIssued_by()); ?>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="doctor_select" class="form-label">Doctor (ID):</label>
-                            <select id="doctor_select" class="form-select" name="doctor_select" disabled>
-                                <option selected>Choose Doctor ...</option>
-                                <?php $DOCTOR_SERVICE->loadAllDoctorOptions($report->getApproved_by()); ?>
-                            </select>
-                        </div>
-
-
-                        <div class="card-body text-center">
-                            <button type="submit" class="btn btn-primary" name="clear">Clear</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 

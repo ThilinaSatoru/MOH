@@ -64,14 +64,7 @@ if (isset($_POST['logout'])) {
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <img src="/moh/resources/images/gmail.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Emails</a>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 

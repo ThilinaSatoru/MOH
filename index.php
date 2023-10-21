@@ -42,7 +42,7 @@
    <!-- END LOADER -->
 
 
-   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/slider-bg.png');">
+   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/medi.jpg');">
       <div class="container">
          <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -171,12 +171,7 @@
                         @MoH_SriLanka
                         & I are more than willing to clarify any information they may have instead of them standing on every platform trying to insensitively politicize a critical situation.</p>
 
-                     <div class="footer-social">
-                        <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
-
-                        <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-
-                     </div>
+                     
                   </div><!--widget -->
                </div><!-- end col -->
             </div>
@@ -184,6 +179,27 @@
          </div><!-- end row -->
       </div><!-- end container -->
    </div>
+   <footer id="footer" class="footer-area wow fadeIn">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="footer-info padding">
+                     <br>
+                     <br>
+                     <h3>CONTACT US</h3>
+                     <p><i class="fa fa-map-marker" aria-hidden="true"></i>SUWASIRIPAYA, No 385, Rev.
+
+                        Baddegama Wimalawansa Thero Mawatha,
+                        
+                        Colombo 10, Sri Lanka</p>
+                     <p><i class="fa fa-paper-plane" aria-hidden="true"></i> MinistryOfHealthSL@gmail.com</p>
+                     <p><i class="fa fa-phone" aria-hidden="true"></i> (+94)112 694033<br>(+94)112 675011,<br>(+94)112 675449</p>
+                  </div>
+               </div>
+      
+            </div>
+         </div>
+      </footer>
 
    <?php include('./views/templates/footer.php'); ?>
 

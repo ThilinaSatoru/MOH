@@ -109,7 +109,7 @@ function clearForm()
     <div class="row">
 
         <div class="col-8">
-            <h1>Vaccines</h1>
+            <h1>Your Baby vaccination Details</h1>
             <br/>
             <table class="table">
                 <thead class="thead-dark">

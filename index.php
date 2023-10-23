@@ -37,22 +37,24 @@
 
    <!-- LOADER -->
    <div id="preloader">
-      <img class="preloader" src="/moh/resources/images/loaders/heart-loading2.gif" alt="">
+       <img class="preloader" src="/moh/resources/images/loaders/heart-loading2.gif" alt="">
    </div>
    <!-- END LOADER -->
 
 
-   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4" style="background-image:url('./resources/images/slider-bg.png');">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12 col-sm-12">
-               <div class="text-contant">
-                  <h2>
-                     <span class="center"><span class="icon"><img src="./resources/images/icon-logo.png" alt="#" /></span></span>
-                     <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Ministry Of Health" ]'>
-                        <span class="wrap"></span>
-                     </a>
-                  </h2>
+   <div id="home" class="parallax first-section wow fadeIn" data-stellar-background-ratio="0.4"
+        style="background-image:url('./resources/images/banner12.JPG');">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 col-sm-12">
+                   <div class="text-contant">
+                       <h2>
+                           <span class="center"><span class="icon"><img src="./resources/images/icon-logo.png" alt="#"/></span></span>
+                           <a href="" class="typewrite" data-period="2000"
+                              data-type='[ "Welcome to Ministry Of Health" ]'>
+                               <span class="wrap"></span>
+                           </a>
+                       </h2>
                </div>
             </div>
          </div>
@@ -169,14 +171,10 @@
                      <!-- end title -->
                      <p>If these aspiring leaders truly care & require accurate info, the
                         @MoH_SriLanka
-                        & I are more than willing to clarify any information they may have instead of them standing on every platform trying to insensitively politicize a critical situation.</p>
+                         & I are more than willing to clarify any information they may have instead of them standing on
+                         every platform trying to insensitively politicize a critical situation.</p>
 
-                     <div class="footer-social">
-                        <a href="#" class="btn grd1"><i class="fa fa-facebook"></i></a>
 
-                        <a href="#" class="btn grd1"><i class="fa fa-twitter"></i></a>
-
-                     </div>
                   </div><!--widget -->
                </div><!-- end col -->
             </div>
@@ -184,6 +182,28 @@
          </div><!-- end row -->
       </div><!-- end container -->
    </div>
+   <footer id="footer" class="footer-area wow fadeIn">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-4">
+                   <div class="footer-info padding">
+                       <br>
+                       <br>
+                       <h3>CONTACT US</h3>
+                       <p><i class="fa fa-map-marker" aria-hidden="true"></i>SUWASIRIPAYA, No 385, Rev.
+
+                           Baddegama Wimalawansa Thero Mawatha,
+
+                           Colombo 10, Sri Lanka</p>
+                       <p><i class="fa fa-paper-plane" aria-hidden="true"></i> MinistryOfHealthSL@gmail.com</p>
+                       <p><i class="fa fa-phone" aria-hidden="true"></i> (+94)11 269 4033<br>(+94)11 267 5067<br>(+94)11
+                           267 5449</p>
+                   </div>
+               </div>
+
+           </div>
+       </div>
+   </footer>
 
    <?php include('./views/templates/footer.php'); ?>
 

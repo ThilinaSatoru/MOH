@@ -193,7 +193,7 @@
                         
                         Colombo 10, Sri Lanka</p>
                      <p><i class="fa fa-paper-plane" aria-hidden="true"></i> MinistryOfHealthSL@gmail.com</p>
-                     <p><i class="fa fa-phone" aria-hidden="true"></i> (+94)112 694033<br>(+94)112 675011,<br>(+94)112 675449</p>
+                     <p><i class="fa fa-phone" aria-hidden="true"></i> (+94)11 269 4033<br>(+94)11 267 5067<br>(+94)11 267 5449</p>
                   </div>
                </div>
       

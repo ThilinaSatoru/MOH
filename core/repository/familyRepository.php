@@ -29,7 +29,7 @@ class FamilyRepository extends Database {
     }
 
     public function findByAccount($acc_id): Family
-{
+    {
     $sql = "SELECT * FROM family WHERE account_id = ? LIMIT 1";
     $stmnt = $this->connect()->prepare($sql);
     $stmnt->execute([$acc_id]);
@@ -41,7 +41,7 @@ class FamilyRepository extends Database {
     }
 
     return $result;
-}
+    }
 
 
     public function getAllFamily()

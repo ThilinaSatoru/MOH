@@ -64,6 +64,7 @@ if (isset($_POST["new_family"])) {
                 <th scope="col">Address</th>
                 <th scope="col">Type</th>
                 <th scope="col">Family</th>
+                
                 </thead>
                 <tbody>
                 <?php $PARENT_SERVICE->loadParentTableData() ?>
@@ -72,7 +73,6 @@ if (isset($_POST["new_family"])) {
 
 
         </div>
-
 
         <div class="col-4">
             <h1>Families</h1>
@@ -87,6 +87,9 @@ if (isset($_POST["new_family"])) {
                 </tbody>
             </table>
         </div>
+
+
+        
     </div>
 
 

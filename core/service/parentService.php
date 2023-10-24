@@ -51,8 +51,9 @@ class ParentService extends ParentRepository
 
 
     public function register(Parents $f, Parents $m): bool
-    {
+    {   if($f->getNic() != $m->getNic()){
         if (!$this->findByNic($f->getNic()) && !$this->findByNic($m->getNic())) {
+
             if ($this->save($f) && $this->save($m)) {
                 $this->clear_register();
                 return true;
@@ -64,6 +65,14 @@ class ParentService extends ParentRepository
             echo '<script>alert("Parent with NIC Already exists.")</script>';
             return false;
         }
+        
+    }
+    else{
+        echo '<script>alert(" NIC Number is duplicate")</script>';
+        return false;
+        
+    }
+        
     }
 
     private function clear_register()

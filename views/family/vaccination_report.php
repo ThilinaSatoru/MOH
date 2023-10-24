@@ -103,7 +103,7 @@ if (isset($_GET['repId'])) {
                         <h4 class="ps-4">
                             <?php
                             if ($doctor) {
-                                echo '<span class="badge bg-danger">"' . $doctor->getName() . '"</span>';
+                                echo '<span class="badge bg-success">"' . $doctor->getName() . '"</span>';
                             } else {
                                 echo '<span class="badge bg-danger">NO</span>';
                             }

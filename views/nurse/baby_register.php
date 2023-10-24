@@ -22,6 +22,9 @@ if (isset($_POST["new_baby"])) {
     if (!$BABY_SERVICE->register($new_baby, $_POST["family_select"])) {
         // header("location:baby_table.php");
         echo '<script>alert("Please Try Again Shortly.....")</script>';
+    } else {
+        echo '<script>alert("Saved Baby")</script>';
+        header("location:index.php");
     }
 }
 ?>

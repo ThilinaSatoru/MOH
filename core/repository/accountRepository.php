@@ -20,23 +20,20 @@ class AccountRepository extends Database
                 $account->getUsername()
             ]
         );
-         // return $stmnt->lastInsertId();
+        // return $stmnt->lastInsertId();
     }
-    public function findByUsername($user): ?Account
+
+    public function findByUsername($user)
     {
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);
         $stmnt->execute([$user]);
         $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Account');
         $result = $stmnt->fetch();
-    
-        if ($result === false) {
-            return null; // Return null to indicate that the user was not found.
-        }
-    
+
         return $result;
     }
-    
+
     public function findByUsernameAndPassword(Account $account)
     {
         $sql = "SELECT * FROM account WHERE username = ? AND password = ? LIMIT 1";
@@ -48,7 +45,7 @@ class AccountRepository extends Database
         return $result;
     }
 
-    public function countByUsername($username)
+    public function countByUsername($username): int
     {
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);

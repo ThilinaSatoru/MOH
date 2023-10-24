@@ -21,12 +21,12 @@ if (isset($_POST["parent-submit"])) {
 
     $mother = new Parents(
         null,
-        $_POST["f-name"],
-        $_POST["f-email"],
-        $_POST["f-contact"],
-        $_POST["f-nic"],
-        $_POST["f-dob"],
-        $_POST["f-address"],
+        $_POST["m-name"],
+        $_POST["m-email"],
+        $_POST["m-contact"],
+        $_POST["m-nic"],
+        $_POST["m-dob"],
+        $_POST["m-address"],
         null,
         "MOTHER"
     );
@@ -36,10 +36,11 @@ if (isset($_POST["parent-submit"])) {
 
     if ($PARENT_SERVICE->register($father, $mother)) //check return
     {
-        header("location:family_register.php");
+        echo '<script>alert("Saved")</script>';
+//        header("location:family_register.php");
     } else {
         echo '<script>alert("Please Try Again Shortly.....")</script>';
-        header("location:index.php");
+//        header("location:index.php");
     }
 }
 

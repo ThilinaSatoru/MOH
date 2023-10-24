@@ -24,11 +24,13 @@ if (isset($_POST["new_family"])) {
 
 
         if ($FAMILY_SERVICE->register($new_account, $new_family, $_POST["father_select"], $_POST["mother_select"])) {
-            header("location:index.php");
+//            header("location:index.php");
         } else {
             echo '<script>alert("Please Try Again Shortly.....")</script>';
-            header("location:family_register.php");
+//            header("location:family_register.php");
         }
+    } else {
+        echo '<script>alert("Passwords Didnt match")</script>';
     }
 }
 ?>

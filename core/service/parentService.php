@@ -15,7 +15,7 @@ class ParentService extends ParentRepository
         }
     }
 
-    public function findById($id)
+    public function getById($id)
     {
         return $this->findById($id);
     }
@@ -33,9 +33,16 @@ class ParentService extends ParentRepository
 
     public function loadParentTableData()
     {
+        if (isset($_SESSION['user_type'])) {
+            if ($_SESSION['user_type'] == 'FAMILY') {
+                $user = $_SESSION['username'];
+
+            }
+        }
+
         foreach ($this->getAll() as $obj) {
             echo
-            "<tr>
+                "<tr>
                 <td>" . $obj->getId() . "</td>
                 <td>" . $obj->getName() . "</td>
                 <td>" . $obj->getEmail() . "</td>
@@ -51,33 +58,33 @@ class ParentService extends ParentRepository
 
 
     public function register(Parents $f, Parents $m): bool
-    {   if($f->getNic() != $m->getNic()){
-        if (!$this->findByNic($f->getNic()) && !$this->findByNic($m->getNic())) {
+    {
+        if ($f->getNic() != $m->getNic()) {
+            if (!$this->findByNic($f->getNic()) && !$this->findByNic($m->getNic())) {
 
-            if ($this->save($f) && $this->save($m)) {
-                $this->clear_register();
-                return true;
+                if ($this->save($f) && $this->save($m)) {
+                    $this->clear_register();
+                    return true;
+                } else {
+                    echo '<script>alert("Something Went Wrong. Please try Again.")</script>';
+                    return false;
+                }
             } else {
-                echo '<script>alert("Something Went Wrong. Please try Again.")</script>';
+                echo '<script>alert("Parent with NIC Already exists.")</script>';
                 return false;
             }
+
         } else {
-            echo '<script>alert("Parent with NIC Already exists.")</script>';
+            echo '<script>alert(" NIC Number is duplicate")</script>';
             return false;
+
         }
-        
-    }
-    else{
-        echo '<script>alert(" NIC Number is duplicate")</script>';
-        return false;
-        
-    }
-        
+
     }
 
     private function clear_register()
     {
-        echo '<script>alert("Saved")</script>';
+
         echo "
         <script>
             if ( window.history.replaceState ) {

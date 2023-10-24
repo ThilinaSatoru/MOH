@@ -1,6 +1,6 @@
 <style>
     footer {
-        /* position: relative;  */
+        /* position: fixed; */
         /* left: 0; */
         /* bottom: 0; */
         width: 100%;
@@ -43,7 +43,7 @@
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2023 Copyright:
-        <a class="text-dark" href="http://www.health.gov.lk">MINISTRY OF HEALTH  . All Rights Reserved.</a>
+        <a class="text-dark" href="http://www.health.gov.lk">MINISTRY OF HEALTH . All Rights Reserved.</a>
     </div>
     <!-- Copyright -->
 </footer>

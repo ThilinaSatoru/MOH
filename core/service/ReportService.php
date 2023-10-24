@@ -1,5 +1,6 @@
 <?php
 require_once("../../../moh/core/repository/reportRepository.php");
+require_once("../../../moh/core/repository/babyRepository.php");
 
 class ReportService extends ReportRepository
 {
@@ -110,14 +111,15 @@ class ReportService extends ReportRepository
 
     public function edit(Report $report): bool
     {
+        $BABY_REPO = new BabyRepository();
+
+        $baby = $BABY_REPO->findById($report->getBaby_id());
+
         $success = false;
         if ($report->getId() != null) {
-            if ($this->findById($report->getId())) {
+            if ($baby->getId()) {
                 $this->update($report);
                 echo "<script>alert('Updated " . $report->getId() . "');</script>";
-            } else {
-                $this->save($report);
-                echo '<script>alert("Saved 2")</script>';
             }
             $this->clear_register();
             $success = true;

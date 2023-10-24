@@ -4,9 +4,12 @@ include_once("../../core/service/babyService.php");
 $BABY_SERVICE = new BabyService();
 include_once("../../core/service/familyService.php");
 $FAMILY_SERVICE = new FamilyService();
+
+
 if (isset($_POST['id'])) {
     unset($_SESSION["id"]);
 }
+
 if (isset($_GET['delete'])) {
     echo
     "
@@ -63,26 +66,7 @@ if (isset($_GET['delete'])) {
             </table>
 
         </div>
-
-
-        <div class="col-4">
-
-            <h1>Families</h1>
-            <table class="table">
-                <thead class="thead-dark">
-                <th scope="col">Id</th>
-                <th scope="col">Date Married</th>
-                <th scope="col">Account</th>
-                </thead>
-                <tbody>
-
-                <?php $FAMILY_SERVICE->loadFamilyTableData() ?>
-                </tbody>
-            </table>
-
-        </div>
     </div>
-
 
 </div>
 

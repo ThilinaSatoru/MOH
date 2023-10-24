@@ -10,7 +10,7 @@ $FAMILY_SERVICE = new FamilyService();
 
 if (isset($_GET['edit'])) {
     $_SESSION['id'] = $_GET['edit'];
-    $old_baby = $BABY_REPO->getById($_SESSION['id']);
+    $old_baby = $BABY_SERVICE->getById($_SESSION['id']);
 }
 
 if (isset($_POST["new_baby"])) {

@@ -108,6 +108,15 @@ class ReportRepository extends Database
         return $stmnt->fetch();
     }
 
+    public function findByApproved($baby_id)
+    {
+        $sql = "SELECT * FROM report WHERE baby_id = ? AND approved_by is not null LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$baby_id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Report');
+        return $stmnt->fetch();
+    }
+
     public function findByBaby($id)
     {
         $sql = "SELECT * FROM report WHERE baby_id = ? LIMIT 1";

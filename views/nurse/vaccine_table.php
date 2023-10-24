@@ -1,7 +1,8 @@
 <?php
 session_start();
 include_once("../../core/service/VaccineService.php");
-include_once("../../core/repository/vaccineRepository.php");
+
+include_once("../../core/repository/babyRepository.php");
 include_once("../../core/entity/vaccine.class.php");
 include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
@@ -9,6 +10,7 @@ $old_vaccine = new Vaccine();
 $VACCINE_SERVICE = new VaccineService();
 $VACCINE_REPO = new vaccineRepository();
 $NURSE_SERVICE = new NurseService();
+
 
 $old_vaccine = new Vaccine();
 if (isset($_GET['edit'])) {
@@ -35,6 +37,7 @@ if (isset($_POST['update_vaccine'])) {
     $old_vaccine->setFactory($_POST['factory']);
     $old_vaccine->setName($_POST['name']);
     $old_vaccine->setIssuedBy($_POST['nurse_select']);
+
 
     if (isset($_SESSION['id'])) {
         echo "<script>alert('ID after update: " . $old_vaccine->getRegister() . "');</script>";

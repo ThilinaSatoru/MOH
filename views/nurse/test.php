@@ -10,7 +10,12 @@ $PARENT_SERVICE = new ParentService();
 
 $FAMILY_REPO = new FamilyRepository();
 $PARENT_REPO = new ParentRepository();
+$ACCOUNT_REPO = new AccountRepository();
 
 
-$saved_fam_id = $FAMILY_REPO->findByAccount(1);
-echo($saved_fam_id);
+$saved_acc_id = $ACCOUNT_REPO->findByUsername("fa");
+//echo($saved_acc_id);
+echo($saved_acc_id->getId());
+
+
+$PARENT_REPO->setFamily(3, 5);

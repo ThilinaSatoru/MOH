@@ -39,7 +39,7 @@
 
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary">Submit Message</button>
+                <button type="submit" class="btn btn-primary" name="submit">Submit Message</button>
                 <div>
                 </div>
             </div>

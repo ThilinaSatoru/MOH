@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 if (isset($_POST['logout'])) {
   unset($_SESSION["username"]);
@@ -23,7 +25,7 @@ if (isset($_POST['logout'])) {
 
 <div class=" container mt-5">
     <h1 class="mb-5 text-center">Welcome Nurse <?php echo strtoupper($_SESSION["username"]) ?></h1>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="row row-cols-1 row-cols-md-5 g-3">
         <div class="col">
             <div class="card">
                 <img src="/moh/resources/images/family.png" class="card-img-top" alt="..."/>
@@ -64,14 +66,7 @@ if (isset($_POST['logout'])) {
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <img src="/moh/resources/images/gmail.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Emails</a>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 

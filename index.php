@@ -55,16 +55,16 @@
                                <span class="wrap"></span>
                            </a>
                        </h2>
+                   </div>
                </div>
-            </div>
-         </div>
-         <!-- end row -->
+           </div>
+           <!-- end row -->
 
-         <div class="container">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-               <div class="row">
-                  <div class="service-time one" style="background:#2895f1;">
-                     <span class="info-icon"><i class="fa fa-ambulance" aria-hidden="true"></i></span>
+           <div class="container">
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                   <div class="row">
+                       <div class="service-time one" style="background:#2895f1;">
+                           <span class="info-icon"><i class="fa fa-ambulance" aria-hidden="true"></i></span>
                      <h3>Emergency Case</h3>
                      <p>CALL HOT LINE 1990</p>
                   </div>
@@ -161,22 +161,24 @@
             </div>
 
             <div class="row dev-list text-center">
-               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
-                  <div class="widget clearfix">
-                     <img src="./resources/images/kehel.jpg" alt="" class="img-thumbnail">
-                     <div class="widget-title">
-                        <h3>Keheliya Rambukwella</h3>
-                        <small>Minister of Health</small>
-                     </div>
-                     <!-- end title -->
-                     <p>If these aspiring leaders truly care & require accurate info, the
-                        @MoH_SriLanka
-                         & I are more than willing to clarify any information they may have instead of them standing on
-                         every platform trying to insensitively politicize a critical situation.</p>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s"
+                     data-wow-delay="0.2s"
+                     style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeIn;">
+                    <div class="widget clearfix">
+                        <img src="./resources/images/kehel.jpg" alt="" class="img-thumbnail">
+                        <div class="widget-title">
+                            <h3>Keheliya Rambukwella</h3>
+                            <small>Minister of Health</small>
+                        </div>
+                        <!-- end title -->
+                        <p>If these aspiring leaders truly care & require accurate info, the
+                            @MoH_SriLanka
+                            & I are more than willing to clarify any information they may have instead of them standing
+                            on every platform trying to insensitively politicize a critical situation.</p>
 
 
-                  </div><!--widget -->
-               </div><!-- end col -->
+                    </div><!--widget -->
+                </div><!-- end col -->
             </div>
 
          </div><!-- end row -->

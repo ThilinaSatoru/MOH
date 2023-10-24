@@ -120,9 +120,6 @@ class ReportService extends ReportRepository
             if ($baby->getId()) {
                 $this->update($report);
                 echo "<script>alert('Updated " . $report->getId() . "');</script>";
-            } else {
-                $this->save($report);
-                echo '<script>alert("Saved 2")</script>';
             }
             $this->clear_register();
             $success = true;

@@ -53,9 +53,9 @@ if (isset($_POST['logout'])) {
 
                     <a class="navbar-brand" href="index.php">FAMILY MAIN</a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="baby_vaccine_table.php">VACCINATION REPORTS</a>
-                    </li>
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" href="baby_vaccine_table.php">VACCINATION REPORTS</a>-->
+                    <!--                    </li>-->
 
                     <!--                    <ul class="justify-content-end navbar-nav">-->
                     <!--                        <li class="nav-item dropdown" style="margin-right: 5em;">-->

@@ -8,6 +8,7 @@ include_once("../../core/service/nurseService.php");
 include_once("../../core/entity/nurse.class.php");
 
 include_once("../../core/repository/reportRepository.php");
+include_once("../../core/repository/vaccineRepository.php");
 include_once("../../core/service/ReportService.php");
 include_once("../../core/entity/report.class.php");
 
@@ -18,6 +19,7 @@ $BABY_SERVICE = new BabyService();
 $NURSE_SERVICE = new NurseService();
 $REPORT_REPO = new ReportRepository();
 $REPORT_SERVICE = new ReportService();
+$BABY_REPO = new BabyRepository();
 
 if (isset($_GET['edit'])) {
     $_SESSION['id'] = $_GET['edit'];
@@ -60,15 +62,21 @@ if (isset($_POST['update_report'])) {
     $report->setIssued_by($_POST['nurse_select']);
 //    var_dump($report);
 
-    if (isset($_SESSION['id'])) {
-        $report->setId($_SESSION['id']);
-        if ($REPORT_SERVICE->edit($report)) {
-            clearForm();
-        } else {
-            echo '<script>alert("Please Try Again Shortly.....")</script>';
-        }
 
+    $baby = $REPORT_REPO->findByBaby($report->getBaby_id());
+    if ($baby) {
+//        echo '<script>alert("Baby Exists")</script>';
+        if (isset($_SESSION['id'])) {
+            $report->setId($_SESSION['id']);
+            if ($REPORT_SERVICE->edit($report)) {
+                clearForm();
+            } else {
+                echo '<script>alert("Please Try Again Shortly.....")</script>';
+            }
+
+        }
     } else {
+//        echo '<script>alert("New Baby")</script>';
         if ($REPORT_SERVICE->register($report)) {
             clearForm();
         } else {

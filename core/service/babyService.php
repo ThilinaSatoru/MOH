@@ -1,5 +1,6 @@
 <?php
 require_once("../../../moh/core/repository/familyRepository.php");
+require_once("../../../moh/core/repository/reportRepository.php");
 require_once("../../../moh/core/repository/babyRepository.php");
 require_once("../../../moh/core/repository/accountRepository.php");
 
@@ -113,14 +114,16 @@ class BabyService extends BabyRepository
 
     public function loadBabyTableDataByFamily($username)
     {
+        $REPORT_REPO = new ReportRepository();
         $ACCOUNT_REPO = new AccountRepository();
         $FAMILY_REPO = new FamilyRepository();
         $id = $ACCOUNT_REPO->findByUsername($username)->getId();
-        $fam_id = $FAMILY_REPO->findByAccount($id)->getId();
+        $fam_id = $FAMILY_REPO->findByAccount($id);
 
-        foreach ($this->getAllByFamily($fam_id) as $obj) {
-            echo
-                "<tr>
+        if ($fam_id) {
+            foreach ($this->getAllByFamily($fam_id->getId()) as $obj) {
+                echo
+                    "<tr>
                 <td>" . $obj->getId() . "</td>
                 <td>" . $obj->getName() . "</td>
                 <td>" . $obj->getGender() . "</td>
@@ -129,9 +132,10 @@ class BabyService extends BabyRepository
                 <td>" . $obj->getReg_date() . "</td>
                 <td>" . $obj->getFamily_id() . "</td>
                 ";
-            if (isset($_SESSION['user_type'])) {
-                if ($_SESSION['user_type'] == 'FAMILY') {
-                    echo "
+                if (isset($_SESSION['user_type'])) {
+                    if ($_SESSION['user_type'] == 'FAMILY') {
+                        if ($REPORT_REPO->findByApproved($obj->getId())) {
+                            echo "
                             <td>
                                 <form method='POST'>
                                     <button type='button' class='btn btn-primary'>
@@ -142,8 +146,19 @@ class BabyService extends BabyRepository
                                 </form>
                             </td>
                         ";
-                } else {
-                    echo "
+                        } else {
+                            echo "
+                            <td>
+                                <form method='POST'>
+                                    <button type='button' class='btn btn-danger' disabled>
+                                        Not Approved
+                                    </button>
+                                </form>
+                            </td>
+                        ";
+                        }
+                    } else {
+                        echo "
                             <td>
                                 <ul class='btn-group navbar-nav'>
                                     <li class='nav-item dropdown'>
@@ -160,6 +175,7 @@ class BabyService extends BabyRepository
                                 </ul>
                             </td>  
                         ";
+                    }
                 }
             }
         }

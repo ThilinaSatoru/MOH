@@ -11,11 +11,12 @@ if (isset($_GET['delete'])) {
     echo
     "
     <script>
-        if (confirm('Press a button!')) {";
+        if (confirm('Delete Baby?')) {";
     $BABY_SERVICE->deleteBaby($_GET['delete']);
     echo "
     window.location.href='baby_table.php';
             } else {";
+
     echo "
         window.location.href='baby_table.php';
         }

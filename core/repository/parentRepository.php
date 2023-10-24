@@ -35,9 +35,14 @@ class ParentRepository extends Database
 
     public function setFamily($fam_id, $id)
     {
-        $sql = "UPDATE parent SET family_id = ? WHERE id = ?";
-        $stmnt = $this->connect()->prepare($sql);
-        $stmnt->execute([$fam_id, $id]);
+        try {
+            $sql = "UPDATE parent SET family_id = ? WHERE parent.id = ?";
+            $stmnt = $this->connect()->prepare($sql);
+            $stmnt->execute([$fam_id, $id]);
+            echo "Yes";
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
 

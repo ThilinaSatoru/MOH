@@ -25,13 +25,17 @@ class FamilyService extends FamilyRepository
 
                 $saved_fam_id = $this->findByAccount($saved_acc_id)->getId();
 
-                $father = $PARENT_REPO->findByNic($f_NIC);
-                if ($father) {
-                    $PARENT_REPO->setFamily($saved_fam_id, $father->getId());
-                }
-                $mother = $PARENT_REPO->findByNic($m_NIC);
-                if ($mother) {
-                    $PARENT_REPO->setFamily($saved_fam_id, $mother->getId());
+                if ($saved_fam_id) {
+                    $father = $PARENT_REPO->findByNic($f_NIC);
+                    if ($father) {
+                        $PARENT_REPO->setFamily($saved_fam_id, $father->getId());
+                    }
+                    $mother = $PARENT_REPO->findByNic($m_NIC);
+                    if ($mother) {
+                        $PARENT_REPO->setFamily($saved_fam_id, $mother->getId());
+                    }
+                } else {
+                    echo "/////////////////////////////  no FK";
                 }
 
                 $this->clear_register();

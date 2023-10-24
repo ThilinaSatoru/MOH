@@ -45,7 +45,7 @@ class AccountRepository extends Database
         return $result;
     }
 
-    public function countByUsername($username)
+    public function countByUsername($username): int
     {
         $sql = "SELECT * FROM account WHERE username = ? LIMIT 1";
         $stmnt = $this->connect()->prepare($sql);

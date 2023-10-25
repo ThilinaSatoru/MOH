@@ -52,27 +52,26 @@ if (isset($_POST['logout'])) {
       </div>
       <div class="col">
         <div class="card">
-          <img src="/moh/resources/images/vaccination.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <a href="baby_vaccine_table.php" class="btn btn-primary"> Baby Vaccination Details</a>
-          </div>
+            <img src="/moh/resources/images/vaccination.png" class="card-img-top" alt="..."/>
+            <div class="card-body">
+                <a href="baby_vaccine_table.php" class="btn btn-primary"> Baby Vaccination Details</a>
+            </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <img src="/moh/resources/images/chat.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Public Comment Details</a>
-          </div>
+        <div class="col">
+            <div class="card">
+                <img src="/moh/resources/images/chat.png" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <a href="feedback_table.php" class="btn btn-primary">Public Comment Details</a>
+                </div>
+            </div>
         </div>
-      </div>
 
     </div>
-  </div>
+</div>
 
 
-
-  <footer>
+<footer>
     <?php include('../../views/templates/footer.php'); ?>
   </footer>
 </body>

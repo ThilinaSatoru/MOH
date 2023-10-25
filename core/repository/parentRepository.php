@@ -68,6 +68,17 @@ class ParentRepository extends Database
         return $result;
     }
 
+    public function findByFamily($fam_id)
+    {
+        $sql = "SELECT * FROM parent WHERE family_id = ? LIMIT 1";
+        $stmnt = $this->connect()->prepare($sql);
+        $stmnt->execute([$fam_id]);
+        $stmnt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Parents');
+        $result = $stmnt->fetch();
+
+        return $result;
+    }
+
     public function findUnregistered()
     {
         $sql = "SELECT * FROM parent WHERE nic = ? LIMIT 1";

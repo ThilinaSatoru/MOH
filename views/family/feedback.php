@@ -1,4 +1,27 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+include_once("../../core/service/feedbackService.php");
+include_once("../../core/entity/feedback.class.php");
+
+$FEED_SERVICE = new FeedbackService();
+
+if (isset($_POST['send'])) {
+    $feed = new Feedback(
+        null,
+        $_POST['message'],
+        $_POST['subject'],
+        null
+    );
+
+    if ($FEED_SERVICE->send($feed)) {
+        echo '<script>alert("Thank you for your Feedback.")</script>';
+    } else {
+        echo '<script>alert("Please Try Again Shortly.....")</script>';
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -16,7 +39,7 @@
 <?php include_once('_header.php'); ?>
 <h1></h1>
 
-<form class="feedback">
+<form class="feedback" method="post" action="feedback.php">
 
     <div class="container">
         <div class="mx-auto col-10 col-md-8 col-lg-10">
@@ -39,7 +62,7 @@
 
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary" name="submit">Submit Message</button>
+                <button type="submit" class="btn btn-primary" name="send">Submit Message</button>
                 <div>
                 </div>
             </div>

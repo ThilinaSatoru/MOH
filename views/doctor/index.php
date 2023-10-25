@@ -48,6 +48,14 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="card">
+                <img src="/moh/resources/images/chat.png" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <a href="feedback_table.php" class="btn btn-primary">Public Comment Details</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

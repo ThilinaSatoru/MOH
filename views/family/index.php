@@ -29,7 +29,8 @@ if (isset($_POST['logout'])) {
             <div class="card">
                 <img src="/moh/resources/images/family.png" class="card-img-top" alt="..."/>
                 <div class="card-body">
-                    <a href="family_table.php" class="btn btn-primary">FAMILY DETAILS</a>
+                    <!--    family_table.php  -->
+                    <a href="#" class="btn btn-primary">FAMILY DETAILS</a>
                 </div>
             </div>
         </div>

@@ -6,8 +6,6 @@ include("../../core/entity/account.class.php");
 
 class AccountRepository extends Database
 {
-
-
     public function save(Account $account)
     {
         $sql = "INSERT INTO account (type, password, username) 

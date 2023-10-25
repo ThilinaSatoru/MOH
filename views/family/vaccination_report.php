@@ -1,5 +1,7 @@
 <?php
 include_once("../../core/repository/reportRepository.php");
+include_once("../../core/repository/parentRepository.php");
+include_once("../../core/repository/familyRepository.php");
 include_once("../../core/repository/doctorRepository.php");
 include_once("../../core/repository/nurseRepository.php");
 include_once("../../core/repository/babyRepository.php");
@@ -7,6 +9,8 @@ $REPORT_REPO = new ReportRepository();
 $DOCTOR_REPO = new DoctorRepository();
 $NURSE_REPO = new NurseRepository();
 $BABY_REPO = new BabyRepository();
+$PARENT_REPO = new ParentRepository();
+$FAMILY_REPO = new FamilyRepository();
 
 $report = new Report();
 $baby = new Baby();
@@ -19,6 +23,10 @@ if (isset($_GET['repId'])) {
     $report = $REPORT_REPO->findByBaby($id);
     if ($report) {
         $baby = $BABY_REPO->findById($report->getBaby_id());
+
+//        $family = $FAMILY_REPO->findById($baby->getFamily_id());
+//        $parent = $PARENT_REPO->findByFamily($family->getId);
+
         $nurse = $NURSE_REPO->findById($report->getIssued_by());
         $doctor = $DOCTOR_REPO->findById($report->getApproved_by());
     }

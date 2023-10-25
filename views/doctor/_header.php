@@ -1,3 +1,15 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (isset($_POST['logout'])) {
+    unset($_SESSION["username"]);
+    unset($_SESSION["user_type"]);
+    header("location: /moh/");
+}
+?>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -25,18 +37,6 @@
         }
     </style>
 </head>
-
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-
-if (isset($_POST['logout'])) {
-    unset($_SESSION["username"]);
-    unset($_SESSION["user_type"]);
-    header("location: /moh/");
-}
-?>
 
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
